@@ -18,12 +18,12 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      overflow-x: hidden; /* Evita scroll horizontal */
     }
 
-    /* --- SIDEBAR (Navegación Morada) --- */
+    /* --- SIDEBAR (Navegación) --- */
     .sidebar {
       width: 260px;
-      background-color: #2e1065;
       background: linear-gradient(180deg, #2e1065 0%, #000000 100%);
       height: 100vh;
       position: fixed;
@@ -35,6 +35,7 @@
       padding-top: 20px;
       z-index: 1000;
       border-right: 1px solid #4c1d95;
+      transition: transform 0.3s ease-in-out; /* Animación suave */
     }
 
     .sidebar h2 {
@@ -60,15 +61,14 @@
         align-items: center;
     }
 
-    /* --- ESTILO NUEVO PARA LA FOTO DE PERFIL --- */
     .profile-img {
-        width: 100px;        /* Tamaño de la imagen */
-        height: 100px;       /* Tamaño de la imagen */
-        border-radius: 50%;  /* Esto la hace redonda */
-        object-fit: cover;   /* Evita que la foto se deforme */
-        border: 3px solid #a78bfa; /* Borde morado neón */
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #a78bfa;
         margin-bottom: 10px;
-        box-shadow: 0 0 15px rgba(167, 139, 250, 0.3); /* Resplandor */
+        box-shadow: 0 0 15px rgba(167, 139, 250, 0.3);
     }
 
     .sidebar a {
@@ -93,9 +93,19 @@
 
     /* --- CONTENIDO PRINCIPAL --- */
     .main {
-      margin-left: 260px;
+      margin-left: 260px; /* Espacio para el sidebar en PC */
       padding: 30px;
       flex: 1;
+      transition: margin-left 0.3s;
+    }
+
+    /* --- BOTÓN MENÚ (Solo móvil) --- */
+    .menu-toggle {
+      display: none; /* Oculto en PC */
+      font-size: 24px;
+      color: #a78bfa;
+      cursor: pointer;
+      margin-right: 15px;
     }
 
     /* --- HEADER SUPERIOR --- */
@@ -107,15 +117,15 @@
       margin-bottom: 30px;
       border: 1px solid #333;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
     
     .header-info h1 { margin: 0; font-size: 22px; color: #a78bfa; }
     .header-info p { margin: 5px 0 0; color: #aaa; font-size: 14px; }
 
-    /* --- ANIMACIONES Y SECCIONES --- */
+    /* --- SECCIONES --- */
     .section-content {
       display: none;
       animation: fadeIn 0.4s ease-in-out;
@@ -127,10 +137,10 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* --- TARJETAS (CARDS) --- */
+    /* --- TARJETAS --- */
     .card-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustado para pantallas pequeñas */
       gap: 20px;
       margin-bottom: 30px;
     }
@@ -152,9 +162,7 @@
       margin-bottom: 15px;
     }
 
-    .card ul li { margin-bottom: 8px; }
-
-    /* --- FORMULARIO --- */
+    /* --- FORMULARIOS --- */
     .form-group { margin-bottom: 15px; }
     input, textarea, select {
       width: 100%;
@@ -165,8 +173,6 @@
       border: 1px solid #444;
       color: white;
     }
-    input:focus, textarea:focus { outline: none; border-color: #8b5cf6; }
-
     button.btn-primary {
       background-color: #6d28d9;
       color: white;
@@ -175,10 +181,8 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      transition: background 0.3s;
       width: 100%;
     }
-    button.btn-primary:hover { background-color: #7c3aed; }
 
     /* --- FOOTER --- */
     .footer {
@@ -190,47 +194,108 @@
         border-top: 1px solid #333;
     }
 
-    /* --- RESPONSIVE --- */
+    /* --- OVERLAY PARA MÓVIL --- */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 900;
+      backdrop-filter: blur(2px);
+    }
+    .overlay.active { display: block; }
+
+    /* --- MEDIA QUERIES (RESPONSIVO PARA CELULAR) --- */
     @media (max-width: 768px) {
-      .sidebar { width: 70px; }
-      .sidebar h2, .sidebar-user, .sidebar a span { display: none; }
-      .sidebar a { justify-content: center; padding: 20px 0; }
-      .main { margin-left: 70px; }
+      /* 1. Sidebar escondido por defecto */
+      .sidebar {
+        transform: translateX(-100%);
+        width: 280px; /* Un poco más ancho para dedos */
+        box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+      }
+      
+      /* 2. Clase para mostrar sidebar */
+      .sidebar.show {
+        transform: translateX(0);
+      }
+
+      /* 3. El contenido ocupa todo el ancho */
+      .main {
+        margin-left: 0;
+        padding: 20px;
+      }
+
+      /* 4. Mostrar botón de menú */
+      .menu-toggle {
+        display: block;
+      }
+
+      /* 5. Ajustes de Header en celular */
+      .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      
+      .header-top-row {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+
+      .header-status {
+        align-self: flex-start;
+        font-size: 12px;
+      }
+
+      /* 6. Ajuste de tarjetas para que no se corten */
+      .card-container {
+        grid-template-columns: 1fr; /* Una columna en celular */
+      }
+      
+      .card[style*="grid-column: span 2"] {
+        grid-column: span 1 !important; /* Forzar tarjetas grandes a ser de 1 columna */
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="sidebar">
+  <div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+
+  <div class="sidebar" id="sidebar">
     <h2>PORTAFOLIO EVIDENCIAS</h2>
     
     <div class="sidebar-user">
       <img src="perfil.png" alt="David Zarate" class="profile-img">
-      
       <span style="display:block; font-weight:bold; color: white;">David Zarate</span>
       <span style="font-size: 12px; opacity: 0.7;">175842@upslp.edu.mx</span>
     </div>
     
-    <a onclick="showSection('inicio')" class="nav-link active"><i class="fas fa-terminal"></i> <span>Inicio</span></a>
-    <a onclick="showSection('perfil')" class="nav-link"><i class="fas fa-user-astronaut"></i> <span>Perfil Estudiante</span></a>
+    <a onclick="showSection('inicio'); toggleMenu()" class="nav-link active"><i class="fas fa-terminal"></i> <span>Inicio</span></a>
+    <a onclick="showSection('perfil'); toggleMenu()" class="nav-link"><i class="fas fa-user-astronaut"></i> <span>Perfil Estudiante</span></a>
     
     <div style="height:1px; background:#4c1d95; margin: 10px 20px;"></div>
     
-    <a onclick="showSection('parcial1')" class="nav-link"><i class="fas fa-folder-open"></i> <span>Parcial 1</span></a>
-    <a onclick="showSection('parcial2')" class="nav-link"><i class="fas fa-folder"></i> <span>Parcial 2</span></a>
-    <a onclick="showSection('parcial3')" class="nav-link"><i class="fas fa-folder"></i> <span>Parcial 3</span></a>
+    <a onclick="showSection('parcial1'); toggleMenu()" class="nav-link"><i class="fas fa-folder-open"></i> <span>Parcial 1</span></a>
+    <a onclick="showSection('parcial2'); toggleMenu()" class="nav-link"><i class="fas fa-folder"></i> <span>Parcial 2</span></a>
+    <a onclick="showSection('parcial3'); toggleMenu()" class="nav-link"><i class="fas fa-folder"></i> <span>Parcial 3</span></a>
     
     <div style="height:1px; background:#4c1d95; margin: 10px 20px;"></div>
 
-    <a onclick="showSection('contacto')" class="nav-link"><i class="fas fa-envelope-open-text"></i> <span>Contacto</span></a>
+    <a onclick="showSection('contacto'); toggleMenu()" class="nav-link"><i class="fas fa-envelope-open-text"></i> <span>Contacto</span></a>
   </div>
 
   <div class="main">
     
     <div class="header-top">
-      <div class="header-info">
-        <h1>Seguridad Informática | CNO V</h1>
-        <p><strong>Universidad Politécnica de San Luis Potosí</strong></p>
+      <div class="header-top-row">
+        <i class="fas fa-bars menu-toggle" onclick="toggleMenu()"></i>
+        <div class="header-info">
+          <h1>Seguridad Informática | CNO V</h1>
+          <p><strong>Universidad Politécnica de San Luis Potosí</strong></p>
+        </div>
       </div>
       <div class="header-status">
         <span style="color: #4ade80; font-weight: bold; font-family: monospace;">
@@ -245,8 +310,7 @@
           <h3><i class="fas fa-network-wired"></i> Propósito del Portafolio</h3>
           <p>
             Bienvenido al repositorio oficial de evidencias académicas. Este sitio documenta 
-            mi trayectoria en la asignatura de <strong>Seguridad Informática</strong>, 
-            abordando temas críticos como análisis de vulnerabilidades, hardening y hacking ético.
+            mi trayectoria en la asignatura de <strong>Seguridad Informática</strong>.
           </p>
           <p>
             El diseño oscuro y la estructura lógica reflejan la naturaleza técnica de la materia,
@@ -357,15 +421,31 @@
   </div>
 
   <script>
+    // Función para mostrar secciones
     function showSection(sectionId) {
       document.querySelectorAll('.section-content').forEach(section => {
         section.classList.remove('active');
       });
       document.getElementById(sectionId).classList.add('active');
+      
+      // Actualizar enlace activo en sidebar
       document.querySelectorAll('.sidebar a').forEach(link => {
         link.classList.remove('active');
       });
-      event.currentTarget.classList.add('active');
+      // Nota: en móvil, al hacer click en el enlace, event.currentTarget puede perderse si el menú se cierra rápido, 
+      // pero visualmente no es crítico en móvil.
+      if(event && event.currentTarget) {
+          event.currentTarget.classList.add('active');
+      }
+    }
+
+    // Función para abrir/cerrar menú en móvil
+    function toggleMenu() {
+      // Solo ejecutar si estamos en modo móvil (pantalla pequeña)
+      if (window.innerWidth <= 768) {
+        document.getElementById('sidebar').classList.toggle('show');
+        document.getElementById('overlay').classList.toggle('active');
+      }
     }
   </script>
 
