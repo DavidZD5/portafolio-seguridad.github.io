@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Portafolio Ciberseguridad | David Zarate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <style>
+    /* --- ESTILOS BASE (DARK MODE) --- */
+    * { box-sizing: border-box; }
+    
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      background-color: #0f0f0f;
+      color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* --- SIDEBAR (Navegación Morada) --- */
+    .sidebar {
+      width: 260px;
+      background-color: #2e1065;
+      background: linear-gradient(180deg, #2e1065 0%, #000000 100%);
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+      z-index: 1000;
+      border-right: 1px solid #4c1d95;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 0 10px;
+      border-bottom: 1px solid #4c1d95;
+      padding-bottom: 20px;
+      color: #a78bfa;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .sidebar-user {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 14px;
+        color: #d8b4fe;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* --- ESTILO NUEVO PARA LA FOTO DE PERFIL --- */
+    .profile-img {
+        width: 100px;        /* Tamaño de la imagen */
+        height: 100px;       /* Tamaño de la imagen */
+        border-radius: 50%;  /* Esto la hace redonda */
+        object-fit: cover;   /* Evita que la foto se deforme */
+        border: 3px solid #a78bfa; /* Borde morado neón */
+        margin-bottom: 10px;
+        box-shadow: 0 0 15px rgba(167, 139, 250, 0.3); /* Resplandor */
+    }
+
+    .sidebar a {
+      color: #e0e0e0;
+      padding: 15px 25px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      gap: 15px;
+      transition: all 0.3s;
+      cursor: pointer;
+      border-left: 4px solid transparent;
+    }
+
+    .sidebar a:hover, .sidebar a.active {
+      background-color: #4c1d95;
+      border-left: 4px solid #a78bfa;
+      color: white;
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+
+    /* --- CONTENIDO PRINCIPAL --- */
+    .main {
+      margin-left: 260px;
+      padding: 30px;
+      flex: 1;
+    }
+
+    /* --- HEADER SUPERIOR --- */
+    .header-top {
+      background-color: #1e1e1e;
+      color: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      border: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    
+    .header-info h1 { margin: 0; font-size: 22px; color: #a78bfa; }
+    .header-info p { margin: 5px 0 0; color: #aaa; font-size: 14px; }
+
+    /* --- ANIMACIONES Y SECCIONES --- */
+    .section-content {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+    .section-content.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- TARJETAS (CARDS) --- */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      border-top: 3px solid #7c3aed;
+      border-bottom: 1px solid #333;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #a78bfa;
+      border-bottom: 1px solid #333;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    .card ul li { margin-bottom: 8px; }
+
+    /* --- FORMULARIO --- */
+    .form-group { margin-bottom: 15px; }
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: inherit;
+      background-color: #2d2d2d;
+      border: 1px solid #444;
+      color: white;
+    }
+    input:focus, textarea:focus { outline: none; border-color: #8b5cf6; }
+
+    button.btn-primary {
+      background-color: #6d28d9;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+      width: 100%;
+    }
+    button.btn-primary:hover { background-color: #7c3aed; }
+
+    /* --- FOOTER --- */
+    .footer {
+        text-align: center;
+        padding: 20px;
+        color: #666;
+        font-size: 13px;
+        margin-top: auto;
+        border-top: 1px solid #333;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .sidebar { width: 70px; }
+      .sidebar h2, .sidebar-user, .sidebar a span { display: none; }
+      .sidebar a { justify-content: center; padding: 20px 0; }
+      .main { margin-left: 70px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>PORTAFOLIO EVIDENCIAS</h2>
+    
+    <div class="sidebar-user">
+      <img src="perfil.png" alt="David Zarate" class="profile-img">
+      
+      <span style="display:block; font-weight:bold; color: white;">David Zarate</span>
+      <span style="font-size: 12px; opacity: 0.7;">175842@upslp.edu.mx</span>
+    </div>
+    
+    <a onclick="showSection('inicio')" class="nav-link active"><i class="fas fa-terminal"></i> <span>Inicio</span></a>
+    <a onclick="showSection('perfil')" class="nav-link"><i class="fas fa-user-astronaut"></i> <span>Perfil Estudiante</span></a>
+    
+    <div style="height:1px; background:#4c1d95; margin: 10px 20px;"></div>
+    
+    <a onclick="showSection('parcial1')" class="nav-link"><i class="fas fa-folder-open"></i> <span>Parcial 1</span></a>
+    <a onclick="showSection('parcial2')" class="nav-link"><i class="fas fa-folder"></i> <span>Parcial 2</span></a>
+    <a onclick="showSection('parcial3')" class="nav-link"><i class="fas fa-folder"></i> <span>Parcial 3</span></a>
+    
+    <div style="height:1px; background:#4c1d95; margin: 10px 20px;"></div>
+
+    <a onclick="showSection('contacto')" class="nav-link"><i class="fas fa-envelope-open-text"></i> <span>Contacto</span></a>
+  </div>
+
+  <div class="main">
+    
+    <div class="header-top">
+      <div class="header-info">
+        <h1>Seguridad Informática | CNO V</h1>
+        <p><strong>Universidad Politécnica de San Luis Potosí</strong></p>
+      </div>
+      <div class="header-status">
+        <span style="color: #4ade80; font-weight: bold; font-family: monospace;">
+            <i class="fas fa-shield-alt"></i> SYSTEM SECURE
+        </span>
+      </div>
+    </div>
+
+    <div id="inicio" class="section-content active">
+      <div class="card-container">
+        <div class="card" style="grid-column: span 2;">
+          <h3><i class="fas fa-network-wired"></i> Propósito del Portafolio</h3>
+          <p>
+            Bienvenido al repositorio oficial de evidencias académicas. Este sitio documenta 
+            mi trayectoria en la asignatura de <strong>Seguridad Informática</strong>, 
+            abordando temas críticos como análisis de vulnerabilidades, hardening y hacking ético.
+          </p>
+          <p>
+            El diseño oscuro y la estructura lógica reflejan la naturaleza técnica de la materia,
+            priorizando la claridad de la información y la accesibilidad web.
+          </p>
+        </div>
+        
+        <div class="card">
+          <h3><i class="fas fa-server"></i> Datos Generales</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li><i class="fas fa-university" style="width:20px"></i> UPSLP</li>
+            <li><i class="fas fa-calendar-alt" style="width:20px"></i> Periodo: 2020 - Presente</li>
+            <li><i class="fas fa-layer-group" style="width:20px"></i> Entrega: PF01</li>
+            <li><i class="fas fa-code-branch" style="width:20px"></i> Rama: Main</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="perfil" class="section-content">
+      <div class="card-container">
+          <div class="card">
+            <h3><i class="fas fa-id-badge"></i> Información del Estudiante</h3>
+            <ul style="list-style: none; padding: 0; line-height: 1.8;">
+              <li><strong>Nombre:</strong> David Zarate Dominguez</li>
+              <li><strong>Carrera:</strong> Ingeniería en Tecnologías de la Información (ITI)</li>
+              <li><strong>Matrícula/ID:</strong> 175842</li>
+              <li><strong>Correo Institucional:</strong> <a href="mailto:175842@upslp.edu.mx" style="color:#a78bfa">175842@upslp.edu.mx</a></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3><i class="fas fa-brain"></i> Intereses y Enfoque</h3>
+            <p>Estudiante con un fuerte enfoque en la seguridad ofensiva y defensiva.</p>
+            <h4>Áreas de Interés:</h4>
+            <ul>
+              <li>Hackeo Ético (Ethical Hacking)</li>
+              <li>Aprendizaje continuo de nuevas tecnologías</li>
+              <li>Seguridad en Redes</li>
+              <li>Pruebas de Penetración (Pentesting)</li>
+            </ul>
+          </div>
+      </div>
+
+      <div class="card" style="margin-top: 20px;">
+        <h3><i class="fas fa-laptop-code"></i> Ficha Técnica del Portafolio</h3>
+        <p><strong>Tecnologías:</strong> HTML5, CSS3 (Dark Theme), JavaScript.</p>
+        <p><strong>Control de Versiones:</strong> Git & GitHub.</p>
+      </div>
+    </div>
+
+    <div id="parcial1" class="section-content">
+      <div class="card">
+        <h3><i class="fas fa-folder-open"></i> Evidencias del Parcial 1</h3>
+        <p>Espacio reservado para la documentación de prácticas correspondientes al primer corte.</p>
+        <div style="background:#2d2d2d; padding:15px; border-radius:8px; border-left: 3px solid #ffd700; margin-top:15px;">
+            <i class="fas fa-exclamation-triangle"></i> <strong>Estado:</strong> En progreso.
+        </div>
+      </div>
+    </div>
+
+    <div id="parcial2" class="section-content">
+      <div class="card">
+        <h3><i class="fas fa-folder"></i> Evidencias del Parcial 2</h3>
+        <div style="opacity: 0.5; margin-top: 20px; text-align: center;">
+            <i class="fas fa-lock fa-3x"></i><br>Contenido Bloqueado.
+        </div>
+      </div>
+    </div>
+
+    <div id="parcial3" class="section-content">
+      <div class="card">
+        <h3><i class="fas fa-folder"></i> Evidencias del Parcial 3 (Final)</h3>
+        <div style="opacity: 0.5; margin-top: 20px; text-align: center;">
+            <i class="fas fa-lock fa-3x"></i><br>Contenido Bloqueado.
+        </div>
+      </div>
+    </div>
+
+    <div id="contacto" class="section-content">
+      <div class="card" style="max-width: 600px; margin: 0 auto;">
+        <h3><i class="fas fa-paper-plane"></i> Contacto Académico</h3>
+        <p style="font-size: 14px; margin-bottom: 20px; color: #ccc;">
+            Formulario de contacto directo para consultas.
+        </p>
+        <form action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+          <div class="form-group">
+            <label>Nombre:</label>
+            <input type="text" name="name" required placeholder="Ingresa tu nombre">
+          </div>
+          <div class="form-group">
+            <label>Correo Electrónico:</label>
+            <input type="email" name="email" required placeholder="correo@ejemplo.com">
+          </div>
+          <div class="form-group">
+            <label>Mensaje:</label>
+            <textarea name="message" rows="4" required placeholder="Escribe tu mensaje..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Enviar Mensaje</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2026 David Zarate Dominguez | Universidad Politécnica de San Luis Potosí</p>
+    </div>
+
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.section-content').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+      document.querySelectorAll('.sidebar a').forEach(link => {
+        link.classList.remove('active');
+      });
+      event.currentTarget.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
