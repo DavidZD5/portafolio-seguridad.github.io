@@ -21,14 +21,13 @@
       overflow-x: hidden;
     }
 
-    /* --- SIDEBAR (Navegación) --- */
+    /* --- SIDEBAR --- */
     .sidebar {
       width: 260px;
       background: linear-gradient(180deg, #2e1065 0%, #000000 100%);
       height: 100vh;
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       color: white;
       display: flex;
       flex-direction: column;
@@ -39,175 +38,67 @@
     }
 
     .sidebar h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 15px;
-      font-weight: bold;
-      padding: 0 10px;
-      border-bottom: 1px solid #4c1d95;
-      padding-bottom: 20px;
-      color: #a78bfa;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      text-align: center; margin-bottom: 20px; font-size: 15px; font-weight: bold;
+      border-bottom: 1px solid #4c1d95; padding-bottom: 20px; color: #a78bfa;
+      text-transform: uppercase; letter-spacing: 1px;
     }
 
-    .sidebar-user {
-        text-align: center;
-        margin-bottom: 30px;
-        font-size: 14px;
-        color: #d8b4fe;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+    .sidebar-user { text-align: center; margin-bottom: 30px; color: #d8b4fe; display: flex; flex-direction: column; align-items: center; }
+    .profile-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #a78bfa; margin-bottom: 10px; box-shadow: 0 0 15px rgba(167, 139, 250, 0.3); }
 
-    .profile-img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid #a78bfa;
-        margin-bottom: 10px;
-        box-shadow: 0 0 15px rgba(167, 139, 250, 0.3);
-    }
-
-    .sidebar a {
-      color: #e0e0e0;
-      padding: 15px 25px;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      font-size: 15px;
-      gap: 15px;
-      transition: all 0.3s;
-      cursor: pointer;
-      border-left: 4px solid transparent;
-    }
-
-    .sidebar a:hover, .sidebar a.active {
-      background-color: #4c1d95;
-      border-left: 4px solid #a78bfa;
-      color: white;
-      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
-    }
+    .sidebar a { color: #e0e0e0; padding: 15px 25px; text-decoration: none; display: flex; align-items: center; font-size: 15px; gap: 15px; transition: all 0.3s; cursor: pointer; border-left: 4px solid transparent; }
+    .sidebar a:hover, .sidebar a.active { background-color: #4c1d95; border-left: 4px solid #a78bfa; color: white; box-shadow: 0 0 10px rgba(139, 92, 246, 0.3); }
 
     /* --- CONTENIDO PRINCIPAL --- */
-    .main {
-      margin-left: 260px;
-      padding: 30px;
-      flex: 1;
-      transition: margin-left 0.3s;
-    }
+    .main { margin-left: 260px; padding: 30px; flex: 1; transition: margin-left 0.3s; }
+    .menu-toggle { display: none; font-size: 24px; color: #a78bfa; cursor: pointer; margin-right: 15px; }
 
-    .menu-toggle {
-      display: none;
-      font-size: 24px;
-      color: #a78bfa;
-      cursor: pointer;
-      margin-right: 15px;
-    }
-
-    .header-top {
-      background-color: #1e1e1e;
-      color: white;
-      padding: 20px 30px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-      border: 1px solid #333;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    }
-    
+    .header-top { background-color: #1e1e1e; padding: 20px 30px; border-radius: 12px; margin-bottom: 30px; border: 1px solid #333; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+    .header-top-row { display: flex; align-items: center; }
     .header-info h1 { margin: 0; font-size: 22px; color: #a78bfa; }
     .header-info p { margin: 5px 0 0; color: #aaa; font-size: 14px; }
 
-    .section-content {
-      display: none;
-      animation: fadeIn 0.4s ease-in-out;
-    }
+    .section-content { display: none; animation: fadeIn 0.4s ease-in-out; }
     .section-content.active { display: block; }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 30px;
-    }
+    /* --- CARDS Y GRIDS --- */
+    .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px; }
+    .card { background-color: #1e1e1e; padding: 25px; border-radius: 12px; border-top: 3px solid #7c3aed; border-bottom: 1px solid #333; }
+    .card h3 { margin-top: 0; color: #a78bfa; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 15px; }
 
-    .card {
-      background-color: #1e1e1e;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-      border-top: 3px solid #7c3aed;
-      border-bottom: 1px solid #333;
-    }
+    /* --- ESTILOS DE ACTIVIDADES (BLOG) --- */
+    .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .activity-card { background: #1e1e1e; border-radius: 12px; padding: 20px; border: 1px solid #333; transition: transform 0.3s, border-color 0.3s; cursor: pointer; }
+    .activity-card:hover { transform: translateY(-5px); border-color: #a78bfa; }
+    .activity-card h4 { color: #a78bfa; margin-top: 0; font-size: 16px; }
+    .activity-card .tag { font-size: 10px; background: #4c1d95; padding: 3px 8px; border-radius: 4px; color: white; text-transform: uppercase; }
 
-    .card h3 {
-      margin-top: 0;
-      color: #a78bfa;
-      border-bottom: 1px solid #333;
-      padding-bottom: 10px;
-      margin-bottom: 15px;
-    }
+    /* --- ARTÍCULO Y PDF VIEWER --- */
+    .article-view { display: none; background: #1e1e1e; padding: 40px; border-radius: 15px; border: 1px solid #333; line-height: 1.7; }
+    .btn-back { background: none; border: 1px solid #a78bfa; color: #a78bfa; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin-bottom: 20px; transition: 0.3s; }
+    .btn-back:hover { background: #a78bfa; color: white; }
+    
+    .multimedia-container { background: #2d2d2d; border-radius: 10px; margin: 25px 0; overflow: hidden; border: 1px solid #444; }
+    .pdf-viewer { width: 100%; height: 600px; border: none; }
+    .multimedia-caption { background: #1a1a1a; padding: 10px 15px; font-size: 13px; color: #888; border-top: 1px solid #333; }
 
-    .form-group { margin-bottom: 15px; }
-    input, textarea, select {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      font-family: inherit;
-      background-color: #2d2d2d;
-      border: 1px solid #444;
-      color: white;
-    }
-    button.btn-primary {
-      background-color: #6d28d9;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      width: 100%;
-    }
+    .reflection-box { background: rgba(167, 139, 250, 0.1); border-left: 4px solid #a78bfa; padding: 20px; border-radius: 0 8px 8px 0; font-style: italic; margin: 30px 0; }
+    .export-btn { background: #ef4444; color: white; text-decoration: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; }
+    .export-btn:hover { background: #dc2626; transform: scale(1.05); }
 
-    .footer {
-        text-align: center;
-        padding: 20px;
-        color: #666;
-        font-size: 13px;
-        margin-top: auto;
-        border-top: 1px solid #333;
-    }
-
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
-      z-index: 900;
-      backdrop-filter: blur(2px);
-    }
+    .footer { text-align: center; padding: 20px; color: #666; font-size: 13px; border-top: 1px solid #333; margin-top: auto; }
+    .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 900; backdrop-filter: blur(2px); }
     .overlay.active { display: block; }
 
     @media (max-width: 768px) {
-      .sidebar { transform: translateX(-100%); width: 280px; }
+      .sidebar { transform: translateX(-100%); }
       .sidebar.show { transform: translateX(0); }
       .main { margin-left: 0; padding: 20px; }
       .menu-toggle { display: block; }
       .header-top { flex-direction: column; align-items: flex-start; gap: 15px; }
-      .header-top-row { display: flex; align-items: center; width: 100%; }
-      .card-container { grid-template-columns: 1fr; }
-      .card[style*="grid-column: span 2"] { grid-column: span 1 !important; }
+      .pdf-viewer { height: 400px; }
     }
   </style>
 </head>
@@ -217,29 +108,22 @@
 
   <div class="sidebar" id="sidebar">
     <h2>PORTAFOLIO EVIDENCIAS</h2>
-    
     <div class="sidebar-user">
       <img src="perfil.png" alt="David Zarate" class="profile-img">
-      <span style="display:block; font-weight:bold; color: white;">David Zarate</span>
+      <span style="font-weight:bold; color: white;">David Zarate</span>
       <span style="font-size: 12px; opacity: 0.7;">175842@upslp.edu.mx</span>
     </div>
-    
     <a onclick="showSection('inicio'); toggleMenu()" class="nav-link active"><i class="fas fa-terminal"></i> <span>Inicio</span></a>
     <a onclick="showSection('perfil'); toggleMenu()" class="nav-link"><i class="fas fa-user-astronaut"></i> <span>Perfil Estudiante</span></a>
-    
     <div style="height:1px; background:#4c1d95; margin: 10px 20px;"></div>
-    
-    <a onclick="showSection('parcial1'); toggleMenu()" class="nav-link"><i class="fas fa-folder-open"></i> <span>Parcial 1</span></a>
-    <a onclick="showSection('parcial2'); toggleMenu()" class="nav-link"><i class="fas fa-folder"></i> <span>Parcial 2</span></a>
-    <a onclick="showSection('parcial3'); toggleMenu()" class="nav-link"><i class="fas fa-folder"></i> <span>Parcial 3</span></a>
-    
+    <a onclick="showSection('parcial1'); toggleMenu()" class="nav-link"><i class="fas fa-folder-open"></i> <span>Actividades-Parcial 1</span></a>
+    <a onclick="showSection('parcial2'); toggleMenu()" class="nav-link"><i class="fas fa-folder"></i> <span>Actividades-Parcial 2</span></a>
+    <a onclick="showSection('parcial3'); toggleMenu()" class="nav-link"><i class="fas fa-folder"></i> <span>Actividades-Parcial 3</span></a>
     <div style="height:1px; background:#4c1d95; margin: 10px 20px;"></div>
-
     <a onclick="showSection('contacto'); toggleMenu()" class="nav-link"><i class="fas fa-envelope-open-text"></i> <span>Contacto</span></a>
   </div>
 
   <div class="main">
-    
     <div class="header-top">
       <div class="header-top-row">
         <i class="fas fa-bars menu-toggle" onclick="toggleMenu()"></i>
@@ -248,41 +132,26 @@
           <p><strong>Universidad Politécnica de San Luis Potosí</strong></p>
         </div>
       </div>
-      <div class="header-status">
-        <span style="color: #4ade80; font-weight: bold; font-family: monospace;">
-            <i class="fas fa-shield-alt"></i> SYSTEM SECURE
-        </span>
-      </div>
+      <div class="header-status"><span style="color: #4ade80; font-weight: bold; font-family: monospace;"><i class="fas fa-shield-alt"></i> SYSTEM SECURE</span></div>
     </div>
 
     <div id="inicio" class="section-content active">
       <div class="card-container">
         <div class="card" style="grid-column: span 2;">
           <h3><i class="fas fa-network-wired"></i> Propósito del Portafolio Académico</h3>
-          <p>
-            Bienvenido al repositorio central de evidencias para la asignatura de <strong>Seguridad Informática</strong>. Este sitio tiene como objetivo documentar el desarrollo de competencias técnicas en la protección de activos de información y la gestión de vulnerabilidades.
-          </p>
-          
-          <p>
-            A través de este portafolio, se presentan soluciones prácticas basadas en el programa oficial de la UPSLP, abarcando pilares críticos como:
-          </p>
+          <p>Bienvenido al repositorio central de evidencias para la asignatura de <strong>Seguridad Informática</strong>. Este sitio documenta el desarrollo de competencias en protección de activos y gestión de vulnerabilidades.</p>
           <ul style="line-height: 1.6;">
-            <li><strong>Fundamentos de Hacking Ético:</strong> Comprensión de metodologías y marcos legales para pruebas de penetración.</li>
-            <li><strong>Ciclo de Ataque:</strong> Ejecución controlada de fases de planeación, escaneo de red, enumeración y análisis de vulnerabilidades.</li>
-            <li><strong>Seguridad Defensiva:</strong> Implementación de estrategias de mitigación y endurecimiento de sistemas (Hardening).</li>
+            <li><strong>Fundamentos de Hacking Ético:</strong> Metodologías y marcos legales.</li>
+            <li><strong>Ciclo de Ataque:</strong> Planeación, Escaneo y Análisis.</li>
+            <li><strong>Seguridad Defensiva:</strong> Estrategias de Hardening.</li>
           </ul>
-          <p>
-            El enfoque técnico y el diseño estético buscan cumplir con los estándares de identidad profesional y claridad técnica requeridos en la formación de Ingenieros en TI.
-          </p>
         </div>
-        
         <div class="card">
           <h3><i class="fas fa-server"></i> Datos Generales</h3>
           <ul style="list-style: none; padding: 0;">
-            <li><i class="fas fa-university" style="width:20px"></i> UPSLP - ITI</li>
-            <li><i class="fas fa-calendar-alt" style="width:20px"></i> Periodo: Primavera 2026</li>
-            <li><i class="fas fa-layer-group" style="width:20px"></i> Entrega: PF01 (Portafolio v1)</li>
-            <li><i class="fas fa-code-branch" style="width:20px"></i> Estatus: Sistema Operativo</li>
+            <li><i class="fas fa-university"></i> UPSLP - ITI</li>
+            <li><i class="fas fa-calendar-alt"></i> Primavera 2026</li>
+            <li><i class="fas fa-code-branch"></i> Estatus: Sistema Operativo</li>
           </ul>
         </div>
       </div>
@@ -292,95 +161,1160 @@
       <div class="card-container">
           <div class="card">
             <h3><i class="fas fa-id-badge"></i> Información del Estudiante</h3>
-            <ul style="list-style: none; padding: 0; line-height: 1.8;">
-              <li><strong>Nombre:</strong> David Zarate Dominguez</li>
-              <li><strong>Carrera:</strong> Ingeniería en Tecnologías de la Información (ITI)</li>
-              <li><strong>Matrícula/ID:</strong> 175842</li>
-              <li><strong>Correo Institucional:</strong> <a href="mailto:175842@upslp.edu.mx" style="color:#a78bfa">175842@upslp.edu.mx</a></li>
-            </ul>
+            <p><strong>Nombre:</strong> David Zarate Dominguez</p>
+            <p><strong>Matrícula:</strong> 175842</p>
+            <p><strong>Correo:</strong> 175842@upslp.edu.mx</p>
           </div>
-
           <div class="card">
-            <h3><i class="fas fa-brain"></i> Intereses y Enfoque Profesional</h3>
-            <p>Como futuro profesional de TI, mi perfil se orienta hacia la intersección entre la ciberseguridad ofensiva y la resiliencia de infraestructuras críticas.</p>
-            <h4>Áreas de Enfoque Técnico:</h4>
-            <ul style="line-height: 1.6;">
-              <li><strong>Seguridad de Red:</strong> Análisis de tráfico y detección de intrusos mediante herramientas de escaneo avanzado.</li>
-              <li><strong>Ethical Hacking:</strong> Simulación de adversarios para robustecer perímetros de seguridad organizacional.</li>
-              <li><strong>Protección de Datos:</strong> Implementación de controles para garantizar la tríada de la seguridad.</li>
-            </ul>
+            <h3><i class="fas fa-laptop-code"></i> Documentación del Sitio</h3>
+            <p><strong>Stack:</strong> HTML5, CSS3, JavaScript.</p>
+            <p><i class="fab fa-git-alt"></i> <strong>Git & GitHub:</strong> Gestión de versiones y despliegue continuo.</p>
           </div>
-      </div>
-
-      <div class="card" style="margin-top: 20px;">
-        <h3><i class="fas fa-laptop-code"></i> Documentación Técnica del Sitio</h3>
-        <p><strong>Stack Tecnológico:</strong> Desarrollado íntegramente con HTML5 y CSS3 personalizado para un entorno "Dark Theme". La interactividad es gestionada mediante Vanilla JavaScript.</p>
-        <p><strong>Control de Versiones:</strong> 
-          <i class="fab fa-git-alt"></i> <strong>Git & GitHub:</strong> 
-          Se utiliza para el rastreo de cambios y gestión del código fuente, permitiendo un despliegue continuo y una bitácora detallada de la evolución del proyecto mediante commits estructurados.
-        </p>
-        <p><strong>Arquitectura:</strong> Sistema de navegación basado en contenedores dinámicos, adaptado para dispositivos móviles (Responsive Design).</p>
       </div>
     </div>
 
     <div id="parcial1" class="section-content">
-      <div class="card">
-        <h3><i class="fas fa-folder-open"></i> Evidencias del Parcial 1</h3>
-        <p>Documentación de prácticas de reconocimiento, escaneo y vulnerabilidades.</p>
-        <div style="background:#2d2d2d; padding:15px; border-radius:8px; border-left: 3px solid #ffd700; margin-top:15px;">
-            <i class="fas fa-exclamation-triangle"></i> <strong>Estado:</strong> En progreso.
+      <div id="actividades-list">
+        <h3 style="color: #a78bfa; margin-bottom: 25px;"><i class="fas fa-layer-group"></i> Act. 1° Parcial</h3>
+        <div class="activity-grid">
+          <div class="activity-card" onclick="openArticle('act01')">
+            <span class="tag">Caso Real</span>
+            <h4>Actividad 01: Caso Equifax</h4>
+            <p>Análisis del ciberataque masivo de 2017 y CVE-2017-5638.</p>
+          </div>
+          <div class="activity-card" onclick="openArticle('act02')">
+            <span class="tag">Normativa</span>
+            <h4>Actividad 02: X.800 y RFC 4949</h4>
+            <p>Arquitectura de seguridad y glosario estandarizado.</p>
+          </div>
+          <div class="activity-card" onclick="openArticle('act03')">
+            <span class="tag">Firewall</span>
+            <h4>Actividad 03: Iptables Flow</h4>
+            <p>Flujo de paquetes en tablas Filter y Nat.</p>
+          </div>
+          <div class="activity-card" onclick="openArticle('act04')">
+            <span class="tag">Defensa</span>
+            <h4>Actividad 04: Hardening de Red</h4>
+            <p>Políticas restrictivas y mitigación perimetral.</p>
+          </div>
+          <div class="activity-card" onclick="openArticle('act05')">
+            <span class="tag">Metodologías</span>
+            <h4>Actividad 05: Metodologías de Pentesting</h4>
+            <p>Análisis comparativo de marcos como MITRE ATT&CK, OWASP y NIST.</p>
+          </div>
         </div>
       </div>
-    </div>
+<article id="act01" class="article-view">
+        <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+        
+        <div style="background: #1a1a1a; p-12; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden; padding: 40px;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #a78bfa;"></div>
+            <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #a78bfa; letter-spacing: 4px; margin-bottom: 10px;">Reporte Técnico de Equipo</h3>
+            <h1 style="font-size: 28px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -1px; font-style: italic; margin: 10px 0;">Act.01 - ANÁLISIS DE CASO: BRECHA EQUIFAX 2017</h1>
+            <div style="width: 60px; height: 4px; background: #a78bfa; margin: 20px auto; border-radius: 10px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 15px; font-size: 12px; color: #bbb;">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li>• Jasso Dávila Pedro Damián - 176658</li>
+                    <li>• Moreno Solís Gisela Geraldine - 176522</li>
+                    <li>• Palomo Cerdá José Armando - 175932</li>
+                    <li>• Zarate Domínguez David - 175842</li>
+                    <li>• Zorrilla Rivera Eduardo - 175877</li>
+                </ul>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">FECHA:</strong> 30 de enero de 2025</li>
+                    <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
+                    <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
+                </ul>
+            </div>
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+                Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - UPSLP
+            </div>
+        </div>
 
-    <div id="parcial2" class="section-content">
-      <div class="card">
-        <h3><i class="fas fa-folder"></i> Evidencias del Parcial 2</h3>
-        <div style="opacity: 0.5; margin-top: 20px; text-align: center;">
-            <i class="fas fa-lock fa-3x"></i><br>Contenido bloqueado.
-        </div>
-      </div>
-    </div>
+        <div class="content-body" style="color: #ccc; font-size: 15px; line-height: 1.8;">
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">1. Introducción</h2>
+            <p>El presente reporte documenta el ciberataque sufrido por <strong>Equifax en 2017</strong>, considerado uno de los incidentes de ex-filtración masiva más graves en el sector financiero. El ataque fue posible mediante la explotación de la vulnerabilidad <strong>CVE-2017-5638 en Apache Struts</strong>, la cual permitió la ejecución remota de código (RCE) debido a la omisión de un parche de seguridad disponible meses antes del incidente.</p>
+            <p>La brecha expuso deficiencias críticas en la gestión de activos y la visibilidad operativa, destacando el vencimiento de certificados SSL que impidieron la detección del tráfico malicioso durante 76 días. Con un impacto que afectó a <strong>147.5 millones de víctimas</strong> y resultó en un acuerdo judicial de <strong>$1.4 mil millones de USD</strong>.</p>
+            <p>Este estudio tiene el propósito de evaluar las consecuencias bajo el modelo <strong>CIA (Confidencialidad, Integridad y Disponibilidad)</strong> para comprender la relación entre la ciberseguridad y la sostenibilidad organizacional.</p>
 
-    <div id="parcial3" class="section-content">
-      <div class="card">
-        <h3><i class="fas fa-folder"></i> Evidencias del Parcial 3 (Final)</h3>
-        <div style="opacity: 0.5; margin-top: 20px; text-align: center;">
-            <i class="fas fa-lock fa-3x"></i><br>Evaluación Integral Final.
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">2. Cronología Detallada (Expediente EQX-2017)</h2>
+            <div style="overflow-x: auto; border-radius: 15px; border: 1px solid #333; margin: 25px 0;">
+                <table style="width: 100%; border-collapse: collapse; background: #1a1a1a; font-size: 13px;">
+                    <thead style="background: #000; color: #a78bfa;">
+                        <tr>
+                            <th style="padding: 15px; text-align: left; border-bottom: 2px solid #333;">Fecha</th>
+                            <th style="padding: 15px; text-align: left; border-bottom: 2px solid #333;">Hora</th>
+                            <th style="padding: 15px; text-align: left; border-bottom: 2px solid #333;">Evento Crítico Registrado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">07 Mar, 2017</td>
+                            <td style="padding: 12px; color: #666;">10:00 hrs</td>
+                            <td style="padding: 12px;">El Departamento de Seguridad Nacional de EE. UU. (DHS) emite una alerta crítica sobre la vulnerabilidad CVE-2017-5638 en Apache Struts.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">08 Mar, 2017</td>
+                            <td style="padding: 12px; color: #666;">09:00 hrs</td>
+                            <td style="padding: 12px;">El equipo de seguridad global de Equifax recibe la notificación oficial y clasifica el riesgo como "Inminente y Crítico". </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">09 Mar, 2017</td>
+                            <td style="padding: 12px; color: #666;">08:30 hrs</td>
+                            <td style="padding: 12px;">Se distribuye un correo interno a todos los administradores de sistemas ordenando la aplicación del parche en un periodo máximo de 48 horas. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333; background: rgba(239, 68, 68, 0.05);">
+                            <td style="padding: 12px; color: #ef4444; font-weight: bold;">10 Mar, 2017</td>
+                            <td style="padding: 12px; color: #ef4444;">17:00 hrs</td>
+                            <td style="padding: 12px; color: #ef4444;"> Fallo Operativo: el escaneo no identifica el portal de disputas de consumidores como sistema vulnerable debido a una configuración de red errónea. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">12 Mar, 2017</td>
+                            <td style="padding: 12px; color: #666;">00:00 hrs</td>
+                            <td style="padding: 12px;">Vence el plazo interno para el parcheo. El servidor crítico queda expuesto y sin protección en el puerto 443. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">13 May, 2017</td>
+                            <td style="padding: 12px; color: #666;">21:15 hrs</td>
+                            <td style="padding: 12px; font-style: italic;">Intrusión inicial:  actores de amenaza detectan el vector de entrada. Se registra el primer comando de ejecución remota (RCE) exitoso.</td>
+                        </tr>
+                         <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">14 May, 2017</td>
+                            <td style="padding: 12px; color: #666;">04:00 hrs</td>
+                            <td style="padding: 12px;">Comienza el reconocimiento de la red interna. Los atacantes buscan archivos de configuración locales. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">15 May, 2017</td>
+                            <td style="padding: 12px; color: #666;">11:20 hrs</td>
+                            <td style="padding: 12px;">Hallazgo de evidencia crítica: los atacantes localizan un archivo con credenciales de bases de datos en texto plano.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">16 May, 2017</td>
+                            <td style="padding: 12px; color: #666;">02:00 hrs</td>
+                            <td style="padding: 12px;">Inicia el movimiento lateral. Los atacantes acceden a los servidores de bases de datos centrales.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">25 May, 2017</td>
+                            <td style="padding: 12px; color: #666;">09:00 hrs</td>
+                            <td style="padding: 12px;">Se establece un canal de exfiltración cifrado. La empresa no detecta el tráfico saliente porque las herramientas de inspección están inactivas. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333; background: rgba(167, 139, 250, 0.05);">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">01 Jun, 2017</td>
+                            <td style="padding: 12px;">00:00 hrs</td>
+                            <td style="padding: 12px; font-weight: bold;">Extracción masiva: 5 millones de registros por día.</td>
+                        </tr>
+                         <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">10 Jun, 2017 </td>
+                            <td style="padding: 12px; color: #666;">10:30 hrs</td>
+                            <td style="padding: 12px;">Los atacantes expanden su presencia instalando más de 30 web shells adicionales en distintos servidores.</td>
+                        </tr>
+                         <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;"> 01 Jul, 2017 </td>
+                            <td style="padding: 12px; color: #666;">08:00 hrs</td>
+                            <td style="padding: 12px;">El ataque se vuelve selectivo; se extraen datos específicos de tarjetas de crédito y documentos de identidad escaneados.</td>
+                        </tr>
+                         <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">15 Jul, 2017 </td>
+                            <td style="padding: 12px; color: #666;">23:00 hrs</td>
+                            <td style="padding: 12px;">Se registra actividad desde direcciones IP vinculadas a infraestructuras de inteligencia extranjera. </td>
+                        </tr>
+                         <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">28 Jul, 2017 </td>
+                            <td style="padding: 12px; color: #666;">16:00 hrs</td>
+                            <td style="padding: 12px;">El equipo de seguridad de red nota una anomalía en el rendimiento de un servidor durante una revisión de rutina.</td>
+                        </tr>
+                        <tr style="background: #ef4444; color: white;">
+                            <td style="padding: 12px; font-weight: 900;">29 Jul, 2017</td>
+                            <td style="padding: 12px; font-weight: 900;">10:15 hrs</td>
+                            <td style="padding: 12px; font-weight: 900;">DETECCIÓN: Certificado SSL vencido desde Sept 2016.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333; background: rgba(167, 139, 250, 0.05);">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">30 Jul, 2017</td>
+                            <td style="padding: 12px;">09:00 hrs</td>
+                            <td style="padding: 12px; font-weight: bold;">Se activa el Protocolo de Respuesta a Incidentes. Se contrata a la firma externa Mandiant para realizar el peritaje forense. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333; background: rgba(167, 139, 250, 0.05);">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">02 Ago, 2017</td>
+                            <td style="padding: 12px;">12:00 hrs</td>
+                            <td style="padding: 12px; font-weight: bold;">SEl análisis forense confirma la exfiltración masiva. El conteo inicial es de 130 millones de víctimas. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333; background: rgba(167, 139, 250, 0.05);">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">15 Ago, 2017</td>
+                            <td style="padding: 12px;">17:00 hrs</td>
+                            <td style="padding: 12px; font-weight: bold;">La alta dirección es informada de la magnitud del desastre. Se discute la estrategia de comunicación legal. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333; background: rgba(167, 139, 250, 0.05);">
+                            <td style="padding: 12px; color: #a78bfa; font-weight: bold;">24 Ago, 2017</td>
+                            <td style="padding: 12px;">10:00 hrs</td>
+                            <td style="padding: 12px; font-weight: bold;">Tres altos ejecutivos de Equifax venden acciones de la empresa por un valor de $1.8 millones. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">3. Tabla Técnica del Ataque:</h2>
+            <div style="overflow-x: auto; border-radius: 20px; border: 1px solid #333; margin: 25px 0;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 11px; background: #1a1a1a;">
+                    <thead>
+                        <tr style="background: #000; color: #666; text-transform: uppercase;">
+                            <th style="padding: 15px; text-align: left;">Elemento</th>
+                            <th style="padding: 15px; text-align: left;">Descripcion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Tipo de ataque</td>
+                            <td style="padding: 15px; color: #bbb;">Explotación de vulnerabilidad de ejecución remota de código (RCE) y exfiltración masiva de datos. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Actor o grupo atacante</td>
+                            <td style="padding: 15px; color: #bbb;">Actores vinculados a infraestructuras de inteligencia extranjera.</td>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Vector de entrada</td>
+                            <td style="padding: 15px; color: #bbb;">Portal de disputas de consumidores expuesto a través del puerto 443.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Vulnerabilidad explotada</td>
+                            <td style="padding: 15px; color: #bbb;"><b> CVE-2017-5638</b>  en Apache Struts, con una gravedad de 10.0 (Crítico).</td>
+                        </tr>
+                        <tr>
+                          <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Etapas del ataque (MITRE ATT&CK)</td>
+                            <td style="padding: 15px; color: #bbb;"><p>1.  Intrusión inicial.</p><p>2. Persistencia (instalación de Web Shells).</p> <p>3. Reconocimiento interno. <p></p>4. Movimiento lateral a bases de datos </p><p>5. Exfiltración cifrada de datos.</p></td>
+                            <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Sistemas o servicios comprometidos </td>
+                            <td style="padding: 15px; color: #bbb;">Servidor web del portal de disputas y servidores de bases de datos centrales de crédito. </td>
+                        </tr>
+                          <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Duración del incidente</td>
+                            <td style="padding: 15px; color: #bbb;"><b> 76 dias</b> de actividad maliciosa activa (del 13 de mayo al 29 de julio de 2017).</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Mecanismos de detección y respuesta </td>
+                            <td style="padding: 15px; color: #bbb;"> Identificación de tráfico sospechoso durante revisión de rutina. Bloqueo del portal, activación de protocolo de respuesta y contratación de Mandiant para peritaje forense. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">4. Análisis Estratégico y Técnico</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 25px 0;">
+                <div style="background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1px solid #333;">
+                    <i class="fas fa-tools" style="color: #ef4444; margin-bottom: 10px;"></i>
+                    <h4 style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: white; margin-bottom: 10px;">Omisión de Mantenimiento</h4>
+                    <p style="font-size: 11px; color: #888; font-style: italic;">" La vulnerabilidad CVE-2017-5638 fue pública y tuvo una solución técnica inmediata (parche) desde marzo. La incapacidad de Equifax para identificar qué servidores corrían dicho software demuestra una falta de inventario de activos, violando los principios básicos de marcos internacionales como ISO 27001. "</p>
+                </div>
+                <div style="background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1px solid #333;">
+                    <i class="fas fa-eye-slash" style="color: #a78bfa; margin-bottom: 10px;"></i>
+                    <h4 style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: white; margin-bottom: 10px;">Falla de Visibilidad</h4>
+                    <p style="font-size: 11px; color: #888; font-style: italic;">"El hecho de que un Certificado SSL estuviera vencido por 10 meses no es un error menor; es una negligencia grave. En términos policiales, es equivalente a tener cámaras de seguridad en un banco, pero no tener a nadie mirando el monitor porque el cable está desconectado. Los atacantes filtraron gigabytes de información a plena vista, protegidos por el mismo cifrado que la empresa debía supervisar"</p>
+                </div>
+                <div style="background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1px solid #333;">
+                    <i class="fas fa-lock" style="color: #a78bfa; margin-bottom: 10px;"></i>
+                    <h4 style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: white; margin-bottom: 10px;">Higiene de Datos</h4>
+                    <p style="font-size: 11px; color: #888; font-style: italic;">" Una vez que el perímetro fue vulnerado, los atacantes no enfrentaron resistencia interna. El hallazgo de credenciales de bases de datos en texto plano eliminó la necesidad de realizar ataques de fuerza bruta complejos. Esto permitió que una intrusión web se transformara en un acceso total a la "joyería" de la empresa: los datos crediticios."</p>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px;">
+                <div>
+                    <h3 style="font-size: 14px; text-transform: uppercase; color: #a78bfa; border-bottom: 2px solid #a78bfa; display: inline-block; margin-bottom: 15px;">Evaluación Impacto (CIA)</h3>
+                    <table style="width: 100%; font-size: 11px; background: #1a1a1a; border: 1px solid #333;">
+                        <tr style="background: #333;"><th style="padding: 10px; text-align: left;">Principio</th><th style="padding: 10px; text-align: left;">Evidencia del caso</th></tr>
+                        <tr style="border-bottom: 1px solid #333;"><td style="padding: 10px; font-weight: bold;">Confidencialidad</td><td style="padding: 10px; color: #888;"> Robo de registros de 147.5 millones de personas, incluyendo nombres, números de seguro social, fechas de nacimiento y datos de tarjetas de crédito. </td></tr>
+                        <tr style="border-bottom: 1px solid #333;"><td style="padding: 10px; font-weight: bold;">Integridad</td><td style="padding: 10px; color: #888;"> Localización de archivos con credenciales en texto plano y ejecución de "queries" de prueba para medir la respuesta de la base de datos de crédito.</td></tr>
+                        <tr><td style="padding: 10px; font-weight: bold;">Disponibilidad</td><td style="padding: 10px; color: #888;"> Bloqueo total del acceso al portal de disputas el 29 de julio y caída del sitio web de ayuda tras el anuncio público debido a la saturación. </td></tr>
+                    </table>
+                </div>
+                <div style="background: #000; padding: 25px; border-radius: 20px; border: 1px solid #a78bfa; box-shadow: 0 0 15px rgba(167, 139, 250, 0.1);">
+                    <h3 style="font-size: 14px; text-transform: uppercase; color: white; margin-bottom: 5px;">Impacto Financiero Proyectado</h3>
+                    <p style="font-size: 9px; color: #555; margin-bottom: 15px;">Tipo de Cambio 2017: ≈ $18.50 MXN</p>
+                    <div style="font-family: monospace; font-size: 12px; color: #a78bfa;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid #222; padding-bottom: 4px;"><span>Pérdidas Operativas</span><span>$1,665,000,000</span></div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid #222; padding-bottom: 4px;"><span>Daños reputacionales </span><span>$74,000,000,000</span></div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid #222; padding-bottom: 4px;"><span>Costos Técnicos</span><span>$18,500,000,000</span></div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid #222; padding-bottom: 4px;"><span>Costos legales/regulatorios </span><span>$12,950,000,000</span></div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid #222; padding-bottom: 4px;"><span>Pago de rescate o extorsión </span><span>$0</span></div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 15px; font-weight: bold; color: white; font-size: 14px;"><span>TOTAL ESTIMADO</span><span>$107,115,000,000</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">5. Relación con Marcos Normativos</h2>
+            <div style="overflow-x: auto; border-radius: 20px; border: 1px solid #333; margin: 25px 0;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 11px; background: #1a1a1a;">
+                    <thead>
+                        <tr style="background: #000; color: #666; text-transform: uppercase;">
+                            <th style="padding: 15px; text-align: left;">Marco Normativo</th>
+                            <th style="padding: 15px; text-align: left;">Fallo Detectado</th>
+                            <th style="padding: 15px; text-align: left;">Acción Preventiva</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">ISO 27001:2013</td>
+                            <td style="padding: 15px; color: #bbb;"><b>A.12.6.1 Gestión de vulnerabilidades técnicas </b> Equifax no identificó ni parchó la vulnerabilidad CVE-2017-5638 a tiempo.</td>
+                            <td style="padding: 15px; color: #666; font-style: italic;">Si se hubiera aplicado el parche dentro de las 48 horas posteriores a la alerta, el vector de ataque RCE habría sido ineficaz en mayo, impidiendo la intrusión inicial.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">ISO 27001:2013</td>
+                            <td style="padding: 15px; color: #bbb;"><b>A.8.1.1 Inventario de activos </b> La empresa no sabía que el "Portal de Disputas" ejecutaba Apache Struts, por lo que quedó fuera del alcance del mantenimiento. </td>
+                            <td style="padding: 15px; color: #666; font-style: italic;">Un inventario actualizado habría alertado a los administradores de que ese servidor específico requiera atención inmediata, asegurando que no quedaran "puntos ciegos" en la red.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">NIST CSF</td>
+                            <td style="padding: 15px; color: #bbb;"><b>DE.CM-1 (Detección / Monitoreo Continuo)</b> El tráfico malicioso no fue detectado durante 76 días debido a que el certificado SSL del dispositivo de inspección (IDS/IPS) estaba vencido.</td>
+                            <td style="padding: 15px; color: #666; font-style: italic;"> Si el certificado SSL hubiera estado vigente, el sistema de inspección habría descifrado el tráfico, detectado las firmas de las Web Shells y alertado al equipo de seguridad en horas, no en meses.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">NIST CSF</td>
+                            <td style="padding: 15px; color: #bbb;"><b>PR.AC-1 (Protección / Control de Acceso)</b> Los atacantes encontraron credenciales de bases de datos almacenadas en texto plano dentro de los servidores comprometidos.</td>
+                            <td style="padding: 15px; color: #666; font-style: italic;">Si las credenciales hubieran estado cifradas o gestionadas mediante una bóveda (PAM), el movimiento lateral hacia las bases de datos críticas habría sido extremadamente difícil, limitando el alcance del robo.</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">GDPR</td>
+                            <td style="padding: 15px; color: #bbb;"><b>Art. 32 Seguridad del tratamiento</b> Se falló en implementar medidas técnicas apropiadas para garantizar la confidencialidad de los datos personales.</td>
+                            <td style="padding: 15px; color: #666; font-style: italic;">Si la base de datos hubiera estado cifrada en reposo (Data at Rest Encryption) y separada lógicamente de la aplicación web, los datos exfiltrados habrían sido ilegibles e inútiles para los atacantes.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">6. Recomendaciones estratégicas:</h2>
+            <p><li><b>Implementar un Inventario de Activos Dinámico:</b> Mantener un registro automatizado y actualizado de todo el software, versiones y hardware en la red para eliminar "puntos ciegos" operativos.</li><li><b>Establecer una Política de Gestión de Parches Críticos:</b> Definir tiempos de respuesta obligatorios (ej. 24-48 horas) para vulnerabilidades con severidad alta o crítica (CVSS 10.0), asegurando su cumplimiento en todos los niveles de la infraestructura.</li><li><b>Automatizar la Gestión de Certificados:</b> Utilizar herramientas que alerten y renueven automáticamente los certificados SSL/TLS para garantizar que la visibilidad y el monitoreo del tráfico (IDS/IPS) nunca se interrumpan.</li><li><b>Adoptar el Principio de Privilegio Mínimo y Cifrado de Credenciales:</b> Prohibir estrictamente el almacenamiento de contraseñas en texto plano y utilizar soluciones de Gestión de Acceso Privilegiado (PAM) para dificultar el movimiento lateral de un atacante.</li><li><b>Segregación y Cifrado de Datos en Reposo:</b> Aplicar técnicas de seudonimización y cifrado directamente en las bases de datos para que, en caso de una exfiltración exitosa, la información sea ilegible y carezca de valor para el perpetrador. </p>
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Conclusiones</h2>
+            <p>El ciberataque a Equifax no fue el resultado de una técnica de hackeo sofisticada e inevitable, sino la consecuencia de una serie de fallas operativas y negligencias en la gestión de seguridad. A continuación, se presentan los aprendizajes clave y las acciones preventivas necesarias para cualquier organización:</p><p><li><b>La visibilidad es la base de la protección:</b> No se puede proteger lo que no se sabe que existe. El desconocimiento de que el "Portal de Disputas" utilizaba Apache Struts dejó una brecha crítica fuera del alcance de las políticas de mantenimiento.</li><li><b>Un parche omitido es una puerta abierta:</b> La existencia de una solución técnica (parche) desde marzo para la vulnerabilidad CVE-2017-5638 subraya que la velocidad de respuesta es tan vital como la detección misma.</li><li><b> El cifrado sin monitoreo es un punto ciego:</b>  Contar con herramientas de inspección es inútil si no se gestionan sus componentes básicos. El vencimiento de un certificado SSL por 10 meses permitió que los atacantes exfiltraran datos masivos sin ser detectados, ocultos tras el propio cifrado de la empresa. </li><li><b>La higiene de datos interna es crítica:</b> Una vez superado el perímetro, la falta de seguridad interna (como credenciales en texto plano) facilitó un acceso total a la base de datos central sin necesidad de ataques complejos.</li></p><p>El caso Equifax es un recordatorio de que marcos como ISO 27001 y NIST CSF no son solo requisitos de cumplimiento, sino herramientas de supervivencia. Para una organización moderna, la ciberseguridad es una responsabilidad ética y financiera: la confianza del cliente, una vez perdida por fallos evitables como la falta de un parche o un certificado vencido, es el activo más difícil y costoso de recuperar<p> 
+
         </div>
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Bibliografia</h2>
+
+        <div class="reflection-box">
+          <li>U.S. Government Accountability Office (GAO): Reporte GAO-18-559, "Data Protection: Actions Taken by Equifax and Federal Agencies in Response to the 2017 Breach". Es el documento más completo que detalla los fallos de parcheo y la falta de visibilidad técnica.</li>
+          <li>House of Representatives (Committee on Oversight and Government Reform): Reporte final de 96 páginas titulado "The Equifax Data Breach". Este informe concluye que el ataque fue "completamente evitable" y detalla el uso de las web shells y el robo de credenciales en texto plano. </li>
+          <li>Federal Trade Commission (FTC): Documentación sobre el acuerdo judicial (settlement) y las sanciones económicas impuestas por la falta de protección de datos personales.</li>
+        </div>
+        
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <a href="Act01_Equipo1.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar PDF</a>
+            <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Actividad validada por ITI-UPSLP</div>
+        </div>
+      </article>
+
+      <article id="act02" class="article-view">
+        <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+        <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3b82f6;"></div>
+            <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #3b82f6; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática</h3>
+            <h1 style="font-size: 26px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;">Act.02 - Análisis de servicios de seguridad (X.800 y RFC 4949)</h1>
+            <div style="width: 60px; height: 4px; background: #3b82f6; margin: 20px auto; border-radius: 10px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(59, 130, 246, 0.05); border-radius: 15px; font-size: 12px; color: #bbb; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">ESTUDIANTE:</strong> David Zarate Domínguez</li>
+                    <li><strong style="color: #3b82f6;">FECHA:</strong> 27 de enero de 2025</li>
+                </ul>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
+                    <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
+                </ul>
+            </div>
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+                Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - UPSLP
+            </div>
+        </div>
+
+        <div class="content-body" style="color: #ccc; font-size: 15px; line-height: 1.8;">
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Introducción</h2>
+            <p>La presente actividad se fundamenta en la aplicación de dos pilares de la seguridad de la información: la recomendación ITU-T X.800, que establece la arquitectura de seguridad para sistemas abiertos, y el RFC 4949, que proporciona un glosario técnico estandarizado para la comunidad de Internet. La integración de ambos marcos permite no solo identificar qué servicio ha fallado (X.800), sino también caracterizar la naturaleza técnica del incidente (RFC 4949) con precisión profesional. </p>
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Escenario 1</h2>
+            <p>En múltiples incidentes atribuidos al grupo LockBit, organizaciones públicas y privadas han sufrido el cifrado masivo de servidores tras un acceso inicial no autorizado. Antes de ejecutar el ransomware, los atacantes exfiltraron información sensible y posteriormente amenazaron con su publicación, evidenciando un compromiso simultáneo de la confidencialidad, la integridad y la disponibilidad.</p><p>Desde el enfoque del RFC 4949, el incidente se clasifica como un multi-stage attack con data breach y availability attack, donde la indisponibilidad del sistema es solo una fase final del daño. La ausencia de respaldos inmutables y de detección temprana permitió que el impacto fuera total.</p>
+            <div style="overflow-x: auto; border-radius: 20px; border: 1px solid #333; margin: 25px 0;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 11px; background: #1a1a1a;">
+                    <thead>
+                        <tr style="background: #000; color: #666; text-transform: uppercase;">
+                            <th style="padding: 15px; text-align: left;">Elemento</th>
+                            <th style="padding: 15px; text-align: left;">Respuesta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Servicios X.800 comprometidos </td>
+                            <td style="padding: 15px; color: #bbb;">Confidencialidad, Integridad y Disponibilidad.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Definición(es) aplicable(s) RFC 4949. </td>
+                            <td style="padding: 15px; color: #bbb;">Data Breach: Acceso y exfiltración. Availability Attack: Cifrado masivo. Multistage attack: Fases sucesivas de compromiso. </td>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Tipo de amenaza.</td>
+                            <td style="padding: 15px; color: #bbb;">Externa (Cibercrimen organizado).</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Vector de ataque.</td>
+                            <td style="padding: 15px; color: #bbb;">Acceso inicial no autorizado (explotación de vulnerabilidad o credenciales). </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Impacto técnico / operativo. </td>
+                            <td style="padding: 15px; color: #bbb;">Interrupción total de servicios y fuga de datos críticos.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Medida de control recomendada.</td>
+                            <td style="padding: 15px; color: #bbb;">Respaldos inmutables, segmentación de red y despliegue de EDR/XDR. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Escenario 2</h2>
+            <p>En diversos casos documentados, bases de datos completas quedaron accesibles públicamente debido a errores de configuración en servicios de almacenamiento en la nube. No existió una explotación técnica sofisticada, sino una falla en el control de acceso, lo que derivó directamente en la pérdida de confidencialidad de los datos. El RFC 4949 describe este tipo de incidentes como misconfiguration y exposure, subrayando que la amenaza no siempre implica malware o intrusión activa. El impacto suele ser legal y reputacional, aun cuando no se pueda demostrar acceso malicioso.</p>
+            <div style="overflow-x: auto; border-radius: 20px; border: 1px solid #333; margin: 25px 0;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 11px; background: #1a1a1a;">
+                    <thead>
+                        <tr style="background: #000; color: #666; text-transform: uppercase;">
+                            <th style="padding: 15px; text-align: left;">Elemento</th>
+                            <th style="padding: 15px; text-align: left;">Respuesta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Servicios X.800 comprometidos </td>
+                            <td style="padding: 15px; color: #bbb;">Confidencialidad y Control de Acceso.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Definición(es) aplicable(s) RFC 4949. </td>
+                            <td style="padding: 15px; color: #bbb;">Misconfiguration: Error de ajuste de seguridad. Exposure: Datos sensibles accesibles sin protección.</td>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Tipo de amenaza.</td>
+                            <td style="padding: 15px; color: #bbb;">Interna (Inadvertida/Error humano).</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Vector de ataque.</td>
+                            <td style="padding: 15px; color: #bbb;">Interfaz de administración de la nube mal configurada (Bucket abierto).</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Impacto técnico / operativo. </td>
+                            <td style="padding: 15px; color: #bbb;">Exposición pública de datos; sanciones legales y daño reputacional. .</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Medida de control recomendada.</td>
+                            <td style="padding: 15px; color: #bbb;">Implementación de CSPM (Cloud Security Posture Management) y auditorías automatizadas.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Escenario 3</h2>
+            <p>Un proveedor legítimo de software fue comprometido y distribuyó una actualización que incluía código malicioso, afectando a cientos de organizaciones que confiaban en él. Este escenario refleja una violación grave de la integridad de los sistemas y, en muchos casos, de la confidencialidad, al permitir accesos no autorizados posteriores. El RFC 4949 lo identifica como supply chain attack, destacando el abuso de relaciones de confianza. El daño es particularmente crítico porque rompe el supuesto de legitimidad del software firmado.</p>
+            <div style="overflow-x: auto; border-radius: 20px; border: 1px solid #333; margin: 25px 0;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 11px; background: #1a1a1a;">
+                    <thead>
+                        <tr style="background: #000; color: #666; text-transform: uppercase;">
+                            <th style="padding: 15px; text-align: left;">Elemento</th>
+                            <th style="padding: 15px; text-align: left;">Respuesta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Servicios X.800 comprometidos </td>
+                            <td style="padding: 15px; color: #bbb;">Confidencialidad, Integridad y Disponibilidad.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Definición(es) aplicable(s) RFC 4949. </td>
+                            <td style="padding: 15px; color: #bbb;">Supply Chain Attack: Ataque a través de un proveedor. Malicious Logic: Código dañino insertado. </td>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Tipo de amenaza.</td>
+                            <td style="padding: 15px; color: #bbb;">Externa (Sofisticada/Nivel Estado-Nación).</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Vector de ataque.</td>
+                            <td style="padding: 15px; color: #bbb;">Actualización de software legítima comprometida.  </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Impacto técnico / operativo. </td>
+                            <td style="padding: 15px; color: #bbb;">Compromiso masivo de la cadena de suministro y pérdida de confianza. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Medida de control recomendada.</td>
+                            <td style="padding: 15px; color: #bbb;">Verificación de firmas digitales (hashes) y análisis de SBOM (Software Bill of Materials).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Escenario 4</h2>
+            <p>Mediante campañas de phishing, atacantes obtuvieron credenciales válidas y accedieron a sistemas corporativos durante meses sin levantar alertas. Aunque la autenticación funcionó técnicamente, el servicio de autenticación fue comprometido al basarse en credenciales robadas, afectando también el control de acceso. Según el RFC 4949, se trata de un credential compromise con authentication failure conceptual, no técnica. La falta de MFA y de monitoreo de comportamiento facilitó la persistencia del atacante </p>
+            <div style="overflow-x: auto; border-radius: 20px; border: 1px solid #333; margin: 25px 0;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 11px; background: #1a1a1a;">
+                    <thead>
+                        <tr style="background: #000; color: #666; text-transform: uppercase;">
+                            <th style="padding: 15px; text-align: left;">Elemento</th>
+                            <th style="padding: 15px; text-align: left;">Respuesta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Servicios X.800 comprometidos </td>
+                            <td style="padding: 15px; color: #bbb;">Autenticación y Control de Acceso. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Definición(es) aplicable(s) RFC 4949. </td>
+                            <td style="padding: 15px; color: #bbb;">Credential Compromise: Robo de secretos. Authentication Failure: Falla en la validación de identidad real. </td>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Tipo de amenaza.</td>
+                            <td style="padding: 15px; color: #bbb;">Externa (Ingeniería Social). </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Vector de ataque.</td>
+                            <td style="padding: 15px; color: #bbb;">Campañas de Phishing dirigidas.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Impacto técnico / operativo. </td>
+                            <td style="padding: 15px; color: #bbb;">Persistencia del atacante en la red y movimiento lateral. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Medida de control recomendada.</td>
+                            <td style="padding: 15px; color: #bbb;">Implementación de MFA (Autenticación de Múltiples Factores) y monitoreo de comportamiento (UEBA).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Escenario 5</h2>
+            <p>En ataques de ransomware avanzados, los atacantes eliminaron o cifraron los respaldos antes de afectar los sistemas productivos. Este hecho compromete directamente la disponibilidad y la integridad de la información, al impedir la recuperación. El RFC 4949 clasifica este comportamiento como data destruction y availability attack, evidenciando intención deliberada de maximizar el daño. La inexistencia de respaldos offline o inmutables convierte el incidente en catastrófico. </p>
+            <div style="overflow-x: auto; border-radius: 20px; border: 1px solid #333; margin: 25px 0;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 11px; background: #1a1a1a;">
+                    <thead>
+                        <tr style="background: #000; color: #666; text-transform: uppercase;">
+                            <th style="padding: 15px; text-align: left;">Elemento</th>
+                            <th style="padding: 15px; text-align: left;">Respuesta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Servicios X.800 comprometidos </td>
+                            <td style="padding: 15px; color: #bbb;">Disponibilidad e Integridad.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Definición(es) aplicable(s) RFC 4949. </td>
+                            <td style="padding: 15px; color: #bbb;">Data Destruction: Eliminación deliberada. Availability Attack: Impedimento de recuperación. </td>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Tipo de amenaza.</td>
+                            <td style="padding: 15px; color: #bbb;">Externa (Ataque destructivo).</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Vector de ataque.</td>
+                            <td style="padding: 15px; color: #bbb;">Escalada de privilegios hasta sistemas de respaldo. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Impacto técnico / operativo. </td>
+                            <td style="padding: 15px; color: #bbb;">Imposibilidad de recuperación ante desastres (catastrófico). </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Medida de control recomendada.</td>
+                            <td style="padding: 15px; color: #bbb;">Almacenamiento "Air-gapped" (fuera de línea) y backups inmutables. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Escenario 6</h2>
+            <p>Un empleado con acceso legítimo extrajo bases de datos completas y las vendió a terceros, sin explotar vulnerabilidades técnicas. El servicio afectado fue principalmente la confidencialidad, junto con fallas en el control de acceso por exceso de privilegios. El RFC 4949 define este escenario como insider threat, destacando que el riesgo interno puede ser tan grave como el externo. La carencia de monitoreo y de políticas de mínimo privilegio fue determinante. </p>
+            <div style="overflow-x: auto; border-radius: 20px; border: 1px solid #333; margin: 25px 0;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 11px; background: #1a1a1a;">
+                    <thead>
+                        <tr style="background: #000; color: #666; text-transform: uppercase;">
+                            <th style="padding: 15px; text-align: left;">Elemento</th>
+                            <th style="padding: 15px; text-align: left;">Respuesta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Servicios X.800 comprometidos </td>
+                            <td style="padding: 15px; color: #bbb;">Confidencialidad y Control de Acceso. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Definición(es) aplicable(s) RFC 4949. </td>
+                            <td style="padding: 15px; color: #bbb;">Insider Threat: Amenaza interna. Misuse: Uso indebido de privilegios legítimos. </td>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Tipo de amenaza.</td>
+                            <td style="padding: 15px; color: #bbb;">Interna (Maliciosa).</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Vector de ataque.</td>
+                            <td style="padding: 15px; color: #bbb;">Extracción directa desde la base de datos por personal autorizado. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Impacto técnico / operativo. </td>
+                            <td style="padding: 15px; color: #bbb;">Robo de propiedad intelectual y pérdida de ventaja competitiva. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Medida de control recomendada.</td>
+                            <td style="padding: 15px; color: #bbb;">Principio de mínimo privilegio y sistemas DLP (Data Loss Prevention).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Escenario 7</h2>
+            <p>Tras un ataque, los registros del sistema quedaron cifrados o alterados, impidiendo reconstruir la secuencia de eventos. Esto compromete la integridad de los datos y el no repudio, ya que no es posible demostrar qué ocurrió ni quién fue responsable. Desde el RFC 4949, se trata de una violación de evidentiary integrity y del audit trail. El impacto no solo es técnico, sino también probatorio y legal. </p>
+            <div style="overflow-x: auto; border-radius: 20px; border: 1px solid #333; margin: 25px 0;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 11px; background: #1a1a1a;">
+                    <thead>
+                        <tr style="background: #000; color: #666; text-transform: uppercase;">
+                            <th style="padding: 15px; text-align: left;">Elemento</th>
+                            <th style="padding: 15px; text-align: left;">Respuesta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Servicios X.800 comprometidos </td>
+                            <td style="padding: 15px; color: #bbb;">Integridad y No Repudio.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Definición(es) aplicable(s) RFC 4949. </td>
+                            <td style="padding: 15px; color: #bbb;">Audit Trail: Registro de eventos. Evidentiary Integrity: Validez de las pruebas. </td>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Tipo de amenaza.</td>
+                            <td style="padding: 15px; color: #bbb;">Externa/Interna (Encubrimiento). </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Vector de ataque.</td>
+                            <td style="padding: 15px; color: #bbb;">Modificación o cifrado de archivos de registro (logs). </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Impacto técnico / operativo. </td>
+                            <td style="padding: 15px; color: #bbb;">Incapacidad de realizar forense digital o atribuir responsabilidades. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Medida de control recomendada.</td>
+                            <td style="padding: 15px; color: #bbb;">Servidor de Logs centralizado y protegido (WORM - Write Once Read Many).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Escenario 8</h2>
+            <p>Una actualización mal ejecutada provocó la caída simultánea de múltiples servicios críticos a nivel global. Aunque no existió un atacante, el servicio de disponibilidad fue gravemente afectado. El RFC 4949 contempla estos eventos como operational failure, recordando que la seguridad también se ve afectada por errores internos. La falta de pruebas previas y planes de reversión amplificó el impacto </p>
+            <div style="overflow-x: auto; border-radius: 20px; border: 1px solid #333; margin: 25px 0;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 11px; background: #1a1a1a;">
+                    <thead>
+                        <tr style="background: #000; color: #666; text-transform: uppercase;">
+                            <th style="padding: 15px; text-align: left;">Elemento</th>
+                            <th style="padding: 15px; text-align: left;">Respuesta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Servicios X.800 comprometidos </td>
+                            <td style="padding: 15px; color: #bbb;">Disponibilidad.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Definición(es) aplicable(s) RFC 4949. </td>
+                            <td style="padding: 15px; color: #bbb;">Operational Failure: Falla en la operación. Accident: Evento no intencional.</td>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Tipo de amenaza.</td>
+                            <td style="padding: 15px; color: #bbb;">Interna (Inadvertida). </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Vector de ataque.</td>
+                            <td style="padding: 15px; color: #bbb;">Actualización de software mal probada o errónea. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Impacto técnico / operativo. </td>
+                            <td style="padding: 15px; color: #bbb;">Caída global de servicios y pérdidas financieras inmediatas. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Medida de control recomendada.</td>
+                            <td style="padding: 15px; color: #bbb;">Gestión de cambios estricta, entornos de staging y planes de rollback. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Escenario 9</h2>
+            <p>Atacantes replicaron sitios y correos oficiales para engañar a ciudadanos y obtener información sensible. Este escenario afecta la autenticación, al suplantar identidades legítimas, y la confidencialidad de los datos recolectados. El RFC 4949 lo clasifica como masquerade y phishing, subrayando el componente de ingeniería social. La ausencia de mecanismos de autenticación del dominio y de concientización facilitó el éxito del ataque.</p>
+            <div style="overflow-x: auto; border-radius: 20px; border: 1px solid #333; margin: 25px 0;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 11px; background: #1a1a1a;">
+                    <thead>
+                        <tr style="background: #000; color: #666; text-transform: uppercase;">
+                            <th style="padding: 15px; text-align: left;">Elemento</th>
+                            <th style="padding: 15px; text-align: left;">Respuesta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Servicios X.800 comprometidos </td>
+                            <td style="padding: 15px; color: #bbb;">Autenticación y Confidencialidad. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Definición(es) aplicable(s) RFC 4949. </td>
+                            <td style="padding: 15px; color: #bbb;">Masquerade: Suplantación de identidad. Phishing: Engaño para obtener datos. </td>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Tipo de amenaza.</td>
+                            <td style="padding: 15px; color: #bbb;">Externa (Ingeniería Social). </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Vector de ataque.</td>
+                            <td style="padding: 15px; color: #bbb;">Réplica de sitios web y correos electrónicos oficiales. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Impacto técnico / operativo. </td>
+                            <td style="padding: 15px; color: #bbb;">Robo de identidad de ciudadanos y desconfianza institucional. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Medida de control recomendada.</td>
+                            <td style="padding: 15px; color: #bbb;">Implementación de DMARC/SPF/DKIM y concientización (Security Awareness). </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Escenario 10</h2>
+            <p>En algunos incidentes, tras exfiltrar información, los atacantes ejecutaron acciones destructivas para borrar sistemas completos y eliminar rastros. Se produce un compromiso total de la confidencialidad, la integridad y la disponibilidad, configurando uno de los peores escenarios posibles. El RFC 4949 describe este patrón como destructive attack, donde el objetivo no es solo el lucro, sino el daño irreversible. La detección tardía impidió cualquier contención efectiva</p>
+            <div style="overflow-x: auto; border-radius: 20px; border: 1px solid #333; margin: 25px 0;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 11px; background: #1a1a1a;">
+                    <thead>
+                        <tr style="background: #000; color: #666; text-transform: uppercase;">
+                            <th style="padding: 15px; text-align: left;">Elemento</th>
+                            <th style="padding: 15px; text-align: left;">Respuesta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Servicios X.800 comprometidos </td>
+                            <td style="padding: 15px; color: #bbb;">Confidencialidad, Integridad y Disponibilidad.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Definición(es) aplicable(s) RFC 4949. </td>
+                            <td style="padding: 15px; color: #bbb;">Destructive Attack: Objetivo de daño total. Wiper: Malware que borra datos.</td>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Tipo de amenaza.</td>
+                            <td style="padding: 15px; color: #bbb;">Externa (Adversario avanzado). </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Vector de ataque.</td>
+                            <td style="padding: 15px; color: #bbb;">Exfiltración seguida de borrado masivo de sistemas. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Impacto técnico / operativo. </td>
+                            <td style="padding: 15px; color: #bbb;">Destrucción de activos digitales y cese de operaciones. </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Medida de control recomendada.</td>
+                            <td style="padding: 15px; color: #bbb;">Respuesta a incidentes rápida y segmentación crítica de red. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Conclusiones</h2>
+            <p>EEl uso de estándares internacionales permite una gestión de incidentes más robusta y una comunicación efectiva entre departamentos técnicos y directivos. Mientras que el ITU-T X.800 nos ayuda a entender el "qué" se debe proteger, el RFC 4949 nos da el lenguaje para explicar el "cómo" fue atacado. En el entorno actual, la prevención debe ir acompañada de una capacidad de detección temprana y una resiliencia operativa basada en la integridad de los datos. </p><p>Tomando a México/Latinoamérica, donde la madurez digital es variable, es crucial adoptarestos marcos estandarizados para:
+            <li>Homologar el lenguaje entre los equipos técnicos y legales. </li>
+            <li>Priorizar inversiones basadas en el impacto real (técnico y legal). </li>
+            <li>Fortalecer la resiliencia mediante controles proactivos como el MFA y los respaldos inmutables.</li></p>
+
+        <div style="display: flex; gap: 10px; margin-top: 20px;">    
+        <a href="175842-Act02.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar PDF</a>
+        <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Actividad validada por ITI-UPSLP</div>
+        </div>
+      </article>
+
+      <article id="act03" class="article-view">
+        <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+        
+        <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3b82f6;"></div>
+            <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #3b82f6; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática</h3>
+            <h1 style="font-size: 26px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;">Act.03 - Interpretación y Traducción de Políticas de Filtrado en iptables</h1>
+            <div style="width: 60px; height: 4px; background: #3b82f6; margin: 20px auto; border-radius: 10px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(59, 130, 246, 0.05); border-radius: 15px; font-size: 12px; color: #bbb; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">ESTUDIANTE:</strong> David Zarate Domínguez</li>
+                    <li><strong style="color: #3b82f6;">FECHA:</strong> 03 de Febrero de 2025</li>
+                </ul>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
+                    <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body" style="color: #ccc; font-size: 15px; line-height: 1.8;">
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">1. Flujo del Paquete y Arquitectura</h2>
+            <p style="background: #1a1a1a; padding: 20px; border-radius: 10px; border-left: 4px solid #3b82f6; italic">
+                "Cuando un paquete llega al sistema, primero pasa por una <strong>Tabla</strong>, después por una <strong>Cadena</strong> y finalmente se ejecuta una <strong>acción</strong>."
+            </p>
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">2. Relaciona cada tabla con su propósito principal.</h2>
+            <div style="overflow-x: auto; border-radius: 15px; border: 1px solid #333; margin: 25px 0;">
+                <table style="width: 100%; border-collapse: collapse; background: #1a1a1a; font-size: 13px;">
+                    <thead style="background: #000; color: #3b82f6;">
+                        <tr>
+                            <th style="padding: 15px; text-align: left; border-bottom: 2px solid #333;">Tabla</th>
+                            <th style="padding: 15px; text-align: left; border-bottom: 2px solid #333;">Propósito Principal</th>
+                            <th style="padding: 15px; text-align: left; border-bottom: 2px solid #333;">Ejemplo de Uso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; font-weight: bold; color: white;">FILTER</td>
+                            <td style="padding: 12px;">Filtrado de paquetes (p. Firewall) </td>
+                            <td style="padding: 12px; color: #3b82f6;">Permitir o bloquear tráfico </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333; background: rgba(59, 130, 246, 0.03);">
+                            <td style="padding: 12px; font-weight: bold; color: white;">NAT</td>
+                            <td style="padding: 12px;">Traducción de direcciones </td>
+                            <td style="padding: 12px; color: #3b82f6;">Hacer NAT o Forwarding </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333;">
+                            <td style="padding: 12px; font-weight: bold; color: white;">MANGLE</td>
+                            <td style="padding: 12px;">Modificación avanzada de paquetes </td>
+                            <td style="padding: 12px; color: #3b82f6;">Cambiar cabeceras </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #333; background: rgba(59, 130, 246, 0.03);">
+                            <td style="padding: 12px; font-weight: bold; color: white;">RAW</td>
+                            <td style="padding: 12px;">Excepciones al seguimiento de conexión </td>
+                            <td style="padding: 12px; color: #3b82f6;">Paquetes que no deben ser inspeccionados </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; font-weight: bold; color: white;">SECURITY</td>
+                            <td style="padding: 12px;">Aplicar etiquetas de seguridad (SELinux) </td>
+                            <td style="padding: 12px; color: #3b82f6;">Contextos de seguridad adicionales </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">3. Anatomía de un comando iptables</h2>
+      <p><strong>Comando completado:</strong></p>
+      <code style="display: block; background: #000; color: #0f0; padding: 15px; border-radius: 5px;">
+        iptables -A INPUT -p tcp -m multiport --dports 80,443 -j ACCEPT
+      </code>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">4. Este comando permite:</h2>
+      <p>Permitir el tráfico de entrada del protocolo TCP hacia los puertos de destino 80 (HTTP) y 443 (HTTPS).</p>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">5. Variables y opciones comunes</h2>
+      <p><strong>a) Limitar intentos por minuto:</strong><br>
+      <code>-m limit</code></p>
+
+      <p><strong>b) Filtrar por IP de origen:</strong><br>
+      <code>-s [Source IP]</code></p>
+
+      <p><strong>c) Ver solo números (sin resolución DNS):</strong><br>
+      <code>iptables -L -n</code></p>
+
+      <p><strong>d) Ver reglas con contadores (paquetes y bytes):</strong><br>
+      <code>iptables -L -v</code></p>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">6. ¿Qué hace esta regla?</h2>
+      <code style="display: block; background: #000; color: #0f0; padding: 15px; border-radius: 5px;">
+      iptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -m state --state NEW, ESTABLISHED -j ACCEPT
+      </code>
+      <p><strong>Explicación:</strong> Permite tráfico TCP entrante por la interfaz eth0 a los puertos 22, 80 y 443, siempre que sea parte de una conexión nueva o establecida.</p>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">7. Permitir tráfico HTTP entrante</h2>
+      <code style="display: block; background: #000; color: #0f0; padding: 15px; border-radius: 5px;">iptables -A INPUT -p tcp --dport 80 -j ACCEPT</code>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">8. Permitir todo el tráfico saliente</h2>
+      <code style="display: block; background: #000; color: #0f0; padding: 15px; border-radius: 5px;">iptables -P OUTPUT ACCEPT</code>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">9. Permitir SSH solo desde la IP 192.168.1.50</h2>
+      <code style="display: block; background: #000; color: #0f0; padding: 15px; border-radius: 5px;">iptables -A INPUT -p tcp -s 192.168.1.50 --dport 22 -j ACCEPT</code>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">10. Permitir tráfico TCP entrante a puertos 80 y 443 solo si es conexión establecida o relacionada</h2>
+      <code style="display: block; background: #000; color: #0f0; padding: 15px; border-radius: 5px;">iptables -A INPUT -p tcp -m multiport --dports 80,443 -m state --state ESTABLISHED,RELATED -j ACCEPT</code>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">11. Permitir tráfico TCP entrante por eth0 a 22, 80 y 443, registrar intentos y permitir solo NEW y ESTABLISHED</h2>
+      <code style="display: block; background: #000; color: #0f0; padding: 15px; border-radius: 5px;">1. iptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -j LOG --log-prefix "INTENTO_ENTRADA: "</code>
+      <code style="display: block; background: #000; color: #0f0; padding: 15px; border-radius: 5px;">2. iiptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -m state --state NEW,ESTABLISHED -j ACCEPT</code>
+
+        <div class="reflection-box">Conclusion
+        <p>"La correcta interpretación de las tablas y cadenas en iptables es fundamental para el endurecimiento (hardening) de servidores Linux, permitiendo un control granular sobre el tráfico basado en estados y puertos específicos."</p></div>
+        
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <a href="175842-act03.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar PDF</a>
+            <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Actividad validada por ITI-UPSLP</div>
+        </div>
+      </article>
+
+
+      <article id="act04" class="article-view">
+        <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+        <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3b82f6;"></div>
+            <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #3b82f6; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática</h3>
+            <h1 style="font-size: 26px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;">Act.04 - Mecanismos de defensa en red.</h1>
+            <div style="width: 60px; height: 4px; background: #3b82f6; margin: 20px auto; border-radius: 10px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(59, 130, 246, 0.05); border-radius: 15px; font-size: 12px; color: #bbb; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">ESTUDIANTE:</strong> David Zarate Domínguez</li>
+                    <li><strong style="color: #3b82f6;">FECHA:</strong> 04 de Febrero de 2025</li>
+                </ul>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
+                    <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
+                </ul>
+            </div>
+        </div>
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;"> Introducción</h2>
+      <p>La configuración de firewalls mediante <code>iptables</code> representa una de las capas de defensa más críticas en entornos Linux. En esta actividad, se diseñó un conjunto de reglas basadas en el principio de <strong>"Denegación Implícita"</strong>, donde se bloquea todo el tráfico por defecto y solo se permite explícitamente lo necesario para el funcionamiento de los servicios web, de correo y DNS, garantizando la integridad de la red interna frente a amenazas externas.</p>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">1. Establecer una política restrictiva.</h2>
+      <p>Se bloquea todo el tráfico entrante, saliente y de reenvío por defecto.</p>
+      <code class="code-block">
+        iptables -P INPUT DROP<br>
+        iptables -P FORWARD DROP<br>
+        iptables -P OUTPUT DROP
+      </code>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">2.  Permitir el tráfico de conexiones ya establecidas.</h2>
+      <p>Garantiza que las respuestas a peticiones legítimas no sean bloqueadas.</p>
+      <code class="code-block">
+        iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT<br>
+        iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT<br>
+        iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+      </code>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">3. Aceptar tráfico DNS (TCP) saliente de la red local. </h2>
+      <code class="code-block">
+        iptables -A FORWARD -p tcp --dport 53 -j ACCEPT
+      </code>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">4. Aceptar correo entrante proveniente de Internet en el servidor de correo. </h2>
+      <p>El puerto estándar para correo (SMTP) es el 25. El destino es la IP 192.1.2.11</p>
+      <code class="code-block">
+        iptables -A FORWARD -p tcp -d 192.1.2.11 --dport 25 -j ACCEPT
+      </code>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">5.  Permitir correo saliente a Internet desde el servidor de correo.</h2>
+      <code class="code-block">
+        iptables -A FORWARD -p tcp -s 192.1.2.11 --dport 25 -j ACCEPT
+      </code>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">6.  Aceptar conexiones HTTP desde Internet a nuestro servidor web.</h2>
+      <p>El destino es la IP 192.1.2.10 en el puerto 80.</p>
+      <code class="code-block">
+        iptables -A FORWARD -p tcp -d 192.1.2.10 --dport 80 -j ACCEPT
+      </code>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">7.  Permitir tráfico HTTP desde la red local a Internet.</h2>
+      <code class="code-block">
+        iptables -A FORWARD -p tcp --dport 80 -j ACCEPT
+      </code>
+
+      <div class="reflection-box">Conclusion
+        <p>"La implementación de estas reglas permite un control granular sobre el flujo de datos. Al utilizar el estado de las conexiones (<code>stateful inspection</code>), el firewall no solo filtra por puertos, sino que reconoce el contexto de la comunicación. Esta práctica es fundamental para reducir la superficie de ataque y asegurar que cada nodo de la red cumpla exclusivamente con su función designada sin exponer servicios vulnerables a internet."</p></div>
+
+
+      <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <a href="175842-act04.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar PDF</a>
+            <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Actividad validada por ITI-UPSLP</div>
+        </div>
+
+      </article>
+
+      <article id="act05" class="article-view">
+        <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+        <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3b82f6;"></div>
+            <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #3b82f6; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática</h3>
+            <h1 style="font-size: 26px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;">Act.05 - Cartografiando el pentesting: análisis comparativo de metodologías de seguridad informática.</h1>
+            <div style="width: 60px; height: 4px; background: #3b82f6; margin: 20px auto; border-radius: 10px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(59, 130, 246, 0.05); border-radius: 15px; font-size: 12px; color: #bbb; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">ESTUDIANTE:</strong> David Zarate Domínguez</li>
+                    <li><strong style="color: #3b82f6;">FECHA:</strong> 16 de Febrero de 2025</li>
+                </ul>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
+                    <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
+                </ul>
+            </div>
+        </div>
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;"> Introducción</h2>
+        <p>
+        El Pentesting o pruebas de penetración no es un proceso arbitrario; requiere de marcos de trabajo (frameworks) que estandaricen las fases de ejecución y aseguren la calidad de los resultados. En esta actividad se realiza un análisis comparativo entre las metodologías más influyentes de la industria, como <strong>MITRE ATT&CK</strong>, <strong>OWASP</strong> y <strong>NIST</strong>, con el objetivo de comprender sus enfoques particulares, desde la seguridad en aplicaciones web hasta la medición científica de la seguridad operativa.
+      </p>
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;"> Comparativa de Metodologías de Seguridad</h2>
+      
+      <div style="overflow-x: auto; border-radius: 20px; border: 1px solid #333; margin: 25px 0;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 11px; background: #1a1a1a;">
+              <thead>
+                  <tr style="background: #000; color: #a78bfa; text-transform: uppercase;">
+                      <th style="padding: 15px; text-align: left; border-bottom: 2px solid #a78bfa;">Aspecto</th>
+                      <th style="padding: 15px; text-align: left; border-bottom: 2px solid #a78bfa;">MITRE ATT&CK</th>
+                      <th style="padding: 15px; text-align: left; border-bottom: 2px solid #a78bfa;">OWASP WSTG</th>
+                      <th style="padding: 15px; text-align: left; border-bottom: 2px solid #a78bfa;">NIST SP 800-115</th>
+                      <th style="padding: 15px; text-align: left; border-bottom: 2px solid #a78bfa;">OSSTMM</th>
+                      <th style="padding: 15px; text-align: left; border-bottom: 2px solid #a78bfa;">PTES</th>
+                      <th style="padding: 15px; text-align: left; border-bottom: 2px solid #a78bfa;">ISSAF</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr style="border-bottom: 1px solid #333;">
+                      <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Descripción</td>
+                      <td style="padding: 15px; color: #bbb;">Base de conocimiento global de tácticas y técnicas de adversarios basada en ataques reales.</td>
+                      <td style="padding: 15px; color: #bbb;">Guía líder para pruebas de seguridad en aplicaciones web y servicios relacionados.</td>
+                      <td style="padding: 15px; color: #bbb;">Guía técnica para realizar pruebas y evaluaciones de seguridad en sistemas federales y privados.</td>
+                      <td style="padding: 15px; color: #bbb;">Estándar científico para la medición de la seguridad operativa mediante canales de comunicación.</td>
+                      <td style="padding: 15px; color: #bbb;">Estándar centrado en la calidad técnica y la gestión de negocios de un Pentest.</td>
+                      <td style="padding: 15px; color: #bbb;">Marco exhaustivo que vincula la evaluación técnica con la gobernanza y procesos de negocio.</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid #333;">
+                      <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Fases</td>
+                      <td style="padding: 15px; color: #bbb;">14 Tácticas (Reconocimiento, Acceso Inicial, Persistencia, Exfiltración, etc.).</td>
+                      <td style="padding: 15px; color: #bbb;">11 categorías de prueba: Recopilación, Gestión de ID, Autenticación, Sesión, Validación de datos, etc. con +90 casos de prueba</td>
+                      <td style="padding: 15px; color: #bbb;">1. Planificación<br>2. Ejecución<br>3. Post-ejecución (Análisis de hallazgos).</td>
+                      <td style="padding: 15px; color: #bbb;">Canales: <br>1. Humano <br>2.Físico <br>3. Inalámbrico <br>4. Telecomunicaciones <br>5. Redes de Datos.</td>
+                      <td style="padding: 15px; color: #bbb;">7 fases:  Pre-acuerdo, Inteligencia ,Modelado, Vulnerabilidad, Explotación , Post-explotación y Reporte. </td>
+                      <td style="padding: 15px; color: #bbb;">4 fases: Planeación, Evaluación (Red, Host, App), Reporte y Limpieza.</td>
+                  </tr>
+
+                  <tr style="border-bottom: 1px solid #333;">
+                      <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Objetivo</td>
+                      <td style="padding: 15px; color: #bbb;">Detección de técnicas de ataque y simulación de adversarios (Red/Blue Team). </td>
+                      <td style="padding: 15px; color: #bbb;">Asegurar el ciclo de vida de aplicaciones web y detectar vulnerabilidades críticas. </td>
+                      <td style="padding: 15px; color: #bbb;">Evaluación de controles de seguridad y cumplimiento normativo.</td>
+                      <td style="padding: 15px; color: #bbb;">Medir la seguridad operativa y el cumplimiento mediante métricas (RAV).</td>
+                      <td style="padding: 15px; color: #bbb;">Estandarizar la ejecución técnica y los resultados comerciales de un Pentest. </td>
+                      <td style="padding: 15px; color: #bbb;">Evaluación integral de infraestructura, políticas y seguridad de la información. </td>
+                  </tr>
+
+                  <tr style="border-bottom: 1px solid #333;">
+                      <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Escenarios</td>
+                      <td style="padding: 15px; color: #bbb;">Operaciones de Threat Hunting, SOC y diseño de defensas activas. </td>
+                      <td style="padding: 15px; color: #bbb;">Auditoría de aplicaciones web, portales corporativos y APIs. </td>
+                      <td style="padding: 15px; color: #bbb;">Auditorías en agencias gubernamentales y sectores regulados.</td>
+                      <td style="padding: 15px; color: #bbb;">Pruebas de seguridad física y lógica donde se requiere medición científica.</td>
+                      <td style="padding: 15px; color: #bbb;">Pentests profesionales externos o internos de gran escala.</td>
+                      <td style="padding: 15px; color: #bbb;">Auditorías integrales de TI y gestión de riesgos corporativos.</td>
+                  </tr>
+
+
+                  <tr style="border-bottom: 1px solid #333;">
+                      <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Orientación</td>
+                      <td style="padding: 15px; color: #bbb;">Ataque y Defensa (Híbrido).</td>
+                      <td style="padding: 15px; color: #bbb;">Evaluación y Ataque.</td>
+                      <td style="padding: 15px; color: #bbb;">Evaluación Técnica.</td>
+                      <td style="padding: 15px; color: #bbb;">Evaluación y Verificación.</td>
+                      <td style="padding: 15px; color: #bbb;">Ataque y Negocio.</td>
+                      <td style="padding: 15px; color: #bbb;">Evaluación y Gestión.</td>
+                  </tr>
+                  
+                  <tr style="border-bottom: 1px solid #333;">
+                      <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Responsable</td>
+                      <td style="padding: 15px; color: #bbb;">MITRE Corporation.</td>
+                      <td style="padding: 15px; color: #bbb;">OWASP Foundation.</td>
+                      <td style="padding: 15px; color: #bbb;">NIST (Gobierno EE. UU.).</td>
+                      <td style="padding: 15px; color: #bbb;">ISECOM.</td>
+                      <td style="padding: 15px; color: #bbb;">Comunidad experta (PTES Board).</td>
+                      <td style="padding: 15px; color: #bbb;">OISSG (Open Information Systems Security Group). </td>
+                  </tr>
+
+                  <tr style="border-bottom: 1px solid #333;">
+                      <td style="padding: 15px; color: #a78bfa; font-weight: bold;">URL Oficial </td>
+                      <td style="padding: 15px; color: #bbb;"><a href="https://attack.mitre.org/" target="_blank">attack.mitre.org</a></td>
+                      <td style="padding: 15px; color: #bbb;"><a href="https://owasp.org/www-project-web-security-testing-guide" target="_blank">owasp.org/wstg</a></td>
+                      <td style="padding: 15px; color: #bbb;"><a href="https://csrc.nist.gov/publications/detail/sp/800-115/final" target="_blank">csrc.nist.gov</a></td>
+                      <td style="padding: 15px; color: #bbb;"><a href="https://www.isecom.org/" target="_blank">isecom.org</a></td>
+                      <td style="padding: 15px; color: #bbb;"><a href="http://www.pentest-standard.org/" target="_blank">pentest-standard.org</a></td>
+                      <td style="padding: 15px; color: #bbb;"><a href="https://sourceforge.net/" target="_blank">https://sourceforge.net/</a></td>
+                  </tr>
+
+                  <tr style="border-bottom: 1px solid #333;">
+                      <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Certificados </td>
+                      <td style="padding: 15px; color: #bbb;">MAD (MITRE ATT&CK Defender). </td>
+                      <td style="padding: 15px; color: #bbb;">No tiene una directa (influye en OSWE, CEH). </td>
+                      <td style="padding: 15px; color: #bbb;">Alineado con CISA y CISSP. </td>
+                      <td style="padding: 15px; color: #bbb;">OPST, OPSA, OPSE. </td>
+                      <td style="padding: 15px; color: #bbb;">No tiene propia (base de la mayoría de certificaciones).</td>
+                      <td style="padding: 15px; color: #bbb;">No vigente.</td>
+                  </tr>
+
+                  <tr style="border-bottom: 1px solid #333;">
+                      <td style="padding: 15px; color: #a78bfa; font-weight: bold;">Version</td>
+                      <td style="padding: 15px; color: #bbb;">v16.x (Actualización continua).</td>
+                      <td style="padding: 15px; color: #bbb;">v5.0 (Estable en 2026).</td>
+                      <td style="padding: 15px; color: #bbb;">Referencia técnica base (revisada vía CSF 2.0). </td>
+                      <td style="padding: 15px; color: #bbb;">v3.0 (v4.0 en desarrollo prolongado). </td>
+                      <td style="padding: 15px; color: #bbb;">v1.1</td>
+                      <td style="padding: 15px; color: #bbb;">v0.2.1 (Considerado histórico).</td>
+                  </tr>
+              </tbody>
+          </table>
       </div>
-    </div>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px;">Conclusión</h2>
+      <p>
+        El análisis comparativo permite concluir que no existe una metodología "superior" de forma absoluta, sino que su eficacia depende del contexto del proyecto. Mientras que <strong>OWASP WSTG</strong> es el estándar indiscutible para entornos web, <strong>PTES</strong> ofrece una estructura de negocio mucho más robusta para consultorías comerciales. 
+      </p>
+      <p>
+        Para nosotros como estudiantes de Tecnologias de la Informacion, el dominio de estos marcos proporciona una ventaja competitiva: permite transformar una simple búsqueda de fallos en un proceso de auditoría formal. La tendencia actual apunta hacia la adopción de <strong>MITRE ATT&CK</strong> para complementar el pentesting tradicional, permitiendo que las organizaciones no solo sepan qué tan vulnerables son, sino cómo se comportaría un adversario real dentro de su infraestructura.
+      </p>
+
+
+
+        <div style="display: flex; gap: 10px; margin-top: 20px;"> 
+          <a href="175842-act05.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar PDF</a>
+          <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Actividad validada por ITI-UPSLP</div>
+        </div>
+      </article>
+</div>
+    <div id="parcial2" class="section-content"><div class="card"><div style="opacity: 0.5; text-align: center;"><i class="fas fa-lock fa-3x"></i><br>Bloqueado</div></div></div>
+    <div id="parcial3" class="section-content"><div class="card"><div style="opacity: 0.5; text-align: center;"><i class="fas fa-lock fa-3x"></i><br>Evaluación Final</div></div></div>
 
     <div id="contacto" class="section-content">
       <div class="card" style="max-width: 600px; margin: 0 auto;">
         <h3><i class="fas fa-paper-plane"></i> Contacto Académico</h3>
         <form action="https://formspree.io/f/mjgrovyj" method="POST">
-          <div class="form-group"><label>Nombre:</label><input type="text" name="name" required placeholder="Tu nombre completo"></div>
-          <div class="form-group"><label>Correo Electrónico:</label><input type="email" name="email" required placeholder="correo@institucional.edu.mx"></div>
-          <div class="form-group"><label>Mensaje:</label><textarea name="message" rows="4" required placeholder="Consulta o comentario técnico..."></textarea></div>
-          <button type="submit" class="btn-primary">Enviar Mensaje</button>
+          <div class="form-group"><input type="text" name="name" required placeholder="Nombre"></div>
+          <div class="form-group"><input type="email" name="email" required placeholder="Correo Institucional"></div>
+          <div class="form-group"><textarea name="message" rows="4" required placeholder="Mensaje..."></textarea></div>
+          <button type="submit" class="btn-primary">Enviar</button>
         </form>
       </div>
     </div>
 
-    <div class="footer">
-      <p>&copy; 2026 David Zarate Dominguez | Universidad Politécnica de San Luis Potosí</p>
-    </div>
-
+    <div class="footer"><p>&copy; 2026 David Zarate Dominguez | UPSLP</p></div>
   </div>
 
   <script>
     function showSection(sectionId) {
-      document.querySelectorAll('.section-content').forEach(section => {
-        section.classList.remove('active');
-      });
-      document.getElementById(sectionId).classList.add('active');
-      document.querySelectorAll('.sidebar a').forEach(link => {
-        link.classList.remove('active');
-      });
-      if(event && event.currentTarget) {
-          event.currentTarget.classList.add('active');
-      }
+      document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+      const target = document.getElementById(sectionId);
+      if(target) target.classList.add('active');
+      
+      if(sectionId === 'parcial1') closeArticle();
+      
+      document.querySelectorAll('.sidebar a').forEach(l => l.classList.remove('active'));
+      if(event && event.currentTarget) event.currentTarget.classList.add('active');
+    }
+
+    function openArticle(id) {
+      document.getElementById('actividades-list').style.display = 'none';
+      document.querySelectorAll('.article-view').forEach(a => a.style.display = 'none');
+      const article = document.getElementById(id);
+      if(article) article.style.display = 'block';
+      window.scrollTo(0,0);
+    }
+
+    function closeArticle() {
+      document.getElementById('actividades-list').style.display = 'block';
+      document.querySelectorAll('.article-view').forEach(a => a.style.display = 'none');
     }
 
     function toggleMenu() {
@@ -390,7 +1324,5 @@
       }
     }
   </script>
-
 </body>
 </html>
-
