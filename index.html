@@ -1422,14 +1422,28 @@
     <div id="parcial2" class="section-content"><div class="card"><div style="opacity: 0.5; text-align: center;"><i class="fas fa-lock fa-3x"></i><br>Bloqueado</div></div></div>
     <div id="parcial3" class="section-content"><div class="card"><div style="opacity: 0.5; text-align: center;"><i class="fas fa-lock fa-3x"></i><br>Evaluación Final</div></div></div>
 
-    <div id="contacto" class="section-content">
-      <div class="card" style="max-width: 600px; margin: 0 auto;">
-        <h3><i class="fas fa-paper-plane"></i> Contacto Académico</h3>
-        <form action="https://formspree.io/f/mjgrovyj" method="POST">
-          <div class="form-group"><input type="text" name="name" required placeholder="Nombre"></div>
-          <div class="form-group"><input type="email" name="email" required placeholder="Correo Institucional"></div>
-          <div class="form-group"><textarea name="message" rows="4" required placeholder="Mensaje..."></textarea></div>
-          <button type="submit" class="btn-primary">Enviar</button>
+ <div id="contacto" class="section-content" style="padding: 60px 20px;">
+      <div class="card" style="max-width: 500px; margin: 0 auto; padding: 40px; border-radius: 20px; background: #1a1a1a; border: 1px solid #333;">
+        <h3 style="color: #a78bfa; text-align: center; margin-bottom: 30px;">
+          <i class="fas fa-paper-plane"></i> Contacto Académico
+        </h3>
+        <form action="https://formspree.io/f/mjgrovyj" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+          <div class="form-group">
+            <input type="text" name="name" required placeholder="Nombre" 
+              style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #000; color: white; box-sizing: border-box;">
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" required placeholder="Correo Institucional" 
+              style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #000; color: white; box-sizing: border-box;">
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="4" required placeholder="Mensaje..." 
+              style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #000; color: white; box-sizing: border-box; resize: none;"></textarea>
+          </div>
+          <button type="submit" class="btn-primary" 
+            style="background: #a78bfa; color: black; padding: 15px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s;">
+            Enviar Mensaje
+          </button>
         </form>
       </div>
     </div>
@@ -1470,4 +1484,5 @@
   </script>
 </body>
 </html>
+
 
