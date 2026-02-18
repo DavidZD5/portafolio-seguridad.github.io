@@ -202,6 +202,11 @@
             <h4>Actividad 05: Metodologías de Pentesting</h4>
             <p>Análisis comparativo de marcos como MITRE ATT&CK, OWASP y NIST.</p>
           </div>
+          <div class="activity-card" onclick="openArticle('act06')">
+            <span class="tag">Metodologías</span>
+            <h4>Actividad 06: Implementación de IPSec VPN</h4>
+            <p>Transmisión de datos a través de infraestructuras eplementación de una VPN</p>
+          </div>
         </div>
       </div>
 <article id="act01" class="article-view">
@@ -929,7 +934,6 @@
 
       <article id="act03" class="article-view">
         <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
-        
         <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3b82f6;"></div>
             <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #3b82f6; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática</h3>
@@ -945,6 +949,9 @@
                     <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
                     <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
                 </ul>
+            </div>
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+                Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - UPSLP
             </div>
         </div>
 
@@ -1068,6 +1075,9 @@
                     <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
                 </ul>
             </div>
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+                Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - UPSLP
+            </div>
         </div>
         <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;"> Introducción</h2>
       <p>La configuración de firewalls mediante <code>iptables</code> representa una de las capas de defensa más críticas en entornos Linux. En esta actividad, se diseñó un conjunto de reglas basadas en el principio de <strong>"Denegación Implícita"</strong>, donde se bloquea todo el tráfico por defecto y solo se permite explícitamente lo necesario para el funcionamiento de los servicios web, de correo y DNS, garantizando la integridad de la red interna frente a amenazas externas.</p>
@@ -1143,6 +1153,9 @@
                     <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
                     <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
                 </ul>
+            </div>
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+                Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - UPSLP
             </div>
         </div>
         <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;"> Introducción</h2>
@@ -1272,8 +1285,140 @@
           <a href="175842-act05.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar PDF</a>
           <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Actividad validada por ITI-UPSLP</div>
         </div>
-      </article>
+      </article>     
 </div>
+<article id="act06" class="article-view">
+        <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+        <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3b82f6;"></div>
+            <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #3b82f6; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática</h3>
+            <h1 style="font-size: 26px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;">Act.06 - Implementación IPSec VPN</h1>
+            <div style="width: 60px; height: 4px; background: #3b82f6; margin: 20px auto; border-radius: 10px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(59, 130, 246, 0.05); border-radius: 15px; font-size: 12px; color: #bbb; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">ESTUDIANTE:</strong> David Zarate Domínguez</li>
+                    <li><strong style="color: #3b82f6;">FECHA:</strong> 16 de Febrero de 2025</li>
+                </ul>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
+                    <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
+                </ul>
+            </div>
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+                Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - UPSLP
+            </div>
+        </div>
+
+      <div style="text-align: center; margin-bottom: 40px;">
+          <img src="captura1.png" alt="Topología de Red IPSec VPN" style="width: 100%; max-width: 800px; border-radius: 10px; border: 1px solid #a78bfa; box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3);">
+          <p style="color: #888; font-style: italic; margin-top: 10px;">Captura: Configuración final de la topología en Cisco Packet Tracer.</p>
+      </div>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px;">1. Introducción</h2>
+      <p>
+        La interconexión de sedes remotas a través de redes públicas (Internet) plantea desafíos críticos de seguridad. Este reporte detalla la implementación de una <strong>VPN (Virtual Private Network)</strong> de sitio a sitio utilizando el protocolo <strong>IPSec (Internet Protocol Security)</strong>. 
+      </p>
+      <p>
+        Basado en las evidencias de configuración de múltiples nodos, el objetivo primordial fue establecer un canal de comunicación que garantice la <strong>confidencialidad, integridad y autenticación</strong> de los datos entre dos redes locales (LAN) geográficamente distantes, utilizando Cisco Packet Tracer como entorno de simulación.
+      </p>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px;">2. Topología y Componentes del Sistema</h2>
+      <p>La infraestructura configurada se compone de tres segmentos principales:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 25px 0;">
+          <div style="background: #222; padding: 20px; border-radius: 10px; border-bottom: 3px solid #a78bfa;">
+              <h4 style="margin-top:0; color: #a78bfa;">Sitio Local (R1)</h4>
+              <p>Red: 192.168.1.0/24<br>Gateway: 209.165.100.1</p>
+          </div>
+          <div style="background: #222; padding: 20px; border-radius: 10px; border-bottom: 3px solid #a78bfa;">
+              <h4 style="margin-top:0; color: #a78bfa;">Sitio Remoto (R3/R2)</h4>
+              <p>Red: 192.168.3.0/24<br>Gateway: 209.165.200.1</p>
+          </div>
+          <div style="background: #222; padding: 20px; border-radius: 10px; border-bottom: 3px solid #888;">
+              <h4 style="margin-top:0; color: #888;">Nodo de Transporte (ISP)</h4>
+              <p>Router intermedio encargado del enrutamiento de paquetes cifrados.</p>
+          </div>
+      </div>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px;">3. Proceso de Implementación Técnica</h2>
+
+      <h3>Fase I: Preparación del Entorno</h3>
+      <p>Antes de la configuración criptográfica, se realizaron pasos críticos de infraestructura:</p>
+      <ul>
+          <li><strong>Activación de Licencias:</strong> Se habilitó el paquete <code>securityk9</code> mediante el comando <code>license boot module</code>, necesario para los algoritmos de cifrado en routers Cisco 1941.</li>
+          <li><strong>Enrutamiento Base:</strong> Se establecieron rutas estáticas y direcciones IP en las interfaces WAN para asegurar la conectividad entre los "Peers".</li>
+      </ul>
+
+      <h3>Fase II: Configuración de la Fase 1 (IKE / ISAKMP)</h3>
+      <p>En esta etapa se define "cómo se van a saludar" los routers para crear un canal de administración seguro.</p>
+      <code class="code-block" style="display: block; background: #000; color: #0f0; padding: 15px; border-radius: 5px; font-family: 'Courier New', Courier, monospace;">
+        R1(config)# crypto isakmp policy 10<br>
+        R1(config-isakmp)# encryption aes 256<br>
+        R1(config-isakmp)# hash sha<br>
+        R1(config-isakmp)# authentication pre-share<br>
+        R1(config-isakmp)# group 5
+      </code>
+      <p>Se definió el algoritmo <strong>AES-256</strong>, hash <strong>SHA</strong> y el <strong>Grupo Diffie-Hellman 5</strong>.</p>
+
+      <h3>Fase III: Configuración de la Fase 2 (IPSec Transform Set)</h3>
+      <p>Aquí se define cómo se protegerán los datos reales del usuario.</p>
+      <ul>
+          <li><strong>Transform Set:</strong> Uso de <code>ESP-AES</code> para cifrado y <code>ESP-SHA-HMAC</code> para autenticación.</li>
+          <li><strong>Tráfico Interesante:</strong> Mediante Listas de Control de Acceso (ACL), se definió que únicamente el tráfico de la LAN local a la remota sea procesado.</li>
+      </ul>
+
+      <h3>Fase IV: Creación y Aplicación del Mapa Criptográfico</h3>
+      <p>El "Crypto Map" une las piezas: asocia la ACL, apunta a la IP pública del peer remoto y establece el Transform Set. Se aplica a la interfaz de salida con el comando <code>crypto map [nombre]</code>.</p>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px;">4. Verificación y Pruebas de Funcionamiento</h2>
+      <div style="overflow-x: auto; border: 1px solid #333; border-radius: 10px; margin: 20px 0;">
+          <table style="width: 100%; border-collapse: collapse; background: #1a1a1a;">
+              <thead>
+                  <tr style="background: #000; color: #a78bfa;">
+                      <th style="padding: 15px; text-align: left;">Método</th>
+                      <th style="padding: 15px; text-align: left;">Comando / Acción</th>
+                      <th style="padding: 15px; text-align: left;">Resultado Esperado</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr style="border-bottom: 1px solid #333;">
+                      <td style="padding: 15px; font-weight: bold;">Conectividad</td>
+                      <td style="padding: 15px;"><code>ping 192.168.3.10</code></td>
+                      <td style="padding: 15px; color: #bbb;">Éxito entre hosts remotos.</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid #333;">
+                      <td style="padding: 15px; font-weight: bold;">Análisis IPSec</td>
+                      <td style="padding: 15px;"><code>show crypto ipsec sa</code></td>
+                      <td style="padding: 15px; color: #bbb;">Incremento en #pkts encaps/decaps.</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid #333;">
+                      <td style="padding: 15px; font-weight: bold;">Estado Túnel</td>
+                      <td style="padding: 15px;"><code>show crypto isakmp sa</code></td>
+                      <td style="padding: 15px; color: #0f0;">QM_IDLE (Activo)</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px;">5. Conclusiones y Reflexiones</h2>
+      <blockquote>
+        "La implementación exitosa de IPSec demuestra que es posible convertir una red insegura en un canal privado corporativo de alta fiabilidad."
+      </blockquote>
+      <p>
+        <strong>Consistencia:</strong> Cualquier discrepancia en los parámetros de la Fase 1 o 2 impide el establecimiento del túnel, subrayando la importancia de la precisión técnica.<br><br>
+        <strong>Transparencia:</strong> Para los usuarios finales, el proceso de cifrado es transparente, manteniendo la usabilidad de la red mientras se eleva el estándar de protección.<br><br>
+        <strong>Escalabilidad:</strong> Esta configuración permite a organizaciones interconectar múltiples sucursales de manera económica comparada con líneas dedicadas tradicionales.
+      </p>
+
+      <div style="display: flex; gap: 10px; margin-top: 20px;"> 
+          <a href="175842-act06.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar PDF</a>
+          <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Actividad validada por ITI-UPSLP</div>
+        </div>
+          </a>
+      </div>
+
+    </article>
     <div id="parcial2" class="section-content"><div class="card"><div style="opacity: 0.5; text-align: center;"><i class="fas fa-lock fa-3x"></i><br>Bloqueado</div></div></div>
     <div id="parcial3" class="section-content"><div class="card"><div style="opacity: 0.5; text-align: center;"><i class="fas fa-lock fa-3x"></i><br>Evaluación Final</div></div></div>
 
@@ -1290,7 +1435,6 @@
     </div>
 
     <div class="footer"><p>&copy; 2026 David Zarate Dominguez | UPSLP</p></div>
-  </div>
 
   <script>
     function showSection(sectionId) {
@@ -1326,3 +1470,4 @@
   </script>
 </body>
 </html>
+
