@@ -926,6 +926,13 @@
             <li>Priorizar inversiones basadas en el impacto real (técnico y legal). </li>
             <li>Fortalecer la resiliencia mediante controles proactivos como el MFA y los respaldos inmutables.</li></p>
 
+          <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Referencias Tecnicas</h2>
+          <div class="reflection-box">
+            <li>Shirey, R. (2007). <i>Internet Security Glossary, Version 2</i> (RFC 4949). Internet Engineering Task Force (IETF). <a href="https://datatracker.ietf.org/doc/html/rfc4949" target="_blank">https://datatracker.ietf.org/doc/html/rfc4949</a></li>
+            <li>International Telecommunication Union. (1991). <i>X.800: Security architecture for Open Systems Interconnection for CCITT applications</i>. ITU-T Recommendation. <a href="https://www.itu.int/rec/T-REC-X.800-199103-I/en" target="_blank">https://www.itu.int/rec/X.800</a></li>
+            <li>Stallings, W. (2017). <i>Cryptography and Network Security: Principles and Practice</i>. Pearson. (Texto base para la interpretación de servicios de seguridad).</li>
+          </div>
+
         <div style="display: flex; gap: 10px; margin-top: 20px;">    
         <a href="175842-Act02.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar PDF</a>
         <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Actividad validada por ITI-UPSLP</div>
@@ -1047,8 +1054,15 @@
       <code style="display: block; background: #000; color: #0f0; padding: 15px; border-radius: 5px;">1. iptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -j LOG --log-prefix "INTENTO_ENTRADA: "</code>
       <code style="display: block; background: #000; color: #0f0; padding: 15px; border-radius: 5px;">2. iiptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -m state --state NEW,ESTABLISHED -j ACCEPT</code>
 
-        <div class="reflection-box">Conclusion
-        <p>"La correcta interpretación de las tablas y cadenas en iptables es fundamental para el endurecimiento (hardening) de servidores Linux, permitiendo un control granular sobre el tráfico basado en estados y puertos específicos."</p></div>
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Conclusion</h2>
+        <p>"La correcta interpretación de las tablas y cadenas en iptables es fundamental para el endurecimiento (hardening) de servidores Linux, permitiendo un control granular sobre el tráfico basado en estados y puertos específicos."</p>
+
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Referencias Tecnicas</h2>
+        <div class="reflection-box">
+          <li>The Netfilter Project. (2024). <i>iptables(8) - Linux man page</i>. <a href="https://linux.die.net/man/8/iptables" target="_blank">Documentación Técnica de iptables</a></li>
+          <li>Purdy, K. (2022). <i>A Beginner’s Guide to iptables, the Linux Firewall</i>. DigitalOcean Community. <a href="https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands" target="_blank">Guía de Comandos y Flujo de Paquetes</a></li>
+          <li>Scarfone, K., & Hoffman, P. (2009). <i>NIST SP 800-41 Rev. 1: Guidelines on Firewalls and Firewall Policy</i>. National Institute of Standards and Technology. <a href="https://csrc.nist.gov/publications/detail/sp/800-41/rev-1/final" target="_blank">Manual de Políticas de Filtrado</a></li>
+        </div>
         
         <div style="display: flex; gap: 10px; margin-top: 20px;">
             <a href="175842-act03.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar PDF</a>
@@ -1125,11 +1139,17 @@
         iptables -A FORWARD -p tcp --dport 80 -j ACCEPT
       </code>
 
-      <div class="reflection-box">Conclusion
-        <p>"La implementación de estas reglas permite un control granular sobre el flujo de datos. Al utilizar el estado de las conexiones (<code>stateful inspection</code>), el firewall no solo filtra por puertos, sino que reconoce el contexto de la comunicación. Esta práctica es fundamental para reducir la superficie de ataque y asegurar que cada nodo de la red cumpla exclusivamente con su función designada sin exponer servicios vulnerables a internet."</p></div>
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Conclusion</h2>
+        <p>"La implementación de estas reglas permite un control granular sobre el flujo de datos. Al utilizar el estado de las conexiones (<code>stateful inspection</code>), el firewall no solo filtra por puertos, sino que reconoce el contexto de la comunicación. Esta práctica es fundamental para reducir la superficie de ataque y asegurar que cada nodo de la red cumpla exclusivamente con su función designada sin exponer servicios vulnerables a internet."</p>
 
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Referencias Tecnicas</h2>
+        <div class="reflection-box">
+          <li>The Netfilter Project. (2024). <i>iptables(8) - Linux man page</i>. <a href="https://linux.die.net/man/8/iptables" target="_blank">Documentación Técnica de iptables</a></li>
+          <li>Purdy, K. (2022). <i>A Beginner’s Guide to iptables, the Linux Firewall</i>. DigitalOcean Community. <a href="https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands" target="_blank">Guía de Comandos y Flujo de Paquetes</a></li>
+          <li>Scarfone, K., & Hoffman, P. (2009). <i>NIST SP 800-41 Rev. 1: Guidelines on Firewalls and Firewall Policy</i>. National Institute of Standards and Technology. <a href="https://csrc.nist.gov/publications/detail/sp/800-41/rev-1/final" target="_blank">Manual de Políticas de Filtrado</a></li>
+        </div>
 
-      <div style="display: flex; gap: 10px; margin-top: 20px;">
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
             <a href="175842-act04.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar PDF</a>
             <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Actividad validada por ITI-UPSLP</div>
         </div>
@@ -1278,8 +1298,14 @@
       <p>
         Para nosotros como estudiantes de Tecnologias de la Informacion, el dominio de estos marcos proporciona una ventaja competitiva: permite transformar una simple búsqueda de fallos en un proceso de auditoría formal. La tendencia actual apunta hacia la adopción de <strong>MITRE ATT&CK</strong> para complementar el pentesting tradicional, permitiendo que las organizaciones no solo sepan qué tan vulnerables son, sino cómo se comportaría un adversario real dentro de su infraestructura.
       </p>
-
-
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Referencias Tecnicas</h2>
+      <div class="reflection-box">
+        <li>MITRE Corporation. (2024) <i>MITRE ATT&CK v16.</i>. <a href="https://attack.mitre.org/" target="_blank">attack.mitre.org</a></li>
+        <li>OWASP Foundation. (2024). <i>IWeb Security Testing Guide (WSTG) (v. 4.2/5.0). <a href="https://owasp.org/www-project-web-security-testing-guide/" target="_blank">owasp.org/wstg </a></li>
+        <li>National Institute of Standards and Technology. (2008).  <i>Technical Guide to Information Security Testing and Assessment (NIST Special Publication 800-115). </i> U.S. Department of Commerce. <a href="https://csrc.nist.gov/pubs/sp/800/115/final" target="_blank">csrc.nist.gov</a></li>
+        <li>Herzog, P. (2010). <i>Open Source Security Testing Methodology Manual (OSSTMM) (v. 3). Institute for Security and Open Methodologies (ISECOM).  <a href="https://www.isecom.org/" target="_blank">isecom.org</a></li>
+        <li>PTES Board. (s. f.). <i>The Penetration Testing Execution Standard. <a href="http://www.pentest-standard.org/index.php/Main_Page" target="_blank">pentest-standard.org</a></li>
+      </div>
 
         <div style="display: flex; gap: 10px; margin-top: 20px;"> 
           <a href="175842-act05.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar PDF</a>
@@ -1411,6 +1437,13 @@
         <strong>Escalabilidad:</strong> Esta configuración permite a organizaciones interconectar múltiples sucursales de manera económica comparada con líneas dedicadas tradicionales.
       </p>
 
+      <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px;">Referencias Tecnicas</h2>
+      <div class="reflection-box">
+        <li>Cisco Systems. (2023). <i>Configuring Security for VPNs with IPsec</i>. <a href="https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_conn_vpnips/configuration/15-mt/sec-conn-vpnips-15-mt-book.html" target="_blank">Guía de Configuración de VPN en IOS</a></li>
+        <li>Frankel, S., & Krishnan, S. (2011). <i>IP Security (IPsec) and Internet Key Exchange (IKE) Document Roadmap</i> (RFC 6071). IETF. <a href="https://datatracker.ietf.org/doc/html/rfc6071" target="_blank">Estándares del Protocolo IPSec</a></li>
+        <li>Kent, S., & Seo, K. (2005). <i>Security Architecture for the Internet Protocol</i> (RFC 4301). <a href="https://datatracker.ietf.org/doc/html/rfc4301" target="_blank">Arquitectura de Seguridad IP</a></li>
+      </div>
+
       <div style="display: flex; gap: 10px; margin-top: 20px;"> 
           <a href="175842-act06.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar PDF</a>
           <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Actividad validada por ITI-UPSLP</div>
@@ -1422,7 +1455,7 @@
     <div id="parcial2" class="section-content"><div class="card"><div style="opacity: 0.5; text-align: center;"><i class="fas fa-lock fa-3x"></i><br>Bloqueado</div></div></div>
     <div id="parcial3" class="section-content"><div class="card"><div style="opacity: 0.5; text-align: center;"><i class="fas fa-lock fa-3x"></i><br>Evaluación Final</div></div></div>
 
- <div id="contacto" class="section-content" style="padding: 60px 20px;">
+    <div id="contacto" class="section-content" style="padding: 60px 20px;">
       <div class="card" style="max-width: 500px; margin: 0 auto; padding: 40px; border-radius: 20px; background: #1a1a1a; border: 1px solid #333;">
         <h3 style="color: #a78bfa; text-align: center; margin-bottom: 30px;">
           <i class="fas fa-paper-plane"></i> Contacto Académico
@@ -1447,6 +1480,7 @@
         </form>
       </div>
     </div>
+
 
     <div class="footer"><p>&copy; 2026 David Zarate Dominguez | UPSLP</p></div>
 
@@ -1484,5 +1518,4 @@
   </script>
 </body>
 </html>
-
 
