@@ -100,6 +100,28 @@
       .header-top { flex-direction: column; align-items: flex-start; gap: 15px; }
       .pdf-viewer { height: 400px; }
     }
+    /* Estilos para el Roadmap Visual */
+.roadmap-container { position: relative; padding: 40px 0; }
+.timeline-line { 
+    position: absolute; left: 50%; width: 2px; height: 100%; 
+    background: #fbbf24; transform: translateX(-50%); z-index: 1;
+}
+.timeline-item { width: 100%; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+.timeline-item.left { justify-content: flex-start; padding-right: 50%; }
+.timeline-item.right { justify-content: flex-end; padding-left: 50%; }
+.timeline-card { 
+    background: #1a1a1a; border: 1px solid #333; padding: 20px; 
+    border-radius: 15px; width: 90%; position: relative; z-index: 2;
+    transition: 0.3s;
+}
+.timeline-card:hover { border-color: #fbbf24; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(251, 191, 36, 0.1); }
+.lab-tag { background: #fbbf24; color: #000; padding: 3px 10px; border-radius: 5px; font-size: 10px; font-weight: bold; text-transform: uppercase; }
+.timeline-card img { width: 100%; border-radius: 8px; margin-top: 15px; border: 1px solid #444; }
+
+@media (max-width: 768px) {
+    .timeline-line { left: 20px; }
+    .timeline-item.left, .timeline-item.right { padding-left: 50px; padding-right: 0; justify-content: flex-start; }
+}
   </style>
 </head>
 <body>
@@ -115,11 +137,10 @@
     </div>
     <a onclick="showSection('inicio'); toggleMenu()" class="nav-link active"><i class="fas fa-terminal"></i> <span>Inicio</span></a>
     <a onclick="showSection('perfil'); toggleMenu()" class="nav-link"><i class="fas fa-user-astronaut"></i> <span>Perfil Estudiante</span></a>
-    <div style="height:1px; background:#4c1d95; margin: 10px 20px;"></div>
     <a onclick="showSection('parcial1'); toggleMenu()" class="nav-link"><i class="fas fa-folder-open"></i> <span>Actividades-Parcial 1</span></a>
-    <a onclick="showSection('parcial2'); toggleMenu()" class="nav-link"><i class="fas fa-folder"></i> <span>Actividades-Parcial 2</span></a>
+    <a onclick="showSection('proyectos'); toggleMenu()" class="nav-link"><i class="fas fa-folder-open"></i> <span>Proyectos</span></a>
+    <a onclick="showSection('parcial2'); toggleMenu()" class="nav-link"><i class="fas fa-folder"></i> <span>ROAD TO HALL OF FAME</span></a>
     <a onclick="showSection('parcial3'); toggleMenu()" class="nav-link"><i class="fas fa-folder"></i> <span>Actividades-Parcial 3</span></a>
-    <div style="height:1px; background:#4c1d95; margin: 10px 20px;"></div>
     <a onclick="showSection('contacto'); toggleMenu()" class="nav-link"><i class="fas fa-envelope-open-text"></i> <span>Contacto</span></a>
   </div>
 
@@ -1490,11 +1511,753 @@
           <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Actividad validada por ITI-UPSLP</div>
         </div>
           </a>
-      </div>
-
     </article>
-    <div id="parcial2" class="section-content"><div class="card"><div style="opacity: 0.5; text-align: center;"><i class="fas fa-lock fa-3x"></i><br>Bloqueado</div></div></div>
+    <div id="proyectos" class="section-content">
+      
+      <div id="proyectos-list">
+        <h3 style="color: #a78bfa; margin-bottom: 25px; border-bottom: 1px solid #333; padding-bottom: 15px;">
+          <i class="fas fa-project-diagram"></i> Proyectos Académicos y de Investigación
+        </h3>
+        
+        <div class="activity-grid">
+          <div class="activity-card" onclick="openArticle('pr01')">
+            <span class="tag" style="background: #ef4444; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px;">Video</span>
+            <h4>PR01: De la teoria a la practica: walkthrough en accion (guia y video)</h4>
+            <p>Demostrar la capacidad de aplicar conocimientos teóricos de seguridad informática en un entorno práctico, mediante la realización de un walkthrough detallado y la explicación de las técnicas y metodologías utilizadas para vulnerar una máquina virtual</p>
+          </div>
+          </div>
+          <div class="activity-grid">
+          <div class="activity-card" onclick="openArticle('pr02')">
+            <span class="tag" style="background: #ef4444; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px;">Investigación</span>
+            <h4>PR02: El eslabón más débil: diseño ético de una campaña de ingeniería social.</h4>
+            <p>Diseñar, implementar y evaluar de manera ética una simulación educativa dephishing, sustentada en el análisis comparativo de plataformas profesionales delmercado, con el propósito de medir el nivel de reconocimiento de amenazas deingeniería social en usuarios, interpretar los resultados mediante un sistema depuntuación global y reflexionar sobre la gestión responsable del riesgo humano en seguridad informática.</p>
+          </div>
+          </div>
+      </div>
+      <article id="pr01" class="article-view">
+    <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+    
+    <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #fbbf24;"></div>
+        <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #fbbf24; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática - Proyecto</h3>
+        <h1 style="font-size: 26px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;">PR01 - De la teoría a la práctica: walkthrough en acción</h1>
+        <div style="width: 60px; height: 4px; background: #fbbf24; margin: 20px auto; border-radius: 10px;"></div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(251, 191, 36, 0.05); border-radius: 15px; font-size: 12px; color: #bbb; border: 1px solid rgba(251, 191, 36, 0.2);">
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li><strong style="color: #fbbf24;">ESTUDIANTE:</strong> David Zarate Domínguez</li>
+                <li><strong style="color: #fbbf24;">FECHA:</strong> 24 de Febrero de 2025</li>
+            </ul>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li><strong style="color: #fbbf24;">INSTITUCIÓN:</strong> UPSLP</li>
+                <li><strong style="color: #fbbf24;">CARRERA:</strong> ITI</li>
+            </ul>
+        </div>
+        <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+            Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - UPSLP
+        </div>
+    </div>
+
+    <div class="content-body" style="color: #ccc; font-size: 15px; line-height: 1.8;">
+        
+        <h2 style="color: #fbbf24; border-left: 4px solid #fbbf24; padding-left: 15px; margin-top: 40px;">1. Introducción</h2>
+        <p>
+            Este proyecto demuestra la capacidad de aplicar conocimientos teóricos de seguridad informática en un entorno práctico controlado. El objetivo general es realizar un <strong>walkthrough detallado</strong> (recorrido técnico) que explique las técnicas y metodologías utilizadas para vulnerar una máquina virtual de entrenamiento, documentando cada fase desde el reconocimiento hasta la post-explotación.
+        </p>
+        <p>
+            Se seleccionó la máquina virtual <strong>Snakeoil</strong> de la plataforma VulnHub, la cual presenta diversos vectores de ataque que simulan fallos de configuración y software desactualizado en entornos reales.
+        </p>
+
+        <h2 style="color: #fbbf24; border-left: 4px solid #fbbf24; padding-left: 15px; margin-top: 40px;">2. Marco Teórico</h2>
+        <p>Para la ejecución de este Pentest, se siguieron las fases estándares de la metodología de hacking ético:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
+            <div style="background: #222; padding: 20px; border-radius: 10px; border-bottom: 2px solid #fbbf24;">
+                <h4 style="margin: 0 0 10px 0; color: #fbbf24;">Reconocimiento y Escaneo</h4>
+                <p style="font-size: 13px; margin: 0;">Uso de herramientas como <strong>Nmap</strong> para identificar puertos abiertos y servicios en ejecución.</p>
+            </div>
+            <div style="background: #222; padding: 20px; border-radius: 10px; border-bottom: 2px solid #fbbf24;">
+                <h4 style="margin: 0 0 10px 0; color: #fbbf24;">Análisis de Vulnerabilidades</h4>
+                <p style="font-size: 13px; margin: 0;">Investigación de exploits conocidos para los servicios detectados y enumeración de directorios web.</p>
+            </div>
+            <div style="background: #222; padding: 20px; border-radius: 10px; border-bottom: 2px solid #fbbf24;">
+                <h4 style="margin: 0 0 10px 0; color: #fbbf24;">Explotación y Post-Explotación</h4>
+                <p style="font-size: 13px; margin: 0;">Obtención de acceso inicial, escalada de privilegios y establecimiento de persistencia en el sistema.</p>
+            </div>
+        </div>
+
+        <h2 style="color: #fbbf24; border-left: 4px solid #fbbf24; padding-left: 15px; margin-top: 40px;">3. Demostración en Video</h2>
+        <div class="multimedia-container" style="margin: 30px 0; border: 1px solid #333;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                    src="https://www.youtube.com/embed/FX9umzmRPR0" 
+                    title="PR01 Walkthrough" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="multimedia-caption">
+                <i class="fas fa-video"></i> Walkthrough completo: Proceso de intrusión y escalada de privilegios en la máquina Snakeoil.
+            </div>
+        </div>
+
+        <h2 style="color: #fbbf24; border-left: 4px solid #fbbf24; padding-left: 15px; margin-top: 40px;">4. Conclusión</h2>
+        <p>
+            La práctica demostró que la seguridad de un sistema es tan fuerte como su eslabón más débil. A través de este walkthrough, se constató la importancia de mantener políticas de <strong>Hardening</strong> (endurecimiento) de sistemas, tales como el cierre de puertos innecesarios y la gestión robusta de permisos. La metodología aplicada permitió transformar un concepto abstracto en una evidencia técnica de aprendizaje significativo en ciberseguridad.
+        </p>
+
+        <h2 style="color: #fbbf24; border-left: 4px solid #fbbf24; padding-left: 15px; margin-top: 40px;">Bibliografía</h2>
+        <div class="reflection-box" style="font-size: 13px;">
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 10px;">EC-Council. (2024). <i>Certified Ethical Hacker (CEH) v12: Reconnaissance and Scanning Techniques</i>. EC-Council University Press.</li>
+                <li style="margin-bottom: 10px;">VulnHub. (2021). <i>Snakeoil: 1 - digitalworld.local</i>. Recuperado de <a href="https://www.vulnhub.com/entry/digitalworldlocal-snakeoil,738/" target="_blank" style="color: #fbbf24;">https://www.vulnhub.com/entry/snakeoil</a></li>
+                <li style="margin-bottom: 10px;">Offensive Security. (2023). <i>Metasploit Unleashed: Mastering the penetration testing framework</i>. Recuperado de <a href="https://www.offsec.com/metasploit-unleashed/" target="_blank" style="color: #fbbf24;">https://www.offsec.com/metasploit</a></li>
+            </ul>
+        </div>
+
+        <div style="display: flex; gap: 15px; margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; flex-wrap: wrap;">
+            <a href="175842-PR01.mp4" class="export-btn" style="background: #fbbf24; color: #000;" download>
+                <i class="fas fa-file-video"></i> Descargar Video (MP4)
+            </a>
+            <a href="https://www.youtube.com/watch?v=FX9umzmRPR0" target="_blank" class="export-btn" style="background: #ff0000; color: #fff;">
+                <i class="fab fa-youtube"></i> Ver en YouTube
+            </a>
+            <div style="color: #666; font-size: 12px; align-self: center;">
+                <i class="fas fa-info-circle"></i> Duración estimada de práctica: 07 horas.
+            </div>
+        </div>
+    </div>
+</article>
+      <article id="pr02" class="article-view">
+    <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver a Proyectos</button>
+    
+    <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #ef4444;"></div>
+        <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #ef4444; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática</h3>
+        <h1 style="font-size: 26px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;">PR02 - Investigación Comparativa: Plataformas de Simulación de Phishing</h1>
+        <div style="width: 60px; height: 4px; background: #ef4444; margin: 20px auto; border-radius: 10px;"></div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(239, 68, 68, 0.05); border-radius: 15px; font-size: 12px; color: #bbb; border: 1px solid rgba(239, 68, 68, 0.2);">
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li><strong style="color: #ef4444;">ESTUDIANTE:</strong> David Zarate Domínguez</li>
+                <li><strong style="color: #ef4444;">FECHA:</strong> 6 de Marzo del 2025</li>
+            </ul>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li><strong style="color: #ef4444;">INSTITUCIÓN:</strong> UPSLP</li>
+                <li><strong style="color: #ef4444;">CARRERA:</strong> ITI</li>
+            </ul>
+        </div>
+        <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+            Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - PROYECTO PR02
+        </div>
+    </div>
+
+    <div class="content-body" style="color: #ccc; font-size: 15px; line-height: 1.8;">
+        
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">1. Introducción y Propósito Estratégico</h2>
+        <p>El phishing sigue consolidándose como el vector de ataque principal a nivel global, responsable de más del 80% de los incidentes de brecha de datos documentados. El objetivo central de esta investigación es analizar exhaustivamente las herramientas tecnológicas que permiten a las organizaciones medir, cuantificar y mitigar este riesgo humano mediante el entrenamiento continuo y la concientización (Security Awareness Training - SAT).</p>
+        <p>A través de la simulación controlada, el propósito es facilitar la transición de un modelo de seguridad perimetral tradicional y punitivo hacia la consolidación de una <strong>Cultura de Seguridad Activa (Human Firewall)</strong>. Esto implica capacitar a los empleados para que actúen como sensores humanos de detección de amenazas en tiempo real.</p>
+        
+        
+        
+        <div style="background: #111; border-left: 3px solid #3b82f6; padding: 15px 20px; margin: 25px 0; border-radius: 0 10px 10px 0;">
+            <p style="margin: 0; font-size: 14px; color: #9ca3af;"><em>"La tecnología por sí sola no puede detener el phishing. La última línea de defensa es siempre el usuario final equipado con el conocimiento adecuado en el momento preciso."</em></p>
+        </div>
+
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">2. Fichas Descriptivas de Plataformas y Arquitectura</h2>
+        <p>A continuación se detallan las características fundamentales de las soluciones líderes del mercado, evaluando sus capacidades de automatización, integración con infraestructuras de correo y enfoques metodológicos de aprendizaje.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+            
+            <div style="background: #111; padding: 25px; border-radius: 15px; border: 1px solid #333; transition: transform 0.3s ease;">
+                <h4 style="color: #fff; margin-top: 0; font-size: 18px;"><i class="fas fa-shield-alt" style="color: #ef4444;"></i> KnowBe4</h4>
+                <p style="font-size: 13px; color: #bbb;">Reconocido como el líder absoluto en el Cuadrante Mágico de Gartner. Destaca por su módulo <strong>Virtual Risk Officer (VRO)</strong>, un sistema que utiliza algoritmos de Machine Learning para predecir el <em>Personal Risk Score</em> (PRS) de cada usuario basándose en su comportamiento histórico, interacciones con correos y resultados de pruebas.</p>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed #444;">
+                    <span style="font-size: 11px; color: #ef4444; font-weight: bold; display: block; margin-bottom: 5px;">VENTAJA COMPETITIVA:</span> 
+                    <span style="font-size: 12px; color: #ddd;">Biblioteca masiva de contenido global y plantillas actualizadas diariamente según amenazas reales (PhishER).</span>
+                </div>
+            </div>
+
+            <div style="background: #111; padding: 25px; border-radius: 15px; border: 1px solid #333; transition: transform 0.3s ease;">
+                <h4 style="color: #fff; margin-top: 0; font-size: 18px;"><i class="fas fa-lock" style="color: #3b82f6;"></i> Proofpoint (PSAT)</h4>
+                <p style="font-size: 13px; color: #bbb;">Propone un enfoque integral de seguridad en el correo electrónico combinado con concientización. Identifica automáticamente a las <strong>VAP (Very Attacked People)</strong> cruzando datos de su gateway de seguridad (SEG) con el comportamiento del usuario en las simulaciones.</p>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed #444;">
+                    <span style="font-size: 11px; color: #3b82f6; font-weight: bold; display: block; margin-bottom: 5px;">VENTAJA COMPETITIVA:</span> 
+                    <span style="font-size: 12px; color: #ddd;">Inteligencia de amenazas en tiempo real, permitiendo simular ataques idénticos a los que están siendo bloqueados en la periferia.</span>
+                </div>
+            </div>
+
+            <div style="background: #111; padding: 25px; border-radius: 15px; border: 1px solid #333; transition: transform 0.3s ease;">
+                <h4 style="color: #fff; margin-top: 0; font-size: 18px;"><i class="fas fa-gamepad" style="color: #10b981;"></i> Hoxhunt</h4>
+                <p style="font-size: 13px; color: #bbb;">Pioneros en el aprendizaje basado en la <strong>Gamificación y Psicología Conductual</strong>. En lugar de campañas estáticas, Hoxhunt emite simulaciones continuas e individualizadas que aumentan su complejidad mediante IA a medida que el usuario demuestra mayor destreza.</p>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed #444;">
+                    <span style="font-size: 11px; color: #10b981; font-weight: bold; display: block; margin-bottom: 5px;">VENTAJA COMPETITIVA:</span> 
+                    <span style="font-size: 12px; color: #ddd;">Las tasas de reporte de amenazas más altas del mercado gracias a su enfoque positivo (recompensas vs. castigos).</span>
+                </div>
+            </div>
+
+            <div style="background: #111; padding: 25px; border-radius: 15px; border: 1px solid #333; transition: transform 0.3s ease;">
+                <h4 style="color: #fff; margin-top: 0; font-size: 18px;"><i class="fas fa-users" style="color: #f59e0b;"></i> Cofense</h4>
+                <p style="font-size: 13px; color: #bbb;">Se especializa en el concepto de <strong>Detección Colectiva (Crowdsourced Intelligence)</strong>. Su enfoque primario no es solo educar, sino utilizar a los empleados entrenados para nutrir la plataforma <em>Cofense Triage</em>, acelerando los tiempos de respuesta del SOC (Security Operations Center).</p>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed #444;">
+                    <span style="font-size: 11px; color: #f59e0b; font-weight: bold; display: block; margin-bottom: 5px;">VENTAJA COMPETITIVA:</span> 
+                    <span style="font-size: 12px; color: #ddd;">Orquestación y automatización (SOAR) para eliminar correos maliciosos de todas las bandejas una vez que un usuario lo reporta.</span>
+                </div>
+            </div>
+
+            <div style="background: #111; padding: 25px; border-radius: 15px; border: 1px solid #333; transition: transform 0.3s ease;">
+                <h4 style="color: #fff; margin-top: 0; font-size: 18px;"><i class="fas fa-robot" style="color: #8b5cf6;"></i> Phished</h4>
+                <p style="font-size: 13px; color: #bbb;">Destaca como una plataforma <strong>Zero-Touch (100% automatizada)</strong>. Utiliza algoritmos avanzados para raspar información pública (OSINT) y generar simulaciones hiper-personalizadas de Spear Phishing sin requerir intervención del equipo de TI.</p>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed #444;">
+                    <span style="font-size: 11px; color: #8b5cf6; font-weight: bold; display: block; margin-bottom: 5px;">VENTAJA COMPETITIVA:</span> 
+                    <span style="font-size: 12px; color: #ddd;">Drástica reducción de la carga operativa administrativa y campañas generadas dinámicamente según el perfil de LinkedIn de la víctima.</span>
+                </div>
+            </div>
+
+            <div style="background: #111; padding: 25px; border-radius: 15px; border: 1px solid #333; transition: transform 0.3s ease;">
+                <h4 style="color: #fff; margin-top: 0; font-size: 18px;"><i class="fas fa-video" style="color: #ef4444;"></i> Ninjio</h4>
+                <p style="font-size: 13px; color: #bbb;">Aborda el entrenamiento mediante el <strong>Storytelling Cinematográfico</strong>. Cada módulo es un micro-episodio animado (estilo anime/cómic) escrito por guionistas de Hollywood y basado en brechas de seguridad documentadas en las noticias.</p>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed #444;">
+                    <span style="font-size: 11px; color: #ef4444; font-weight: bold; display: block; margin-bottom: 5px;">VENTAJA COMPETITIVA:</span> 
+                    <span style="font-size: 12px; color: #ddd;">Mayor nivel de engagement, retención de conceptos a largo plazo y conexión emocional con las consecuencias de un ataque.</span>
+                </div>
+            </div>
+
+            <div style="background: #111; padding: 25px; border-radius: 15px; border: 1px solid #333; transition: transform 0.3s ease;">
+                <h4 style="color: #fff; margin-top: 0; font-size: 18px;"><i class="fas fa-envelope-open-text" style="color: #3b82f6;"></i> Mimecast (Awareness Training)</h4>
+                <p style="font-size: 13px; color: #bbb;">Presenta una <strong>integración nativa</strong> con su ecosistema de seguridad de correo perimetral. Su Perfil se centra en el entrenamiento conductual para reducir el riesgo humano de manera automatizada.</p>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed #444;">
+                    <span style="font-size: 11px; color: #3b82f6; font-weight: bold; display: block; margin-bottom: 5px;">FORTALEZA Y SINERGIA:</span> 
+                    <span style="font-size: 12px; color: #ddd;">Utiliza el humor y videos cortos para combatir la "fatiga de seguridad". Los datos de las simulaciones alimentan directamente las políticas de filtrado del correo real.</span>
+                </div>
+            </div>
+
+            <div style="background: #111; padding: 25px; border-radius: 15px; border: 1px solid #333; transition: transform 0.3s ease;">
+                <h4 style="color: #fff; margin-top: 0; font-size: 18px;"><i class="fas fa-graduation-cap" style="color: #10b981;"></i> Infosec IQ</h4>
+                <p style="font-size: 13px; color: #bbb;">Plataforma con un <strong>enfoque pedagógico profundo</strong> y un fuerte énfasis en cumplimiento (Compliance). Es ideal para organizaciones con normativas estrictas de capacitación.</p>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed #444;">
+                    <span style="font-size: 11px; color: #10b981; font-weight: bold; display: block; margin-bottom: 5px;">FORTALEZA Y ANÁLISIS:</span> 
+                    <span style="font-size: 12px; color: #ddd;">Alineada con NIST, ISO 27001 y GDPR. Sus dashboards son extremadamente granulares, permitiendo ver el progreso por departamentos o geolocalización.</span>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 50px;">3. Análisis Paramétrico y Tabla Técnica Comparativa</h2>
+        <p>Para determinar la viabilidad de implementación, se han evaluado cuatro dimensiones críticas: El nivel de Inteligencia Artificial aplicado, la metodología pedagógica principal, las capacidades de integración con el SOC para respuesta a incidentes, y la madurez de la métrica de reporte.</p>
+        
+        <div style="overflow-x: auto; border-radius: 15px; border: 1px solid #333; margin: 25px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <table style="width: 100%; border-collapse: collapse; background: #1a1a1a; font-size: 13px; text-align: left;">
+                <thead style="background: #0f0f0f; color: #ef4444;">
+                    <tr>
+                        <th style="padding: 18px; border-bottom: 2px solid #ef4444; width: 20%;">Plataforma</th>
+                        <th style="padding: 18px; border-bottom: 2px solid #ef4444; width: 25%;">Integración de IA & ML</th>
+                        <th style="padding: 18px; border-bottom: 2px solid #ef4444; width: 25%;">Enfoque y Retención</th>
+                        <th style="padding: 18px; border-bottom: 2px solid #ef4444; width: 15%;">Botón de Reporte (Phish Alert)</th>
+                        <th style="padding: 18px; border-bottom: 2px solid #ef4444; width: 15%;">Capacidad SOC / SOAR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #333; transition: background 0.2s;">
+                        <td style="padding: 15px; font-weight: bold; color: white;">KnowBe4</td>
+                        <td style="padding: 15px; color: #bbb;">VRO Predictivo, Modelado de Riesgo</td>
+                        <td style="padding: 15px; color: #bbb;">Higiene Digital, Cumplimiento Normativo</td>
+                        <td style="padding: 15px; color: #10b981;">Nativo (Phish Alert Button)</td>
+                        <td style="padding: 15px; color: #f59e0b;">Media (Requiere PhishER)</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #333; background: rgba(255, 255, 255, 0.02);">
+                        <td style="padding: 15px; font-weight: bold; color: white;">Hoxhunt</td>
+                        <td style="padding: 15px; color: #bbb;">IA Adaptativa, Auto-escala de dificultad</td>
+                        <td style="padding: 15px; color: #bbb;">Gamificación, Micro-aprendizaje</td>
+                        <td style="padding: 15px; color: #10b981;">Integrado + Recompensas</td>
+                        <td style="padding: 15px; color: #10b981;">Alta (Respuesta automatizada)</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #333;">
+                        <td style="padding: 15px; font-weight: bold; color: white;">Cofense</td>
+                        <td style="padding: 15px; color: #bbb;">Mínima (Generación manual de plantillas)</td>
+                        <td style="padding: 15px; color: #bbb;">Detección Humana Colectiva</td>
+                        <td style="padding: 15px; color: #10b981;">Nativo (Reporter)</td>
+                        <td style="padding: 15px; color: #ef4444; font-weight: bold;">Excelente (Triage nativo)</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #333; background: rgba(255, 255, 255, 0.02);">
+                        <td style="padding: 15px; font-weight: bold; color: white;">Proofpoint</td>
+                        <td style="padding: 15px; color: #bbb;">Media (Conexión directa con TAP/SEG)</td>
+                        <td style="padding: 15px; color: #bbb;">Basado en Riesgo y Amenazas Reales</td>
+                        <td style="padding: 15px; color: #10b981;">Nativo (PhishAlarm)</td>
+                        <td style="padding: 15px; color: #10b981;">Alta (Ecosistema cerrado)</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #333;">
+                        <td style="padding: 15px; font-weight: bold; color: white;">Phished</td>
+                        <td style="padding: 15px; color: #bbb;">Generación Autónoma via OSINT</td>
+                        <td style="padding: 15px; color: #bbb;">Spear-phishing Continuo</td>
+                        <td style="padding: 15px; color: #10b981;">Nativo</td>
+                        <td style="padding: 15px; color: #f59e0b;">Baja</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #333;">
+                        <td style="padding: 15px; font-weight: bold; color: white;">Ninjio</td>
+                        <td style="padding: 15px; color: #bbb;">Baja (Contenido curado)</td>
+                        <td style="padding: 15px; color: #bbb;">Storytelling Animado (Engagement)</td>
+                        <td style="padding: 15px; color: #10b981;">Nativo</td>
+                        <td style="padding: 15px; color: #f59e0b;">Baja</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #333; background: rgba(255, 255, 255, 0.02);">
+                        <td style="padding: 15px; font-weight: bold; color: white;">Mimecast</td>
+                        <td style="padding: 15px; color: #bbb;">Alta (Análisis de riesgo)</td>
+                        <td style="padding: 15px; color: #bbb;">Humor / Micro-aprendizaje</td>
+                        <td style="padding: 15px; color: #10b981;">Nativo</td>
+                        <td style="padding: 15px; color: #ef4444; font-weight: bold;">Excelente (Integración SEG)</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #333;">
+                        <td style="padding: 15px; font-weight: bold; color: white;">Infosec IQ</td>
+                        <td style="padding: 15px; color: #bbb;">Media (Rutas de aprendizaje IA)</td>
+                        <td style="padding: 15px; color: #bbb;">Pedagógico / Cumplimiento</td>
+                        <td style="padding: 15px; color: #10b981;">Nativo</td>
+                        <td style="padding: 15px; color: #f59e0b;">Media</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 50px;">4. Enfoque Ético, Marco Legal y Metodología de Implementación</h2>
+        <p>El despliegue de simulaciones de phishing en entornos corporativos requiere un marco de gobernanza estricto. Las campañas de ingeniería social interna pueden generar fricción laboral o violar normativas de privacidad si no se estructuran adecuadamente.</p>
+        
+        <div style="background: rgba(167, 139, 250, 0.05); padding: 30px; border-radius: 15px; border: 1px solid rgba(167, 139, 250, 0.2); margin-top: 20px;">
+            <p style="margin-top: 0; margin-bottom: 20px; font-size: 16px;">Para cumplir con la ética profesional en ciberseguridad, la ejecución de este proyecto recomienda los siguientes pilares fundamentales:</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; border-left: 3px solid #ef4444;">
+                    <strong style="color: #fff; font-size: 15px; display: block; margin-bottom: 5px;">1. El "Momento Educativo" (Teachable Moment) y Política de No Punición</strong>
+                    <span style="color: #bbb; font-size: 14px;">El instante exacto en el que un empleado "cae" en una simulación y hace clic, es cuando su receptividad al aprendizaje es máxima. Se debe mostrar una landing page inmediata, amigable y que explique *qué bandera roja omitió*. El error **nunca** debe ser motivo de sanciones disciplinarias o despido, sino un detonante para asignar micro-entrenamiento de refuerzo positivo.</span>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; border-left: 3px solid #3b82f6;">
+                    <strong style="color: #fff; font-size: 15px; display: block; margin-bottom: 5px;">2. Transparencia Organizacional y Comité de Crisis</strong>
+                    <span style="color: #bbb; font-size: 14px;">Es imperativo informar previamente a los departamentos de Recursos Humanos (RRHH), Sindicatos y al HelpDesk sobre el cronograma de campañas. Simular correos sobre "Despidos masivos", "Aumentos de salario falsos" o "Crisis sanitarias" cruzando límites éticos puede causar daños emocionales severos o crisis de relaciones públicas internas y deben evitarse.</span>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; border-left: 3px solid #10b981;">
+                    <strong style="color: #fff; font-size: 15px; display: block; margin-bottom: 5px;">3. Cumplimiento Normativo y Privacidad de Datos</strong>
+                    <span style="color: #bbb; font-size: 14px;">Los datos de las tasas de clics individuales y vulnerabilidad del personal deben tratarse como Información Confidencial. En regiones bajo normativas como GDPR, CCPA o la Ley Federal de Protección de Datos Personales (LFPDPPP en México), recopilar información sobre qué empleado falla recurrentemente exige anonimización en los reportes a directivos, exponiendo únicamente métricas departamentales globales.</span>
+                </div>
+            </div>
+        </div> 
+
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 50px;">5. Conclusión: Hacia una Resiliencia Cognitiva</h2>
+            <div style="background: linear-gradient(135deg, rgba(167, 139, 250, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%); padding: 30px; border-radius: 15px; border: 1px solid rgba(167, 139, 250, 0.3); line-height: 1.8;">
+                <p style="margin-top: 0; color: #fff; font-weight: 500;">
+                    La investigación de estas plataformas demuestra que la simulación de phishing ha evolucionado de ser una simple prueba técnica a convertirse en una herramienta de <strong>Ingeniería del Comportamiento</strong>. No basta con desplegar tecnología perimetral (firewalls o gateways de correo) si el eslabón humano permanece vulnerable a tácticas de persuasión psicológica.
+                </p>
+                
+                <p style="color: #ccc;">
+                    Las soluciones analizadas como <em>KnowBe4</em> o <em>Hoxhunt</em> marcan una pauta clara: la efectividad no reside en la dificultad del engaño, sino en la capacidad de generar un <strong>"hábito de reporte"</strong>. Al integrar IA para personalizar ataques, las organizaciones pueden anticiparse a las amenazas reales, transformando a cada empleado en un sensor activo que nutre al SOC en tiempo real. 
+                </p>
+                <p style="color: #ccc; margin-bottom: 0;">
+                    En última instancia, el éxito de un programa de simulación de phishing no se mide por cuántos usuarios hacen clic, sino por la velocidad con la que la amenaza es identificada, reportada y neutralizada por la comunidad interna, logrando así una verdadera <strong>Resiliencia Cognitiva</strong> ante el panorama de ciberamenazas modernas.
+                </p>
+            </div>
+
+            <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 50px;">Referencias Bibliográficas </h2>
+            <div class="reflection-box" style="background: #111; padding: 25px; border-radius: 15px; border: 1px solid #333; font-size: 13px; color: #bbb;">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 15px; padding-left: 20px; text-indent: -20px;">
+                        Cofense. (2023). <i>Annual State of Phishing Report: Crowdsourced Intelligence and Email Security Trends</i>. <a href="https://cofense.com/" target="_blank" style="color: #ef4444; text-decoration: none;">cofense.com</a>
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 20px; text-indent: -20px;">
+                        Gartner, Inc. (2024). <i>Magic Quadrant for Security Awareness Computer-Based Training</i>. Gartner Reprint. <a href="https://www.gartner.com/" target="_blank" style="color: #ef4444; text-decoration: none;">gartner.com</a>
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 20px; text-indent: -20px;">
+                        Herzog, P. (2010). <i>Open Source Security Testing Methodology Manual (OSSTMM) (v. 3)</i>. Institute for Security and Open Methodologies (ISECOM). <a href="https://www.isecom.org/" target="_blank" style="color: #ef4444; text-decoration: none;">isecom.org</a>
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 20px; text-indent: -20px;">
+                        Infosec Institute. (2024). <i>Infosec IQ: Phishing Simulation and Security Awareness Training Roadmap</i>. <a href="https://www.infosecinstitute.com/iq/" target="_blank" style="color: #ef4444; text-decoration: none;">infosecinstitute.com</a>
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 20px; text-indent: -20px;">
+                        KnowBe4. (2024). <i>Phishing Industry Benchmarking Report: Analysis by Industry and Organization Size</i>. <a href="https://www.knowbe4.com/" target="_blank" style="color: #ef4444; text-decoration: none;">knowbe4.com</a>
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 20px; text-indent: -20px;">
+                        Mimecast Services Limited. (2024). <i>Mimecast Awareness Training: Combating Security Fatigue with Behavior Science</i>. <a href="https://www.mimecast.com/" target="_blank" style="color: #ef4444; text-decoration: none;">mimecast.com</a>
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 20px; text-indent: -20px;">
+                        MITRE Corporation. (2024). <i>MITRE ATT&CK v16: Adversary Tactics and Techniques Based on Real-World Observations</i>. <a href="https://attack.mitre.org/" target="_blank" style="color: #ef4444; text-decoration: none;">attack.mitre.org</a>
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 20px; text-indent: -20px;">
+                        National Institute of Standards and Technology. (2008). <i>Technical Guide to Information Security Testing and Assessment (NIST Special Publication 800-115)</i>. U.S. Department of Commerce. <a href="https://csrc.nist.gov/pubs/sp/800/115/final" target="_blank" style="color: #ef4444; text-decoration: none;">csrc.nist.gov</a>
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 20px; text-indent: -20px;">
+                        OWASP Foundation. (2024). <i>Web Security Testing Guide (WSTG) (v. 4.2/5.0)</i>. <a href="https://owasp.org/www-project-web-security-testing-guide/" target="_blank" style="color: #ef4444; text-decoration: none;">owasp.org/wstg</a>
+                    </li>
+                    <li style="margin-bottom: 15px; padding-left: 20px; text-indent: -20px;">
+                        PTES Board. (s. f.). <i>The Penetration Testing Execution Standard</i>. <a href="http://www.pentest-standard.org/" target="_blank" style="color: #ef4444; text-decoration: none;">pentest-standard.org</a>
+                    </li>
+                </ul>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 50px; padding: 30px; background: rgba(255,255,255,0.03); border-radius: 20px; border: 1px dashed #444;">
+        <p style="color: #888; margin: 0; font-size: 14px;">Para una revisión detallada de comandos y evidencias:</p>
+        <a href="Zarate Dominguez David-175842.pdf" class="export-btn" style="background: #c90c02; color: #000; font-weight: bold; padding: 15px 35px; border-radius: 50px; text-decoration: none; display: flex; align-items: center; gap: 10px; transition: 0.3s;" download>
+            <i class="fas fa-file-pdf" style="font-size: 20px;"></i> DESCARGAR REPORTE COMPLETO (PR02)
+        </a>
+        <div style="color: #666; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">
+            <i class="fas fa-certificate"></i> Documento Validado por la Academia de TI - UPSLP
+        </div>
+
+    </div>
+</article>
+    </div>
+
+    <div id="parcial2" class="section-content">
+      
+      <div id="proyectos-list">
+        <h3 style="color: #a78bfa; margin-bottom: 25px; border-bottom: 1px solid #333; padding-bottom: 15px;">
+          <i class="fas fa-project-diagram"></i>  ROAD TO HALL OF FAME – SQL Injection
+        </h3>
+        
+        <div class="activity-grid">
+          <div class="activity-card" onclick="openArticle('act08')">
+            <span class="tag" style="background: #ef4444; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px;">Laboratorios</span>
+            <h4>Actividad 08: SQL Injection</h4>
+            <p>Estructurar e implementar dentro del sitio web del Portafolio Digitalun nuevo apartado de navegación denominado ROAD TO HALL OFFAME con su submenú SQL Injection, asegurando coherenciaarquitectónica, usabilidad y correcta funcionalidad de enlaces.</p>
+          </div>
+          </div>
+      </div>
+      <article id="act08" class="article-view" style="display: none;">
+    <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+
+    <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2a1a00 100%); padding: 40px; border-radius: 20px; border: 1px solid #fbbf24; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #fbbf24;"></div>
+        <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #fbbf24; letter-spacing: 5px; margin-bottom: 10px;">CNO V - Road to Hall of Fame</h3>
+        <h1 style="font-size: 32px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;">Act.08 - ROAD TO HALL OF FAME (SQL INJECTION).</h1>
+        <div style="width: 100px; height: 2px; background: #fbbf24; margin: 20px auto; border-radius: 10px;"></div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; text-align: left; max-width: 850px; margin: 0 auto; padding: 25px; background: rgba(251, 191, 36, 0.05); border-radius: 15px; font-size: 11px; color: #ddd; border: 1px solid rgba(251, 191, 36, 0.2);">
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li><strong style="color: #fbbf24;"><i class="fas fa-user-shield"></i></strong> Pedro Damián Jasso Dávila</li>
+                <li><strong style="color: #fbbf24;"><i class="fas fa-user-shield"></i></strong> Gisela Geraldine Moreno Solís</li>
+                <li><strong style="color: #fbbf24;"><i class="fas fa-user-shield"></i></strong> José Armando Palomo Cerdá</li>
+                <li><strong style="color: #3b82f6;">FECHA:</strong> 30 de enero de 2025</li>
+                <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
+            </ul>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li><strong style="color: #fbbf24;"><i class="fas fa-user-shield"></i></strong> David Zarate Domínguez</li>
+                <li><strong style="color: #fbbf24;"><i class="fas fa-user-shield"></i></strong> Eduardo Zorrilla Rivera</li>
+                <li><strong style="color: #fbbf24;"><i class="fas fa-user-shield"></i></strong> Juan Diego Aguilar Espinoza</li>
+                <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2 style="color: #fbbf24; border-left: 4px solid #fbbf24; padding-left: 15px;">Introducción Técnica</h2>
+    <p style="color: #ccc; line-height: 1.6; margin-bottom: 40px;">
+        La Inyección SQL (SQLi), a pesar de ser una vulnerabilidad documentada desde hace décadas, continúa figurando de forma prominente en los primeros puestos del OWASP Top 10 (clasificada bajo la categoría A03:2021-Injection). Su persistencia se debe a la complejidad de implementar una validación de datos exhaustiva en arquitecturas de software cada vez más dinámicas y distribuidas. Un fallo en este control permite que un actor malintencionado "inyecte" comandos SQL en las consultas originales, alterando su lógica programada.Esta sección documenta el <strong>Master Path</strong>: un recorrido técnico por 18 laboratorios especializados que abarcan desde la manipulación de lógica simple hasta la exfiltración avanzada de datos fuera de banda.
+    </p>
+
+<h2 style="color: #fbbf24; border-left: 4px solid #fbbf24; padding-left: 15px; margin-top: 50px;">1. Fundamentos de Bases de Datos</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+    <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; border: 1px solid #333;">
+        <h4 style="color: #fbbf24; margin-top: 0;"><i class="fas fa-database"></i> Estructura RDBMS</h4>
+        <p style="font-size: 14px; color: #bbb;">Las bases de datos relacionales organizan la información en tablas conectadas mediante claves. Las aplicaciones web generan consultas dinámicas para recuperar datos según la interacción del usuario.</p>
+    </div>
+    <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; border: 1px solid #333;">
+        <h4 style="color: #fbbf24; margin-top: 0;"><i class="fas fa-terminal"></i> Comandos Clave SQL</h4>
+        <ul style="font-size: 13px; color: #aaa; padding-left: 15px;">
+            <li><strong style="color: #fff;">SELECT/WHERE:</strong> Recuperación y filtrado.</li>
+            <li><strong style="color: #fff;">UNION:</strong> Combinación de resultados (clave en ataques).</li>
+            <li><strong style="color: #fff;">-- / #:</strong> Comentarios para anular lógica de seguridad.</li>
+        </ul>
+    </div>
+</div>
+
+
+
+<h2 style="color: #fbbf24; border-left: 4px solid #fbbf24; padding-left: 15px; margin-top: 50px;">2. Clasificación de Ataques SQLi</h2>
+<p style="color: #ccc; margin-bottom: 25px;">La inyección ocurre cuando datos del usuario se concatenan directamente en consultas SQL sin validación adecuada. Se clasifican según el método de recepción de datos:</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+    <div style="background: #111; padding: 20px; border-radius: 12px; border-top: 3px solid #fbbf24;">
+        <h4 style="color: #fbbf24; margin: 0 0 10px 0;">A. In-band (Clásico)</h4>
+        <p style="font-size: 13px; color: #888;">El mismo canal se usa para el ataque y los resultados.</p>
+        <ul style="font-size: 12px; color: #bbb; padding-left: 15px;">
+            <li><strong>Union-based:</strong> Extrae datos de otras tablas.</li>
+            <li><strong>Error-based:</strong> Revela estructura mediante mensajes de error.</li>
+        </ul>
+    </div>
+    <div style="background: #111; padding: 20px; border-radius: 12px; border-top: 3px solid #fbbf24;">
+        <h4 style="color: #fbbf24; margin: 0 0 10px 0;">B. Blind (Ciego)</h4>
+        <p style="font-size: 13px; color: #888;">Sin datos directos; se deduce la información.</p>
+        <ul style="font-size: 12px; color: #bbb; padding-left: 15px;">
+            <li><strong>Boolean-based:</strong> Respuestas binarias (V/F).</li>
+            <li><strong>Time-based:</strong> Pausas en la respuesta (SLEEP).</li>
+        </ul>
+    </div>
+    <div style="background: #111; padding: 20px; border-radius: 12px; border-top: 3px solid #fbbf24;">
+        <h4 style="color: #fbbf24; margin: 0 0 10px 0;">C. Out-of-band (OOB)</h4>
+        <p style="font-size: 13px; color: #888;">Uso de canales alternos (DNS/HTTP).</p>
+        <p style="font-size: 12px; color: #bbb;">Utilizado cuando el atacante no puede recibir respuesta directa y el servidor tiene permisos de red.</p>
+    </div>
+</div>
+
+
+
+<h2 style="color: #fbbf24; border-left: 4px solid #fbbf24; padding-left: 15px; margin-top: 50px;">3. Impacto en la Tríada CIA</h2>
+<div style="display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 200px; text-align: center; background: rgba(251, 191, 36, 0.05); padding: 20px; border-radius: 15px;">
+        <i class="fas fa-eye-slash" style="color: #fbbf24; font-size: 24px; margin-bottom: 10px;"></i>
+        <h5 style="margin: 0; color: #fff;">Confidencialidad</h5>
+        <p style="font-size: 12px; color: #888;">Acceso a datos sensibles y contraseñas.</p>
+    </div>
+    <div style="flex: 1; min-width: 200px; text-align: center; background: rgba(251, 191, 36, 0.05); padding: 20px; border-radius: 15px;">
+        <i class="fas fa-edit" style="color: #fbbf24; font-size: 24px; margin-bottom: 10px;"></i>
+        <h5 style="margin: 0; color: #fff;">Integridad</h5>
+        <p style="font-size: 12px; color: #888;">Alteración o borrado de registros críticos.</p>
+    </div>
+    <div style="flex: 1; min-width: 200px; text-align: center; background: rgba(251, 191, 36, 0.05); padding: 20px; border-radius: 15px;">
+        <i class="fas fa-server" style="color: #fbbf24; font-size: 24px; margin-bottom: 10px;"></i>
+        <h5 style="margin: 0; color: #fff;">Disponibilidad</h5>
+        <p style="font-size: 12px; color: #888;">Denegación de servicio (DoS) por carga.</p>
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
+    <div>
+        <h4 style="color: #fbbf24;"><i class="fas fa-vial"></i> Payloads Comunes</h4>
+        <div style="background: #000; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 12px; color: #4ade80; border: 1px solid #333;">
+            <div style="margin-bottom: 5px;"><span style="color: #888;"># Detección</span><br>' OR 1=1--</div>
+            <div style="margin-bottom: 5px;"><span style="color: #888;"># Enumeración</span><br>' ORDER BY 3--</div>
+            <div><span style="color: #888;"># Bypass</span><br>admin'--</div>
+        </div>
+    </div>
+    <div>
+        <h4 style="color: #fbbf24;"><i class="fas fa-shield-alt"></i> Principios de Defensa</h4>
+        <ul style="font-size: 13px; color: #ccc; padding-left: 20px;">
+            <li><strong>Sentencias Preparadas:</strong> (La más efectiva) separa código de datos.</li>
+            <li><strong>Principio de Mínimo Privilegio:</strong> Restringir permisos del usuario DB.</li>
+            <li><strong>Allow-lists:</strong> Validar formatos de entrada estrictos.</li>
+        </ul>
+    </div>
+</div>
+
+    <h2 style="color: #fbbf24; border-left: 4px solid #fbbf24; padding-left: 15px;">Desarrolllo practico</h2>
+    <div class="roadmap-container">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 01</span>
+                <h4 style="color:#fbbf24;">SQL injection vulnerability in WHERE clause allowing retrieval of hidden data</h4>
+                <p style="font-size: 13px; color:#aaa;">Payload: <code>' OR 1=1--</code>. La vulnerabilidad ocurre porque el input del usuario en el parámetro category se concatena directamente en una consulta WHERE. Esto permite romper la lógica booleana original (released = 1) e insertar una condición que siempre sea verdadera (1=1), forzando al motor de base de datos a devolver todos los registros de la tabla.
+</p>
+                <img src="lab1.png" alt="Lab 01">
+            </div>
+        </div>
+
+        <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 02</span>
+                <h4 style="color:#fbbf24;">SQL injection vulnerability allowing login bypass</h4>
+                <p style="font-size: 13px; color:#aaa;">El mecanismo de autenticación es vulnerable a la manipulación de la consulta lógica de login. Al comentar la parte de la consulta que verifica el password, se engaña al servidor para que valide el inicio de sesión basándose únicamente en la existencia del nombre de usuario en la base de datos.</p>
+                <img src="lab2.png" alt="Lab 02">
+            </div>
+        </div>
+
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 03</span>
+                <h4 style="color:#fbbf24;">SQL injection attack, querying the database type and version on Oracle</h4>
+                <p style="font-size: 13px; color:#aaa;">Oracle requiere una estructura de consulta UNION muy precisa: el número de columnas debe coincidir exactamente con la consulta original y toda sentencia debe incluir la cláusula FROM. Se utiliza la tabla v$version para obtener la información del banner del sistema.</p>
+                <img src="lab3.png" alt="Lab 03">
+            </div>
+        </div>
+
+        <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 04</span>
+                <h4 style="color:#fbbf24;">SQL injection attack, querying the database type and version on MySQL and Microsoft</h4>
+                <p style="font-size: 13px; color:#aaa;">La vulnerabilidad ocurre porque la aplicación no sanitiza correctamente el input proporcionado en el parámetro category. Esto permite que un atacante cierre la consulta SQL original y añade una nueva consulta mediante el operador UNION.</p>
+                <img src="lab4.png" alt="Lab 04">
+            </div>
+        </div>
+
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 05</span>
+                <h4 style="color:#fbbf24;">SQL injection attack, listing the database contents on non-Oracle databases</h4>
+                <p style="font-size: 13px; color:#aaa;">Explicación Técnica de la Vulnerabilidad: La vulnerabilidad reside en el parámetro category, el cual es vulnerable a inyecciones basadas en UNION. Al ser una base de datos PostgreSQL, la aplicación permite consultar el catálogo de metadatos information_schema. Esto es crítico porque permite a un atacante reconstruir toda la estructura de la base de datos (nombres de tablas y columnas) aunque estos hayan sido ofuscados o generados aleatoriamente por el sistema</p>
+                <img src="lab5.png" alt="Lab 05">
+            </div>
+        </div>
+
+        <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 06</span>
+                <h4 style="color:#fbbf24;">SQL injection attack, listing the database contents on Oracle</h4>
+                <p style="font-size: 13px; color:#aaa;">La vulnerabilidad se encuentra en el filtro de categorías. Al ser una base de datos Oracle, la explotación tiene dos reglas críticas:  ue e </p>
+                <img src="lab6.png" alt="Lab 06">
+            </div>
+        </div>
+
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 07</span>
+                <h4 style="color:#fbbf24;">SQL injection UNION attack, determining the number of columns returned by the query</h4>
+                <p style="font-size: 13px; color:#aaa;"> Para que una sentencia UNION funcione, ambas consultas deben devolver el mismo número de columnas. Si el atacante intenta unir una consulta con un número distinto de columnas, la base de datos devolverá un error. Se utilizan sentencias ORDER BY o UNION SELECT NULL de forma incremental para hallar el límite.</p>
+                <img src="lab7.png" alt="Lab 07">
+            </div>
+        </div>
+
+        <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 08</span>
+                <h4 style="color:#fbbf24;">SQL injection UNION attack, finding a column containing text</h4>
+                <p style="font-size: 13px; color:#aaa;">No todas las columnas de una base de datos aceptan texto (algunas son solo numéricas o fechas). El atacante debe probar inyectando una cadena de caracteres constante en cada posición de la sentencia UNION hasta que la aplicación la renderice en la pantalla.</p>
+                <img src="lab8.png" alt="Lab 08">
+            </div>
+        </div>
+
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 09</span>
+                <h4 style="color:#fbbf24;">SQL injection UNION attack, retrieving data from other tables</h4>
+                <p style="font-size: 13px; color:#aaa;">Este ataque permite acceder a tablas que no tienen relación directa con la funcionalidad original (catálogo de productos). El atacante "roba" el flujo de datos de la página para redirigir información de la tabla de credenciales hacia la interfaz pública.</p>
+                <img src="lab9.png" alt="Lab 09">
+            </div>
+        </div>
+
+        <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 10</span>
+                <h4 style="color:#fbbf24;">SQL injection UNION attack, retrieving multiple values in a single column</h4>
+                <p style="font-size: 13px; color:#aaa;">Este ataque permite al atacante "robar" el flujo de datos de la página para redirigir información de la tabla de credenciales hacia la interfaz pública, en este caso, mostrando los usuarios y contraseñas donde normalmente se verían los productos.</p>
+                <img src="lab10.png" alt="Lab 10">
+            </div>
+        </div>
+
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 11</span>
+                <h4 style="color:#fbbf24;">Blind SQL injection with conditional responses</h4>
+                <p style="font-size: 13px; color:#aaa;">Este tipo de ataque de inyección SQL no muestra errores o información directamente en la página. En su lugar, el atacante deduce la información a través de la respuesta del servidor a consultas condicionales, como la aparición o ausencia de un mensaje específico en la página ("Welcome Back" en este caso) o diferencias en el tiempo de respuesta. Esto permite al atacante extraer datos carácter por carácter.</p>
+                <img src="lab11.png" alt="Lab 11">
+            </div>
+        </div>
+
+        <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 12</span>
+                <h4 style="color:#fbbf24;">Blind SQL injection with conditional errors</h4>
+                <p style="font-size: 13px; color:#aaa;">Este tipo de ataque de SQL Injection no muestra los resultados directamente en la pantalla. En su lugar, se infiere la información observando si la consulta inyectada provoca un error en la base de datos o si devuelve un código de estado 200. Al generar errores controlados basándose en condiciones verdaderas o falsas, se puede determinar la existencia de tablas, usuarios o caracteres específicos de la contraseña.</p>
+                <img src="lab12.png" alt="Lab 12">
+            </div>
+        </div>
+
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 13</span>
+                <h4 style="color:#fbbf24;">Visible error-based SQL injection</h4>
+                <p style="font-size: 13px; color:#aaa;">El laboratorio presenta una vulnerabilidad en el manejo de cookies de rastreo (tracking cookies). El flujo de explotación se resume en los siguientes puntos: Punto de Inyección, Mecanismo de Error, Estrategia de Explotación y Fuga de Datos (Data Leaking)</p>
+                <img src="lab13.png" alt="Lab 13">
+            </div>
+        </div>
+
+        <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 14</span>
+                <h4 style="color:#fbbf24;">Blind SQL injection with time delays</h4>
+                <p style="font-size: 13px; color:#aaa;"> A diferencia de otros tipos de SQLi, en este caso el servidor ha sido configurado para no mostrar diferencias visuales si la consulta falla o tiene éxito. La lógica de ataque se basa en lo siguiente:Inyección en la Cookie, Uso de Funciones de Tiempo , Confirmación de Vulnerabilidad y Extracción de Datos (Teórica).</p>
+                <img src="lab14.png" alt="Lab 14">
+            </div>
+        </div>
+
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 15</span>
+                <h4 style="color:#fbbf24;">Blind SQL injection with time delays and information retrieval</h4>
+                <p style="font-size: 13px; color:#aaa;">El atacante utiliza consultas condicionales que solo ejecutan un retraso (por ejemplo, 10 segundos) si una suposición sobre los datos es verdadera. El proceso es el siguiente:Preguntas Sí/No, Observación del Cronómetro, Repetición Exhaustiva y Sincronía.</p>
+                <img src="lab15.png" alt="Lab 15">
+            </div>
+        </div>
+
+        <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 16</span>
+                <h4 style="color:#fbbf24;">Blind SQL injection with out-of-band interaction</h4>
+                <p style="font-size: 13px; color:#aaa;">La aplicación utiliza una cookie de rastreo (TrackingId) que es procesada por la base de datos de forma asíncrona. Debido a esto, la aplicación no devuelve errores ni cambios en el contenido de la página (Blind). Sin embargo, la base de datos (Oracle) permite el uso de funciones como EXTRACTVALUE y xmltype que pueden ser manipuladas para realizar peticiones de red externas (Out-of-band). Al inyectar un ataque de XXE dentro del SQLi, obligamos al servidor a interactuar con un dominio externo controlado por el atacante.</p>
+                <img src="lab16.png" alt="Lab 16">
+            </div>
+        </div>
+
+        <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 17</span>
+                <h4 style="color:#fbbf24;">Blind SQL injection with out-of-band data exfiltration</h4>
+                <p style="font-size: 13px; color:#aaa;">La vulnerabilidad reside en la cookie de rastreo TrackingId, la cual es procesada por la base de datos para realizar consultas analíticas de forma asíncrona. Al ser una base de datos Oracle, permite el uso de funciones XML para interactuar con sistemas externos.La técnica aplicada es OAST (Out-of-band Application Security Testing). Se utiliza la función EXTRACTVALUE junto con xmltype para generar una petición DNS maliciosa. La clave de este ejercicio es la concatenación de datos: se utiliza el operador || de Oracle para unir el resultado de una subconsulta SQL (la contraseña del administrador) con un nombre de dominio controlado por el atacante.</p>
+                <img src="lab17.png" alt="Lab 17">
+            </div>
+        </div>
+
+        <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-card">
+                <span class="lab-tag">Laboratorio 18</span>
+                <h4 style="color:#fbbf24;">SQL injection with filter bypass via XML encoding</h4>
+                <p style="font-size: 13px; color:#aaa;">La vulnerabilidad se localiza en la etiqueta <storeId> del documento XML enviado al servidor. El servidor toma el valor numérico de esta etiqueta y lo inserta directamente en una consulta SQL sin la debida sanitización.Para evadir el WAF, aprovechamos una característica del procesamiento de documentos XML: el XML Parser. Cuando el servidor recibe el XML, primero decodifica cualquier entidad presente (como caracteres en formato hexadecimal) antes de pasar el valor final a la lógica de la aplicación y a la base de datos. Al enviar las palabras clave del ataque codificadas (por ejemplo, usando &#x53; en lugar de S), el WAF ve una cadena de texto inofensiva y permite el paso de la petición, pero la base de datos acaba ejecutando el comando SQL completo una vez decodificado.</p>
+                <img src="lab18.png" alt="Lab 18">
+            </div>
+        </div>
+    </div>
+    <h2 style="color: #fbbf24; border-left: 4px solid #fbbf24; padding-left: 15px;">Conclusion</h2>
+    <p style="color: #ccc; line-height: 1.6; margin-bottom: 40px;">
+        La realización de este análisis técnico y la resolución de los laboratorios prácticos permiten concluir que la Inyección SQL (SQLi) no es simplemente un error de programación aislado, sino una falla fundamental en la arquitectura de confianza entre la capa de aplicación y la capa de datos. A pesar de ser una de las vulnerabilidades más antiguas y documentadas, su persistencia en el OWASP Top 10 demuestra la complejidad que aún representa para las organizaciones asegurar el flujo de datos dinámicos.</p><p>En conclusión, la maestría en la detección y resolución de SQL Injection mediante plataformas como PortSwigger Academy es una competencia esencial. Solo mediante la comprensión profunda de cómo se construye y se destruye una consulta SQL, los desarrolladores y auditores podrán implementar un Ciclo de Vida de Desarrollo Seguro (SDLC) que proteja el activo más valioso de la era digital: la información.
+    </p>
+
+    <h2 style="color: #fbbf24; border-left: 4px solid #fbbf24; padding-left: 15px; margin-top: 50px;">Referencias tecnicas</h2>
+<div style="background: rgba(255,255,255,0.02); padding: 30px; border-radius: 15px; border: 1px solid #333; margin-top: 20px;">
+    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; color: #bbb; line-height: 1.8;">
+        
+        <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
+            <i class="fas fa-book" style="color: #fbbf24; margin-right: 10px;"></i>
+            Cisco Systems, Inc. (2012). <i>Configuring security for VPNs with IPsec</i>. Recuperado de 
+            <a href="https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_conn_vpnips/configuration/xe-3s/sec-conn-vpnips-xe-3s-book.html" target="_blank" style="color: #fbbf24; text-decoration: none; border-bottom: 1px dashed #fbbf24;">Cisco Documentation</a>
+        </li>
+
+        <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
+            <i class="fas fa-microchip" style="color: #fbbf24; margin-right: 10px;"></i>
+            Cisco Systems, Inc. (2025). <i>Cisco Packet Tracer (Versión 8.x) [Software de simulación]</i>. 
+            <a href="https://www.netacad.com/es/courses/packet-tracer" target="_blank" style="color: #fbbf24; text-decoration: none; border-bottom: 1px dashed #fbbf24;">NetAcad</a>
+        </li>
+
+        <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
+            <i class="fas fa-file-alt" style="color: #fbbf24; margin-right: 10px;"></i>
+            Frankel, S., Hoffman, P., Orebaugh, A., & Park, R. (2005). <i>Guide to IPsec VPNs (NIST Special Publication 800-77)</i>. National Institute of Standards and Technology. 
+            <a href="https://doi.org/10.6028/NIST.SP.800-77" target="_blank" style="color: #fbbf24; text-decoration: none; border-bottom: 1px dashed #fbbf24;">DOI Reference</a>
+        </li>
+
+        <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
+            <i class="fas fa-vial" style="color: #fbbf24; margin-right: 10px;"></i>
+            Web Security Academy. (s. f.). <i>SQL injection: All labs</i>. 
+            <a href="https://portswigger.net/web-security/all-labs#sql-injection" target="_blank" style="color: #fbbf24; text-decoration: none; border-bottom: 1px dashed #fbbf24;">PortSwigger Academy</a>
+        </li>
+
+        <li style="margin-bottom: 10px;">
+            <i class="fas fa-shield-virus" style="color: #fbbf24; margin-right: 10px;"></i>
+            OWASP Foundation. (2021). <i>A03:2021 – Injection. OWASP Top 10:2021</i>. 
+            <a href="https://owasp.org/Top10/es/A03_2021-Injection/" target="_blank" style="color: #fbbf24; text-decoration: none; border-bottom: 1px dashed #fbbf24;">OWASP Official Page</a>
+        </li>
+    </ul>
+</div>
+<div style="margin-bottom: 40px;"></div>
+    
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 50px; padding: 40px; background: rgba(251, 191, 36, 0.05); border-radius: 20px; border: 1px dashed #fbbf24;">
+        <h3 style="color: #fff; margin: 0;">Reporte técnico completo</h3>
+        <p style="color: #888; margin: 0; font-size: 14px;">Incluye metodología detallada, glosario y bibliografía académica.</p>
+        <a href="act08-Equipo1.pdf" class="export-btn" style="background: #fbbf24; color: #000; font-weight: 900; padding: 18px 40px; border-radius: 50px; text-decoration: none; display: flex; align-items: center; gap: 12px; transition: 0.3s;" download>
+            <i class="fas fa-file-pdf" style="font-size: 24px;"></i> DESCARGAR PDF (REPORTE COMPLETO)
+        </a>
+    </div>
+</article>
+    </div>
+
     <div id="parcial3" class="section-content"><div class="card"><div style="opacity: 0.5; text-align: center;"><i class="fas fa-lock fa-3x"></i><br>Evaluación Final</div></div></div>
+
 
     <div id="contacto" class="section-content" style="padding: 60px 20px;">
       <div class="card" style="max-width: 500px; margin: 0 auto; padding: 40px; border-radius: 20px; background: #1a1a1a; border: 1px solid #333;">
@@ -1527,18 +2290,27 @@
 
   <script>
     function showSection(sectionId) {
+      // Ocultar todas las secciones
       document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+      
+      // Mostrar la sección objetivo
       const target = document.getElementById(sectionId);
       if(target) target.classList.add('active');
       
-      if(sectionId === 'parcial1') closeArticle();
+      // Siempre cerrar artículos abiertos al cambiar de sección
+      closeArticle();
       
+      // Actualizar color en el menú lateral
       document.querySelectorAll('.sidebar a').forEach(l => l.classList.remove('active'));
       if(event && event.currentTarget) event.currentTarget.classList.add('active');
     }
 
     function openArticle(id) {
-      document.getElementById('actividades-list').style.display = 'none';
+      // Esconder TANTO la lista de actividades como la de proyectos
+      const listas = document.querySelectorAll('#actividades-list, #proyectos-list');
+      listas.forEach(lista => lista.style.display = 'none');
+      
+      // Esconder todos los artículos y mostrar solo el seleccionado
       document.querySelectorAll('.article-view').forEach(a => a.style.display = 'none');
       const article = document.getElementById(id);
       if(article) article.style.display = 'block';
@@ -1546,7 +2318,11 @@
     }
 
     function closeArticle() {
-      document.getElementById('actividades-list').style.display = 'block';
+      // Volver a mostrar las listas
+      const listas = document.querySelectorAll('#actividades-list, #proyectos-list');
+      listas.forEach(lista => lista.style.display = 'block');
+      
+      // Esconder los artículos
       document.querySelectorAll('.article-view').forEach(a => a.style.display = 'none');
     }
 
@@ -1559,5 +2335,6 @@
   </script>
 </body>
 </html>
+
 
 
