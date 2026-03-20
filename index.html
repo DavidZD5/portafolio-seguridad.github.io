@@ -1843,6 +1843,408 @@
             </div>
         </div> 
 
+<h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 50px;">Phishing Quiz — Concientización en Ingeniería Social</h2>
+
+<div id="phishing-quiz-wrapper" style="background: #111; border: 1px solid #333; padding: 30px; border-radius: 15px; color: #e0e0e0; font-family: 'Segoe UI', sans-serif;">
+
+<div id="consent-box" style="text-align: center;">
+    <i class="fas fa-shield-alt" style="font-size: 50px; color: #fbbf24; margin-bottom: 20px;"></i>
+    <h3>Simulador de Detección de Phishing</h3>
+    <p style="color:#aaa;">Este ejercicio es una simulación educativa diseñada para mejorar la detección de ataques de ingeniería social. No se solicitarán ni se almacenarán contraseñas reales ni datos personales sensibles. Los resultados se emplean exclusivamente con fines pedagógicos.</p>
+    <button onclick="startPhishingQuiz()" style="background:#fbbf24;color:#000;padding:12px 25px;border:none;border-radius:30px;cursor:pointer;">
+        ACEPTO PARTICIPAR
+    </button>
+</div>
+
+<div id="name-box" style="display:none; text-align:center;">
+    <h3 style="color:#fff;">Identificación del participante</h3>
+    <p style="color:#aaa; font-size:14px;">
+        Ingresa tu nombre o un alias para registrar tu resultado en el sistema.
+    </p>
+
+    <input id="player-name" type="text" placeholder="Ej. David / Usuario123"
+        style="padding:10px; width:70%; border-radius:8px; border:none; margin-top:10px;"
+        onkeypress="if(event.key==='Enter'){saveName()}">
+
+    <br>
+
+    <button onclick="saveName()" 
+        style="margin-top:15px;background:#fbbf24;color:#000;padding:10px 20px;border:none;border-radius:20px;cursor:pointer;">
+        CONTINUAR
+    </button>
+</div>
+
+<div id="quiz-engine" style="display:none;">
+    <div style="background:#222;height:8px;border-radius:10px;margin-bottom:20px;">
+        <div id="bar-progress" style="height:100%;width:0%;background:#fbbf24;border-radius:10px;"></div>
+        <div id="timer" style="text-align:right;color:#fbbf24;margin-bottom:10px;">
+        ⏱️ 15s
+        </div>
+    </div>
+
+    <h4 id="quiz-question"></h4>
+
+    <img id="quiz-img" style="width:100%;max-height:250px;object-fit:contain;border-radius:10px;margin:15px 0;">
+
+    <div id="quiz-options"></div>
+
+    <div id="quiz-feedback" style="display:none;padding:15px;margin-top:15px;border-radius:10px;"></div>
+
+    <button id="next-btn" onclick="nextQ()" style="display:none;margin-top:15px;width:100%;padding:10px;background:#333;color:#fff;border:none;border-radius:8px;">
+        SIGUIENTE
+    </button>
+</div>
+
+<div id="quiz-result" style="display:none;text-align:center;"></div>
+
+</div>
+
+<script>
+let playerName = ""
+let current=0
+let score=0
+let timeLeft = 15
+let timerInterval
+
+const quizData=[
+
+{
+q:"Has recibido un correo aparentemente emitido por un servicio de paquetería (DHL). El mensaje indica que no fue posible entregar un paquete y te pide confirmar una dirección mediante un enlace: http://dhl-delivery-confirm.net. El remitente usa un nombre similar al servicio legítimo.",
+options:[
+ "Hacer clic en el enlace y proporcionar la dirección solicitada de inmediato.",
+    "Eliminar el correo sin realizar ninguna acción.",
+    "Comprobar cuidadosamente el dominio del enlace y, en su lugar, acceder al seguimiento desde el sitio oficial del proveedor.",
+    "Responder al remitente pidiendo más detalles sobre el envío."
+],
+correct:2,
+explanations:[
+"Incorrecto: Hacer clic enseguida expone al usuario a páginas fraudulentas diseñadas para robar información o instalar malware. Nunca ingrese datos desde un enlace recibido sin verificarlo.",
+    "Parcialmente aceptable pero insuficiente: Eliminar el correo evita el riesgo inmediato, pero no permite validar si la notificación es legítima. Es preferible confirmar por canales oficiales.",
+    "Correcto: Revisar el dominio y utilizar el portal oficial (no enlaces del correo) evita caer en páginas clonadas y permite confirmar el estado real del envío.",
+    "Incorrecto: Responder al correo mantiene la interacción con el atacante y puede confirmar una dirección válida o información valiosa para el atacante."
+]
+},
+
+{
+q:"Recibes un correo que parece provenir del director general de tu organización. El mensaje solicita, con tono urgente y sin formalidades, la compra inmediata de varias tarjetas regalo y que envíes los códigos por correo, alegando una reunión inminente.",
+options:[
+"Proceder a comprar las tarjetas y enviar los códigos cuanto antes.",
+    "Ignorar el correo por considerarlo sospechoso.",
+    "Verificar la solicitud mediante un canal alternativo (llamada, mensajería corporativa o en persona).",
+    "Enviar una parte de las tarjetas como prueba y esperar confirmación."
+],
+correct:2,
+explanations:[
+"Incorrecto: Ejecutar la orden implica una pérdida financiera inmediata; las peticiones de ese tipo deben confirmarse por un canal verificado.",
+    "Parcial: Ignorar evita la pérdida, pero lo ideal es confirmar con el supuesto remitente para que quede constancia del intento de fraude.",
+    "Correcto: Confirmar por un canal distinto (llamada directa, reunión o mensajería oficial) evita la suplantación y ayuda a proteger fondos y recursos.",
+    "Incorrecto: Enviar parcialmente tampoco mitiga el riesgo y aún facilita el fraude; no se debe transferir dinero ni códigos sin verificación."
+]
+},
+
+{
+q:"Te llega un correo con asunto 'Factura pendiente #4592' y un archivo adjunto llamado invoice.xlsx. El cuerpo sugiere abrir el archivo para revisar cargos recientes.",
+options:[
+"Abrir inmediatamente el archivo adjunto para verificar la factura.",
+    "Descargar el fichero y abrirlo en cualquier momento.",
+    "Contactar al proveedor por un canal verificado antes de abrir el adjunto.",
+    "Reenviar el correo a colegas para pedir su opinión."
+],
+correct:2,
+explanations:[
+"Incorrecto: Abrir adjuntos sin corroborar el origen es riesgoso; los documentos pueden contener código que comprometa el equipo.",
+    "Parcial: Descargar sin verificar aún implica riesgo; lo seguro es confirmar el origen y, preferiblemente, analizar el archivo en un entorno seguro.",
+    "Correcto: Confirmar la autenticidad del documento con el proveedor reduce la probabilidad de abrir archivos manipulados.",
+    "Incorrecto: Reenviar puede propagar la amenaza y no sustituye la verificación directa con la fuente original."
+]
+},
+
+{
+q:"Recibes un SMS supuestamente enviado por tu banco que indica que tu cuenta ha sido bloqueada y te invita a verificarla mediante un enlace corto: bank-security-check.co. El mensaje busca que confirmes datos urgentes.",
+options:[
+"Seguir el enlace desde el SMS y proporcionar los datos solicitados.",
+    "Ignorar el mensaje por sospechoso.",
+    "Abrir el enlace en tu computadora pensando que es más seguro.",
+    "Contactar al banco usando su aplicación o número oficial en lugar de usar el enlace."
+],
+correct:3,
+explanations:[
+"Incorrecto: Seguir enlaces desde SMS expone credenciales o permite instalar software malicioso; los bancos no piden credenciales por SMS.",
+    "Parcial: Ignorar evita un riesgo inmediato, pero lo recomendable es confirmar la supuesta notificación con el banco por un canal oficial.",
+    "Incorrecto: Abrir el enlace en otro dispositivo no mitiga la suplantación; el dominio puede ser falso y recopilar información igualmente.",
+    "Correcto: Contactar por canales oficiales permite confirmar la alerta sin poner en riesgo credenciales ni datos."
+]
+},
+
+{
+q:"Un correo indica que alguien compartió un documento contigo mediante OneDrive (o servicio de almacenamiento en la nube). El enlace redirige a una página para iniciar sesión y acceder al archivo.",
+options:[
+"Abrir el documento usando el enlace incluido en el correo.",
+    "Verificar el remitente y el dominio del enlace antes de interactuar.",
+    "Descargar el archivo inmediatamente para revisarlo offline.",
+    "Reenviar la notificación a otros usuarios para informar."
+],
+correct:1,
+explanations:[
+"Incorrecto: Abrir directamente puede exponer credenciales en una página clonada. Es preferible confirmar la veracidad del enlace.",
+    "Correcto: Revisar el remitente y el dominio permite detectar páginas impostoras o cuentas falsificadas antes de interactuar.",
+    "Incorrecto: Descargar sin comprobar puede propagar malware; confirmar la fuente previa es imprescindible.",
+    "Incorrecto: Reenviar amplifica el riesgo si el mensaje es malicioso y no ayuda a verificar su legitimidad."
+]
+},
+
+{
+q:"Recibes una llamada de una persona que afirma ser del departamento de IT. Con urgencia solicita tu contraseña para reiniciar un servicio y 'resolver un incidente' que, según dice, afecta tu equipo.",
+options:[
+"Proporcionar la contraseña tras la llamada para que el técnico 'resuelva' el problema.",
+    "Colgar la llamada sin más comprobaciones.",
+    "Proporcionar parcialmente la contraseña o datos para demostrar buena fe.",
+    "Solicitar comprobantes de identidad y verificar la solicitud con el departamento de IT mediante un canal oficial."
+],
+correct:3,
+explanations:[
+"Incorrecto: Facilitar contraseñas compromete cuentas y contraviene políticas de seguridad; IT no debe pedir credenciales.",
+    "Parcial: Colgar evita el fraude inmediato, pero no resuelve la necesidad de verificar la incidencia ni deja constancia informada.",
+    "Incorrecto: Dar solo parte de la contraseña también puede ayudar a un atacante; nunca comparta credenciales.",
+    "Correcto: Solicitar verificación y confirmar con el equipo oficial protege contra suplantaciones y permite trazar la solicitud."
+]
+},
+
+{
+q:"Encuentras en el estacionamiento una memoria USB etiquetada 'Nómina empleados 2025'. Está sin protección y parece recién dejada en un lugar de alto tránsito.",
+options:[
+"Conectar la unidad a tu ordenador para inspeccionar su contenido.",
+    "Guardarla sin tocarla hasta avisar a alguien.",
+    "Entregarla al equipo de seguridad informática o al responsable de TI para su análisis seguro.",
+    "Formatearla y quedártela por si contiene información útil."
+],
+correct:2,
+explanations:[
+"Incorrecto: Conectar drives desconocidos puede ejecutar malware automáticamente y comprometer la red.",
+    "Parcial: Guardarla reduce el riesgo inmediato, pero lo correcto es entregarla al equipo de seguridad para análisis forense.",
+    "Correcto: Entregarla a TI permite inspeccionar la unidad en un entorno seguro y mitigar riesgos.",
+    "Incorrecto: Formatear y conservar no garantiza seguridad ni evita que contenga código malicioso que pudo haber infectado el equipo."
+]
+},
+
+{
+q:"Te llega un mensaje corporativo informando de 'actividad sospechosa en tu cuenta' y proporcionando un enlace para 'restablecer tu contraseña inmediatamente' si no reconoces la acción.",
+options:[
+"Hacer clic en el enlace y restablecer la contraseña siguiendo las instrucciones del correo.",
+    "Cambiar la contraseña usando el enlace que se proporciona en el mensaje.",
+    "Acceder manualmente al portal oficial de la organización (escribiendo la URL o usando la app oficial) y efectuar las comprobaciones allí.",
+    "No hacer nada y asumir que es un error."
+],
+correct:2,
+explanations:[
+"Incorrecto: Hacer clic en enlaces de correos urgentes facilita la entrega de credenciales a sitios falsos.",
+    "Incorrecto (peligroso): Cambiar contraseña desde un enlace potencialmente fraudulento puede exponer las nuevas credenciales; siempre ingresa manualmente al servicio.",
+    "Correcto: Acceder por las vías oficiales permite verificar la situación sin depender del enlace del correo.",
+    "Incorrecto: No actuar puede dejar una cuenta comprometida; la opción responsable es verificar por canales oficiales."
+]
+},
+
+{
+q:"En redes sociales observas un mensaje publicado desde una cuenta que afirma ser 'soporte técnico' y solicita verificar datos para restaurar el acceso a una cuenta de usuario.",
+options:[
+"Enviar la información solicitada vía mensaje privado.",
+    "Ignorar la publicación por no ser relevante.",
+    "Reportar la cuenta y notificar al equipo de seguridad o al administrador de la plataforma.",
+    "Seguir el enlace o indicaciones que la cuenta proporcione para 'recuperar' acceso."
+],
+correct:2,
+explanations:[
+"Incorrecto: Enviar información a cuentas no verificadas facilita exfiltración de datos y fraude.",
+    "Parcial: Ignorar evita interacción, pero reportar la cuenta ayuda a que la plataforma la bloqueé para proteger a otros usuarios.",
+    "Correcto: Reportar y notificar permite que la plataforma investigue y reduce el daño potencial.",
+    "Incorrecto: Seguir enlaces desde cuentas sospechosas aumenta el riesgo de ingresar credenciales en páginas falsas."
+]
+},
+
+{
+q:"Recibes un correo interno que dice haber detectado un 'archivo infectado' en la herramienta de comunicación interna (Slack, Teams, etc.) y te pide que accedas al enlace adjunto para 'eliminar la amenaza'.",
+options:[
+"Hacer clic en el enlace y efectuar la acción que propone el mensaje.",
+  "Contactar al equipo de seguridad informática o al administrador interno para validar la alerta antes de interactuar.",
+    "Ignorar la notificación por considerarla potencialmente falsa.",
+    "Descargar el supuesto archivo para escanearlo localmente."
+],
+correct:1,
+explanations:[
+"Incorrecto: Seguir enlaces en notificaciones internas falsas puede conducir a la ejecución de acciones no autorizadas o pérdida de control sobre la cuenta.",
+  "Correcto: Comprobar con el equipo de seguridad mediante canales oficiales es la vía segura para validar y responder a incidentes.",
+    "Parcial: Ignorar reduce el riesgo inmediato, pero no sustituye la confirmación formal con seguridad para garantizar que no hay una amenaza real.",
+    "Incorrecto: Descargar archivos sin verificar su origen puede propagar malware y comprometer sistemas."
+]
+}
+
+]
+
+function saveName(){
+let input = document.getElementById("player-name").value.trim()
+if(input === ""){
+alert("Por favor ingresa un nombre o alias")
+return
+}
+playerName = input
+document.getElementById("name-box").style.display="none"
+document.getElementById("quiz-engine").style.display="block"
+loadQ()
+}
+
+function startPhishingQuiz(){
+document.getElementById("consent-box").style.display="none"
+document.getElementById("name-box").style.display="block"
+current = 0
+score = 0
+}
+
+function loadQ(){
+let q=quizData[current]
+document.getElementById("quiz-question").innerText=(current+1)+". "+q.q
+
+document.getElementById("quiz-img").src="img"+(current+1)+".png"
+
+let html=""
+q.options.forEach((opt,i)=>{
+html+=`<div onclick="select(${i})" style="background:#1a1a1a;padding:12px;margin:8px 0;border-radius:8px;cursor:pointer;">${opt}</div>`
+})
+document.getElementById("quiz-options").innerHTML=html
+
+document.getElementById("quiz-feedback").style.display="none"
+document.getElementById("next-btn").style.display="none"
+
+document.getElementById("bar-progress").style.width=((current/quizData.length)*100)+"%"
+startTimer()
+}
+
+
+function select(i){
+let q=quizData[current]
+let fb=document.getElementById("quiz-feedback")
+
+clearInterval(timerInterval)
+
+// desactivar opciones
+let options = document.querySelectorAll("#quiz-options div")
+options.forEach(opt => opt.onclick = null)
+
+if(i===q.correct){
+score++
+fb.style.background="rgba(74,222,128,0.1)"
+fb.style.color="#4ade80"
+fb.innerHTML=q.explanations[i]
+}else{
+fb.style.background="rgba(248,113,113,0.1)"
+fb.style.color="#f87171"
+
+// si se acabó el tiempo
+if(i === -1){
+fb.innerHTML="Tiempo agotado. " + q.explanations[q.correct]
+}else{
+fb.innerHTML=q.explanations[i]
+}
+}
+
+fb.style.display="block"
+document.getElementById("next-btn").style.display="block"
+}
+
+function nextQ(){
+current++
+if(current<quizData.length){
+loadQ()
+}else{
+finish()
+}
+}
+
+function finish(){
+document.getElementById("quiz-engine").style.display="none"
+let percent=Math.round((score/quizData.length)*100)
+
+let level=""
+if(percent>=90) level="Excelente conciencia de phishing"
+else if(percent>=70) level="Buen nivel de seguridad"
+else if(percent>=50) level="Riesgo moderado"
+else level="Alto riesgo de caer en phishing"
+
+saveScore()
+
+document.getElementById("quiz-result").innerHTML=
+`<h2>Resultado</h2>
+<p><strong>Participante:</strong> ${playerName}</p>
+<p>${score}/10 (${percent}%)</p>
+<p>${level}</p>
+${getRankingHTML()}
+<p class="small" style="margin-top:15px;">
+Recomendación: valide siempre remitentes y dominios, confirme solicitudes inusuales por canales alternativos, evite abrir adjuntos o enlaces sin verificación y entregue dispositivos desconocidos al equipo de seguridad.
+</p>`
+
+document.getElementById("quiz-result").style.display="block"
+}
+
+function saveScore(){
+let ranking = JSON.parse(localStorage.getItem("phishingRanking")) || []
+
+ranking.push({
+name: playerName,
+score: score,
+percent: Math.round((score/quizData.length)*100),
+date: new Date().toLocaleDateString()
+})
+
+// ordenar de mayor a menor
+ranking.sort((a,b)=> b.score - a.score)
+
+// guardar solo top 10
+ranking = ranking.slice(0,10)
+
+localStorage.setItem("phishingRanking", JSON.stringify(ranking))
+}
+
+function getRankingHTML(){
+let ranking = JSON.parse(localStorage.getItem("phishingRanking")) || []
+
+if(ranking.length === 0){
+return "<p>No hay registros aún.</p>"
+}
+
+let html = `<h3 style="margin-top:20px;color:#fbbf24;">🏆 Top 10</h3>`
+
+ranking.forEach((r,i)=>{
+html += `
+<div style="background:#1a1a1a;padding:10px;margin:5px 0;border-radius:8px;">
+<strong>#${i+1} ${r.name}</strong><br>
+<span style="color:#aaa;">${r.score}/10 (${r.percent}%) - ${r.date}</span>
+</div>
+`
+})
+
+return html
+}
+
+function startTimer(){
+timeLeft = 15
+document.getElementById("timer").innerText = "⏱️ " + timeLeft + "s"
+
+clearInterval(timerInterval)
+
+timerInterval = setInterval(()=>{
+timeLeft--
+document.getElementById("timer").innerText = "⏱️ " + timeLeft + "s"
+
+if(timeLeft <= 0){
+clearInterval(timerInterval)
+
+// respuesta automática incorrecta
+select(-1)
+}
+},1000)
+}
+
+</script>
+
         <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 50px;">5. Conclusión: Hacia una Resiliencia Cognitiva</h2>
             <div style="background: linear-gradient(135deg, rgba(167, 139, 250, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%); padding: 30px; border-radius: 15px; border: 1px solid rgba(167, 139, 250, 0.3); line-height: 1.8;">
                 <p style="margin-top: 0; color: #fff; font-weight: 500;">
@@ -1934,7 +2336,7 @@
                 <li><strong style="color: #fbbf24;"><i class="fas fa-user-shield"></i></strong> Pedro Damián Jasso Dávila</li>
                 <li><strong style="color: #fbbf24;"><i class="fas fa-user-shield"></i></strong> Gisela Geraldine Moreno Solís</li>
                 <li><strong style="color: #fbbf24;"><i class="fas fa-user-shield"></i></strong> José Armando Palomo Cerdá</li>
-                <li><strong style="color: #3b82f6;">FECHA:</strong> 6 de Marzo de 2025</li>
+                <li><strong style="color: #3b82f6;">FECHA:</strong> 30 de enero de 2025</li>
                 <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
             </ul>
             <ul style="list-style: none; padding: 0; margin: 0;">
@@ -2243,8 +2645,8 @@
         </li>
     </ul>
 </div>
+
 <div style="margin-bottom: 40px;"></div>
-    
 
     <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 50px; padding: 40px; background: rgba(251, 191, 36, 0.05); border-radius: 20px; border: 1px dashed #fbbf24;">
         <h3 style="color: #fff; margin: 0;">Reporte técnico completo</h3>
