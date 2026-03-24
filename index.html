@@ -1341,8 +1341,8 @@
     <h3 style="color: #a78bfa; margin-bottom: 20px;">
         <i class="fas fa-user-shield"></i> Recurso: ¿Qué es el Pentesting y la Auditoría Real?
     </h3>
-        
-        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
         <iframe 
             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
             src="https://www.youtube.com/embed/R_zeuzJ8aZI" 
@@ -1842,7 +1842,7 @@
                 </div>
             </div>
         </div> 
-      
+
 <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 50px;">¿Qué es el Phishing?</h2>
 <div class="multimedia-container" style="margin: 30px 0; border: 1px solid #333;">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -1894,7 +1894,7 @@
     <div style="background:#222;height:8px;border-radius:10px;margin-bottom:20px;">
         <div id="bar-progress" style="height:100%;width:0%;background:#fbbf24;border-radius:10px;"></div>
         <div id="timer" style="text-align:right;color:#fbbf24;margin-bottom:10px;">
-        ⏱️ 15s
+        ⏱️ 25s
         </div>
     </div>
 
@@ -1919,13 +1919,20 @@
 let playerName = ""
 let current=0
 let score=0
-let timeLeft = 15
+let timeLeft = 25
 let timerInterval
+let questionTimes = []
+let questionStartTime = 0
+let totalStartTime = 0
+let totalEndTime = 0
+let wrongAnswers = []
+let errorTypes = {}
 
 const quizData=[
 
 {
 q:"Has recibido un correo aparentemente emitido por un servicio de paquetería (DHL). El mensaje indica que no fue posible entregar un paquete y te pide confirmar una dirección mediante un enlace: http://dhl-delivery-confirm.net. El remitente usa un nombre similar al servicio legítimo.",
+type:"urgencia",
 options:[
  "Hacer clic en el enlace y proporcionar la dirección solicitada de inmediato.",
     "Eliminar el correo sin realizar ninguna acción.",
@@ -1943,6 +1950,7 @@ explanations:[
 
 {
 q:"Recibes un correo que parece provenir del director general de tu organización. El mensaje solicita, con tono urgente y sin formalidades, la compra inmediata de varias tarjetas regalo y que envíes los códigos por correo, alegando una reunión inminente.",
+type:"suplantacion",
 options:[
 "Proceder a comprar las tarjetas y enviar los códigos cuanto antes.",
     "Ignorar el correo por considerarlo sospechoso.",
@@ -1960,6 +1968,7 @@ explanations:[
 
 {
 q:"Te llega un correo con asunto 'Factura pendiente #4592' y un archivo adjunto llamado invoice.xlsx. El cuerpo sugiere abrir el archivo para revisar cargos recientes.",
+type:"malware",
 options:[
 "Abrir inmediatamente el archivo adjunto para verificar la factura.",
     "Descargar el fichero y abrirlo en cualquier momento.",
@@ -1977,6 +1986,7 @@ explanations:[
 
 {
 q:"Recibes un SMS supuestamente enviado por tu banco que indica que tu cuenta ha sido bloqueada y te invita a verificarla mediante un enlace corto: bank-security-check.co. El mensaje busca que confirmes datos urgentes.",
+type:"smishing",
 options:[
 "Seguir el enlace desde el SMS y proporcionar los datos solicitados.",
     "Ignorar el mensaje por sospechoso.",
@@ -1994,6 +2004,7 @@ explanations:[
 
 {
 q:"Un correo indica que alguien compartió un documento contigo mediante OneDrive (o servicio de almacenamiento en la nube). El enlace redirige a una página para iniciar sesión y acceder al archivo.",
+type:"credenciales",
 options:[
 "Abrir el documento usando el enlace incluido en el correo.",
     "Verificar el remitente y el dominio del enlace antes de interactuar.",
@@ -2011,6 +2022,7 @@ explanations:[
 
 {
 q:"Recibes una llamada de una persona que afirma ser del departamento de IT. Con urgencia solicita tu contraseña para reiniciar un servicio y 'resolver un incidente' que, según dice, afecta tu equipo.",
+type:"ingenieria social",
 options:[
 "Proporcionar la contraseña tras la llamada para que el técnico 'resuelva' el problema.",
     "Colgar la llamada sin más comprobaciones.",
@@ -2027,7 +2039,8 @@ explanations:[
 },
 
 {
-q:"Encuentras en el estacionamiento una memoria USB etiquetada 'Nómina empleados 2025'. Está sin protección y parece recién dejada en un lugar de alto tránsito.",
+q:"Encuentras tirado por ahi una memoria USB etiquetada 'Nómina empleados 2025'. Está sin protección y parece recién dejada en un lugar de alto tránsito.",
+type:"baiting",
 options:[
 "Conectar la unidad a tu ordenador para inspeccionar su contenido.",
     "Guardarla sin tocarla hasta avisar a alguien.",
@@ -2045,6 +2058,7 @@ explanations:[
 
 {
 q:"Te llega un mensaje corporativo informando de 'actividad sospechosa en tu cuenta' y proporcionando un enlace para 'restablecer tu contraseña inmediatamente' si no reconoces la acción.",
+type:"credenciales",
 options:[
 "Hacer clic en el enlace y restablecer la contraseña siguiendo las instrucciones del correo.",
     "Cambiar la contraseña usando el enlace que se proporciona en el mensaje.",
@@ -2062,6 +2076,7 @@ explanations:[
 
 {
 q:"En redes sociales observas un mensaje publicado desde una cuenta que afirma ser 'soporte técnico' y solicita verificar datos para restaurar el acceso a una cuenta de usuario.",
+type:"suplantacion",
 options:[
 "Enviar la información solicitada vía mensaje privado.",
     "Ignorar la publicación por no ser relevante.",
@@ -2079,6 +2094,7 @@ explanations:[
 
 {
 q:"Recibes un correo interno que dice haber detectado un 'archivo infectado' en la herramienta de comunicación interna (Slack, Teams, etc.) y te pide que accedas al enlace adjunto para 'eliminar la amenaza'.",
+type:"interno",
 options:[
 "Hacer clic en el enlace y efectuar la acción que propone el mensaje.",
   "Contactar al equipo de seguridad informática o al administrador interno para validar la alerta antes de interactuar.",
@@ -2099,10 +2115,13 @@ explanations:[
 function saveName(){
 let input = document.getElementById("player-name").value.trim()
 if(input === ""){
-alert("Por favor ingresa un nombre o alias")
+alert("Por favor ingresa tu nombre o un alias")
 return
 }
 playerName = input
+
+totalStartTime = Date.now() // ⏱ inicia tiempo total
+
 document.getElementById("name-box").style.display="none"
 document.getElementById("quiz-engine").style.display="block"
 loadQ()
@@ -2113,12 +2132,16 @@ document.getElementById("consent-box").style.display="none"
 document.getElementById("name-box").style.display="block"
 current = 0
 score = 0
+questionTimes = []
+wrongAnswers = []
+errorTypes = {} 
 }
 
 function loadQ(){
 let q=quizData[current]
-document.getElementById("quiz-question").innerText=(current+1)+". "+q.q
+questionStartTime = Date.now()
 
+document.getElementById("quiz-question").innerText=(current+1)+". "+q.q
 document.getElementById("quiz-img").src="img"+(current+1)+".png"
 
 let html=""
@@ -2134,12 +2157,15 @@ document.getElementById("bar-progress").style.width=((current/quizData.length)*1
 startTimer()
 }
 
-
 function select(i){
 let q=quizData[current]
 let fb=document.getElementById("quiz-feedback")
 
 clearInterval(timerInterval)
+
+// ⏱ calcular tiempo usado
+let timeSpent = (Date.now() - questionStartTime) / 1000
+questionTimes.push(timeSpent)
 
 // desactivar opciones
 let options = document.querySelectorAll("#quiz-options div")
@@ -2154,7 +2180,18 @@ fb.innerHTML=q.explanations[i]
 fb.style.background="rgba(248,113,113,0.1)"
 fb.style.color="#f87171"
 
-// si se acabó el tiempo
+// guardar error para análisis
+wrongAnswers.push({
+question: q.q,
+correct: q.options[q.correct],
+type: q.type
+})
+// contar errores por tipo
+if(!errorTypes[q.type]){
+    errorTypes[q.type] = 0
+}
+errorTypes[q.type]++
+
 if(i === -1){
 fb.innerHTML="Tiempo agotado. " + q.explanations[q.correct]
 }else{
@@ -2165,6 +2202,35 @@ fb.innerHTML=q.explanations[i]
 fb.style.display="block"
 document.getElementById("next-btn").style.display="block"
 }
+
+function getErrorAnalysis(){
+    if(Object.keys(errorTypes).length === 0){
+        return "<p style='color:#4ade80;'>No cometiste errores 🎉</p>"
+    }
+
+    let html = "<h4 style='color:#fbbf24;'>📊 Tipos de error detectados:</h4>"
+
+    let sorted = Object.entries(errorTypes)
+        .sort((a,b)=> b[1]-a[1])
+
+    sorted.forEach(([type,count])=>{
+        html += `
+        <div style="background:#1a1a1a;padding:8px;margin:5px;border-radius:8px;">
+        ⚠️ <b>${type}</b>: ${count} error(es)
+        </div>`
+    })
+
+    // tipo más frecuente
+    let top = sorted[0][0]
+
+    html += `
+    <p style="margin-top:10px;color:#f87171;">
+    🔎 Tu mayor debilidad: <b>${top}</b>
+    </p>`
+
+    return html
+}
+
 
 function nextQ(){
 current++
@@ -2177,7 +2243,18 @@ finish()
 
 function finish(){
 document.getElementById("quiz-engine").style.display="none"
+
+totalEndTime = Date.now()
+
 let percent=Math.round((score/quizData.length)*100)
+let totalTime = Math.round((totalEndTime - totalStartTime)/1000)
+
+// 📊 detectar pregunta más lenta
+let maxTime = Math.max(...questionTimes)
+let slowestIndex = questionTimes.indexOf(maxTime)
+
+// 📅 fecha
+let date = new Date().toLocaleString()
 
 let level=""
 if(percent>=90) level="Excelente conciencia de phishing"
@@ -2185,17 +2262,60 @@ else if(percent>=70) level="Buen nivel de seguridad"
 else if(percent>=50) level="Riesgo moderado"
 else level="Alto riesgo de caer en phishing"
 
+// 🧠 recomendaciones
+let recommendations = ""
+if(wrongAnswers.length > 0){
+recommendations += "<h4 style='color:#f87171;'>⚠️ Recomendaciones personalizadas:</h4>"
+wrongAnswers.forEach(w=>{
+recommendations += `
+<div style="background:#1a1a1a;padding:10px;margin:5px 0;border-radius:8px;">
+❌ Error en:<br>
+<span style="color:#aaa;">${w.question}</span><br>
+✅ Respuesta correcta: <b>${w.correct}</b>
+</div>`
+})
+}else{
+recommendations = "<p style='color:#4ade80;'>Excelente, no tuviste errores.</p>"
+}
+
+// 📊 análisis de tipos de error
+let errorAnalysis = getErrorAnalysis()
+
 saveScore()
 
 document.getElementById("quiz-result").innerHTML=
-`<h2>Resultado</h2>
+`
+<h2>Resultado</h2>
+
 <p><strong>Participante:</strong> ${playerName}</p>
+
 <p>${score}/10 (${percent}%)</p>
 <p>${level}</p>
+
+<hr style="margin:20px 0;border-color:#333;">
+
+<p><strong>⏱ Tiempo total:</strong> ${totalTime} segundos</p>
+<p><strong>📅 Fecha:</strong> ${date}</p>
+
+<p><strong>🐢 Pregunta más lenta:</strong><br>
+<span style="color:#aaa;">${quizData[slowestIndex].q}</span>
+</p>
+
+${errorAnalysis} <!-- ✅ FIX -->
+
+${recommendations}
+
 ${getRankingHTML()}
+
+<button onclick="restartQuiz()" 
+style="margin-top:20px;background:#fbbf24;color:#000;padding:12px 25px;border:none;border-radius:25px;cursor:pointer;">
+🔄 Intentar de nuevo
+</button>
+
 <p class="small" style="margin-top:15px;">
-Recomendación: valide siempre remitentes y dominios, confirme solicitudes inusuales por canales alternativos, evite abrir adjuntos o enlaces sin verificación y entregue dispositivos desconocidos al equipo de seguridad.
-</p>`
+Recomendación general: valide siempre remitentes y dominios, confirme solicitudes inusuales por canales alternativos, evite abrir adjuntos o enlaces sin verificación y entregue dispositivos desconocidos al equipo de seguridad.
+</p>
+`
 
 document.getElementById("quiz-result").style.display="block"
 }
@@ -2203,17 +2323,24 @@ document.getElementById("quiz-result").style.display="block"
 function saveScore(){
 let ranking = JSON.parse(localStorage.getItem("phishingRanking")) || []
 
+let totalTime = Math.round((totalEndTime - totalStartTime)/1000)
+
 ranking.push({
 name: playerName,
 score: score,
 percent: Math.round((score/quizData.length)*100),
+time: totalTime,
 date: new Date().toLocaleDateString()
 })
 
-// ordenar de mayor a menor
-ranking.sort((a,b)=> b.score - a.score)
+// ordenar: primero score, luego menor tiempo
+ranking.sort((a,b)=>{
+if(b.score !== a.score){
+    return b.score - a.score
+}
+return a.time - b.time
+})
 
-// guardar solo top 10
 ranking = ranking.slice(0,10)
 
 localStorage.setItem("phishingRanking", JSON.stringify(ranking))
@@ -2222,26 +2349,57 @@ localStorage.setItem("phishingRanking", JSON.stringify(ranking))
 function getRankingHTML(){
 let ranking = JSON.parse(localStorage.getItem("phishingRanking")) || []
 
-if(ranking.length === 0){
-return "<p>No hay registros aún.</p>"
-}
-
 let html = `<h3 style="margin-top:20px;color:#fbbf24;">🏆 Top 10</h3>`
 
+if(ranking.length === 0){
+html += "<p>No hay registros aún.</p>"
+}else{
 ranking.forEach((r,i)=>{
 html += `
 <div style="background:#1a1a1a;padding:10px;margin:5px 0;border-radius:8px;">
 <strong>#${i+1} ${r.name}</strong><br>
-<span style="color:#aaa;">${r.score}/10 (${r.percent}%) - ${r.date}</span>
+<span style="color:#aaa;">
+${r.score}/10 (${r.percent}%) - ⏱ ${r.time}s - ${r.date}
+</span>
 </div>
 `
 })
+}
+
+// ✅ BOTÓN RESET
+html += `
+<button onclick="resetRanking()" 
+style="margin-top:15px;background:#ef4444;color:#fff;padding:10px 20px;border:none;border-radius:20px;cursor:pointer;">
+🗑 Reiniciar Ranking
+</button>
+`
 
 return html
 }
 
+function resetRanking(){
+let confirmReset = confirm("¿Seguro que deseas borrar todo el ranking?")
+if(!confirmReset) return
+
+localStorage.removeItem("phishingRanking")
+
+// refrescar resultados
+document.getElementById("quiz-result").innerHTML += `
+<p style="color:#f87171;margin-top:10px;">
+⚠️ Ranking reiniciado correctamente, reinicie la pagina para comprobar.
+</p>
+`
+
+// recargar ranking visual
+setTimeout(()=>{
+document.getElementById("quiz-result").innerHTML = 
+document.getElementById("quiz-result").innerHTML.replace(getRankingHTML(), getRankingHTML())
+},500)
+}
+
 function startTimer(){
-timeLeft = 15
+timeLeft = 25
+questionStartTime = Date.now()
 document.getElementById("timer").innerText = "⏱️ " + timeLeft + "s"
 
 clearInterval(timerInterval)
@@ -2257,6 +2415,27 @@ clearInterval(timerInterval)
 select(-1)
 }
 },1000)
+}
+
+function restartQuiz(){
+    // reset variables
+    current = 0
+    score = 0
+    questionTimes = []
+    wrongAnswers = []
+    errorTypes = {}
+    playerName = ""
+
+    clearInterval(timerInterval)
+
+    // limpiar input
+    document.getElementById("player-name").value = ""
+
+    // mostrar inicio
+    document.getElementById("quiz-result").style.display = "none"
+    document.getElementById("quiz-engine").style.display = "none"
+    document.getElementById("name-box").style.display = "none"
+    document.getElementById("consent-box").style.display = "block"
 }
 
 </script>
