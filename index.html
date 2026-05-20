@@ -140,7 +140,7 @@
     <a onclick="showSection('parcial1'); toggleMenu()" class="nav-link"><i class="fas fa-folder-open"></i> <span>Actividades-Parcial 1</span></a>
     <a onclick="showSection('proyectos'); toggleMenu()" class="nav-link"><i class="fas fa-folder-open"></i> <span>Proyectos</span></a>
     <a onclick="showSection('parcial2'); toggleMenu()" class="nav-link"><i class="fas fa-folder"></i> <span>ROAD TO HALL OF FAME</span></a>
-    <a onclick="showSection('parcial3'); toggleMenu()" class="nav-link"><i class="fas fa-folder"></i> <span>Actividades-Parcial 3</span></a>
+    <a onclick="showSection('parcial3'); toggleMenu()" class="nav-link"><i class="fas fa-folder"></i> <span>Certificaciones</span></a>
     <a onclick="showSection('contacto'); toggleMenu()" class="nav-link"><i class="fas fa-envelope-open-text"></i> <span>Contacto</span></a>
   </div>
 
@@ -2853,7 +2853,436 @@ function restartQuiz(){
 </article>
     </div>
 
-    <div id="parcial3" class="section-content"><div class="card"><div style="opacity: 0.5; text-align: center;"><i class="fas fa-lock fa-3x"></i><br>Evaluación Final</div></div></div>
+    <div id="parcial3" class="section-content">
+      <div id="actividades-list">
+        <h3 style="color: #a78bfa; margin-bottom: 25px;"><i class="fas fa-layer-group"></i>Certificaciones de Cisco Netacad</h3>
+        <div class="activity-grid">
+          <div class="activity-card" onclick="openArticle('cert1')">
+            <span class="tag">Seguridad Informática</span>
+            <h4>1. Introduccion a la Ciberseguridad</h4>
+            <p>Explore el apasionante campo de la ciberseguridad y por qué la ciberseguridad es una carrera preparada para el futuro.</p>
+          </div>
+          <div class="activity-card" onclick="openArticle('cert2')">
+            <span class="tag">Seguridad Informática</span>
+            <h4>2. Conceptos básicos de redes</h4>
+            <p>Conceptos Básicos de Redes Comience a aprender los conceptos básicos de redes de computadoras y descubra cómo funcionan las redes.</p>
+          </div>
+          <div class="activity-card" onclick="openArticle('cert3')">
+            <span class="tag">Seguridad Informática</span>
+            <h4>3. Dispositivos de red y configuración inicial</h4>
+            <p>Continúe aprendiendo lo esencial sobre redes y desarrolle sus habilidades básicas.</p>
+          </div>
+          <div class="activity-card" onclick="openArticle('cert4')">
+            <span class="tag">Seguridad Informática</span>
+            <h4>4. Seguridad de Terminales</h4>
+            <p>Aprenda a proteger su red hasta el borde.</p>
+          </div>
+          <div class="activity-card" onclick="openArticle('cert5')">
+            <span class="tag">Seguridad Informática</span>
+            <h4>5. Administración de Amenazas Cibernéticas</h4>
+            <p>Análisis comparativo de marcos como MITRE ATT&CK, OWASP y NIST.</p>
+          </div>
+          <div class="activity-card" onclick="openArticle('cert6')">
+            <span class="tag">Seguridad Informática</span>
+            <h4>6. Carrera Profesional de Analista Junior en Ciberseguridad</h4>
+            <p>Transmisión de datos a través de infraestructuras eplementación de una VPN</p>
+          </div>
+          <div class="activity-card" onclick="openArticle('cert7')">
+            <span class="tag">Seguridad Informática</span>
+            <h4>7. Hacker ético</h4>
+            <p>Transmisión de datos a través de infraestructuras eplementación de una VPN</p>
+          </div>
+        </div>
+      </div>
+
+      <article id="cert1" class="article-view">
+        <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+        <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3b82f6;"></div>
+            <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #3b82f6; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática</h3>
+            <h1 style="font-size: 26px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;">Introduccion a la Ciberseguridad</h1>
+            <div style="width: 60px; height: 4px; background: #3b82f6; margin: 20px auto; border-radius: 10px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(59, 130, 246, 0.05); border-radius: 15px; font-size: 12px; color: #bbb; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">ESTUDIANTE:</strong> David Zarate Domínguez</li>
+                    <li><strong style="color: #3b82f6;">FECHA:</strong> 20 de Mayo del 2026</li>
+                </ul>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
+                    <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
+                </ul>
+            </div>
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+                Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - UPSLP
+            </div>
+        </div>
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Reseña: Introducción a la Ciberseguridad (NetAcad - Cisco)</h2>
+
+<p>El curso <strong>"Introducción a la Ciberseguridad"</strong> de Cisco Networking Academy (<code>NetAcad</code>) es una de las mejores puertas de entrada para cualquier persona interesada en el mundo de la seguridad digital, sin requerir conocimientos técnicos previos. Con una modalidad <strong>100% en línea y gratuita</strong>, este programa de aproximadamente <strong>6 horas</strong> destaca por su accesibilidad y diseño intuitivo.</p>
+
+<h3 style="color: #a78bfa; margin-top: 25px; font-size: 1.2em;">Lo que ofrece el curso</h3>
+<p>El contenido está estructurado para transformar conceptos complejos en lecciones digeribles. A lo largo de sus módulos, aprenderás sobre:</p>
+
+<ul>
+  <li><strong>Privacidad y confidencialidad:</strong> Cómo proteger la información personal en redes sociales y entornos digitales.</li>
+  <li><strong>Amenazas y vulnerabilidades:</strong> Identificación de los ataques y tácticas más comunes utilizados por los ciberdelincuentes.</li>
+  <li><strong>Buenas prácticas:</strong> Estrategias clave para blindar redes personales y organizacionales.</li>
+</ul>
+
+<p>Lo más destacable es su enfoque dinámico. A pesar de ser un nivel inicial, incluye <strong>siete laboratorios interactivos</strong> y cuestionarios que aterrizan la teoría en escenarios del mundo real.</p>
+
+<h3 style="color: #a78bfa; margin-top: 25px; font-size: 1.2em;">Valor curricular y proyección</h3>
+<p>Al concluir, Cisco otorga una <strong>insignia digital verificable</strong>, excelente para potenciar el currículum o el perfil de LinkedIn. Además, este curso funciona como el primer paso firme dentro de la ruta para convertirse en <em>Analista Junior de Ciberseguridad</em>, sirviendo de preparación básica para la certificación oficial <strong><code>CCST</code></strong> (<em>Cisco Certified Support Technician</em>).</p>
+
+      <p style="border-left: 3px solid #a78bfa; padding-left: 12px; font-style: italic; margin-top: 20px; color: #cbd5e1;">
+    <strong>Veredicto:</strong> Es un curso introductorio sobresaliente, rápido y de alto valor. Cisco logra concienciar sobre los peligros del entorno digital actual de forma magistral. Es la opción perfecta para perderle el miedo al sector tecnológico.
+    </p>
+
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Badge digital</h2>
+        <div class="reflection-box">
+          <li>Introduction to Cybersecurity </i>. <a href="https://www.credly.com/badges/5a638442-74ca-41bb-8ee4-8fb0e22ff945" target="_blank">Enlace verificable</a></li>
+          </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <a href="Introduction_to_Cybersecurity_certificate_175842-upslp-edu-mx_38ea7614-a482-4c39-9daa-95a78e06b6e3.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar Certificado</a>
+            <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Certificado validado por Cisco Networking Academy</div>
+        </div>
+      </article>
+
+        <article id="cert2" class="article-view">
+        <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+        <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3b82f6;"></div>
+            <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #3b82f6; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática</h3>
+            <h1 style="font-size: 26px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;">Conceptos básicos de redes</h1>
+            <div style="width: 60px; height: 4px; background: #3b82f6; margin: 20px auto; border-radius: 10px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(59, 130, 246, 0.05); border-radius: 15px; font-size: 12px; color: #bbb; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">ESTUDIANTE:</strong> David Zarate Domínguez</li>
+                    <li><strong style="color: #3b82f6;">FECHA:</strong> 20 de Mayo del 2026</li>
+                </ul>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
+                    <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
+                </ul>
+            </div>
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+                Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - UPSLP
+            </div>
+        </div>
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Reseña: Conceptos Básicos de Redes (NetAcad - Cisco)</h2>
+
+<p>El curso <strong>"Conceptos Básicos de Redes"</strong> de Cisco Networking Academy (<code>NetAcad</code>) es el pilar fundamental para cualquier estudiante que desee comprender cómo viajan los datos a través de internet. Diseñado con una modalidad <strong>100% en línea y gratuita</strong>, este programa de nivel inicial desmitifica la infraestructura digital mediante un enfoque sumamente estructurado y accesible.</p>
+
+<h3 style="color: #a78bfa; margin-top: 25px; font-size: 1.2em;">Lo que ofrece el curso</h3>
+<p>A lo largo de sus módulos, el estudiante se sumerge en los principios de la conectividad moderna, abordando temas esenciales como:</p>
+
+<ul>
+  <li><strong>Modelos de comunicación:</strong> Introducción didáctica a las funciones y capas de los modelos <code>OSI</code> y <code>TCP/IP</code>.</li>
+  <li><strong>Direccionamiento lógico:</strong> Conceptos claros y prácticos sobre cómo operan las redes bajo <strong>IPv4</strong> y <strong>IPv6</strong>.</li>
+  <li><strong>Dispositivos de red:</strong> El rol fundamental que cumplen los routers, switches y el cableado físico en una topología.</li>
+</ul>
+
+<p>El verdadero valor diferenciador radica en la integración de la herramienta <strong>Cisco Packet Tracer</strong>. Esta plataforma de simulación permite realizar laboratorios interactivos donde se configuran equipos virtuales y se simula el tráfico de red en tiempo real.</p>
+
+<h3 style="color: #a78bfa; margin-top: 25px; font-size: 1.2em;">Valor curricular y proyección</h3>
+<p>Al finalizar el programa, Cisco otorga una <strong>insignia digital verificable</strong>, ideal para robustecer el perfil profesional en plataformas como LinkedIn. Este bloque educativo es el paso previo indispensable para quienes aspiran a certificaciones oficiales de mayor peso, como la <strong><code>CCST Networking</code></strong> o el prestigioso <strong><code>CCNA</code></strong>.</p>
+
+      <p style="border-left: 3px solid #a78bfa; padding-left: 12px; font-style: italic; margin-top: 20px; color: #cbd5e1;">
+        <strong>Veredicto:</strong> Es una introducción brillante y obligatoria. Cisco logra simplificar la complejidad de la infraestructura informática, entregando un balance perfecto entre teoría y simulación práctica para iniciar en el mundo de las telecomunicaciones con total confianza.
+        </p>
+
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Badge digital</h2>
+        <div class="reflection-box">
+          <li>Networking Basics </i>. <a href="https://www.credly.com/badges/b7e13296-7463-4fe2-9cbf-ea96a289c732" target="_blank">Enlace verificable</a></li>
+          </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <a href="Networking_Basics_certificate_175842-upslp-edu-mx_e06f3808-f4ae-44cd-b356-13ec187d6abf.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar Certificado</a>
+            <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Certificado validado por Cisco Networking Academy</div>
+        </div>
+      </article>
+
+        <article id="cert3" class="article-view">
+        <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+        <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3b82f6;"></div>
+            <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #3b82f6; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática</h3>
+            <h1 style="font-size: 26px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;"> Dispositivos de red y configuración inicial</h1>
+            <div style="width: 60px; height: 4px; background: #3b82f6; margin: 20px auto; border-radius: 10px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(59, 130, 246, 0.05); border-radius: 15px; font-size: 12px; color: #bbb; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">ESTUDIANTE:</strong> David Zarate Domínguez</li>
+                    <li><strong style="color: #3b82f6;">FECHA:</strong> 20 de Mayo del 2026</li>
+                </ul>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
+                    <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
+                </ul>
+            </div>
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+                Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - UPSLP
+            </div>
+        </div>
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Reseña: Dispositivos de Red y Configuración Inicial (NetAcad - Cisco)</h2>
+
+<p>El curso <strong>"Dispositivos de Red y Configuración Inicial"</strong> de Cisco Networking Academy (<code>NetAcad</code>) es el paso intermedio perfecto para quienes ya dominan los conceptos básicos y buscan adentrarse en la práctica técnica. Con una duración estimada de <strong>22 horas</strong> y acceso <strong>100% gratuito</strong>, este programa cierra la brecha entre la teoría abstracta y la administración real de hardware.</p>
+
+<h3 style="color: #a78bfa; margin-top: 25px; font-size: 1.2em;">Lo que ofrece el curso</h3>
+<p>El plan de estudios está estructurado meticulosamente para guiar al estudiante en el despliegue y mantenimiento de infraestructuras a pequeña escala, destacando los siguientes pilares clave:</p>
+
+<ul>
+  <li><strong>Cisco IOS y CLI:</strong> Aprendizaje práctico para navegar por la interfaz de línea de comandos de routers y switches.</li>
+  <li><strong>Direccionamiento y Subnetting:</strong> Cálculo avanzado de esquemas <strong>IPv4</strong>, y la gestión de servicios esenciales como <code>DHCP</code>, <code>DNS</code> y <code>ARP</code>.</li>
+  <li><strong>Nube y Virtualización:</strong> Una introducción crucial a las tecnologías modernas que sostienen los centros de datos actuales.</li>
+</ul>
+
+<p>A través de sus <strong>19 laboratorios prácticos</strong> en la plataforma <strong>Cisco Packet Tracer</strong>, el alumno aprende de forma interactiva a establecer contraseñas de seguridad, configurar gateways predeterminados y verificar la conectividad mediante pruebas de diagnóstico.</p>
+
+<h3 style="color: #a78bfa; margin-top: 25px; font-size: 1.2em;">Valor curricular y proyección</h3>
+<p>Al finalizar satisfactoriamente las evaluaciones, se obtiene una <strong>insignia digital verificable</strong> para potenciar el perfil en LinkedIn. Este bloque educativo es un eslabón fundamental para especializaciones avanzadas en <em>Ciberseguridad</em>, <em>DevNet</em> o como preparación directa hacia la certificación oficial <strong><code>CCNA</code></strong>.</p>
+
+        <p style="border-left: 3px solid #a78bfa; padding-left: 12px; font-style: italic; margin-top: 20px; color: #cbd5e1;">
+        <strong>Veredicto:</strong> Es un curso excepcional y riguroso. Su gran acierto es obligar al estudiante a "ensuciarse las manos" en la consola de comando. Resulta una inversión de tiempo indispensable para cualquier aspirante a técnico o ingeniero de redes informáticas.
+        </p>
+
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Badge digital</h2>
+        <div class="reflection-box">
+          <li>Network Defense </i>. <a href="https://www.credly.com/badges/1c27909a-914e-4c91-9286-01fe3ade2596" target="_blank">Enlace verificable</a></li>
+          </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <a href="Networking_Devices_and_Initial_Configuration_certificate_175842-upslp-edu-mx_51ea9cd5-034b-4d3c-9943-bbe1e55016e3.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar Certificado</a>
+            <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Certificado validado por Cisco Networking Academy</div>
+        </div>
+      </article>
+
+        <article id="cert4" class="article-view">
+        <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+        <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3b82f6;"></div>
+            <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #3b82f6; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática</h3>
+            <h1 style="font-size: 26px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;">Seguridad de Terminales</h1>
+            <div style="width: 60px; height: 4px; background: #3b82f6; margin: 20px auto; border-radius: 10px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(59, 130, 246, 0.05); border-radius: 15px; font-size: 12px; color: #bbb; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">ESTUDIANTE:</strong> David Zarate Domínguez</li>
+                    <li><strong style="color: #3b82f6;">FECHA:</strong> 20 de Mayo del 2026</li>
+                </ul>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
+                    <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
+                </ul>
+            </div>
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+                Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - UPSLP
+            </div>
+        </div>
+       <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Reseña: Seguridad de Terminales (NetAcad - Cisco)</h2>
+
+<p>El curso <strong>"Seguridad de Terminales"</strong> (Endpoint Security) de Cisco Networking Academy (<code>NetAcad</code>) es una pieza fundamental para quienes buscan especializarse en la defensa operativa. Con una modalidad <strong>100% en línea y gratuita</strong>, este programa aborda cómo mitigar los riesgos en el eslabón más vulnerable de cualquier infraestructura: los dispositivos de los usuarios finales.</p>
+
+<h3 style="color: #a78bfa; margin-top: 25px; font-size: 1.2em;">Lo que ofrece el curso</h3>
+<p>El plan de estudios sumerge al estudiante en los conceptos tácticos y herramientas necesarias para blindar computadoras, servidores y dispositivos móviles, destacando los siguientes aspectos:</p>
+
+<ul>
+  <li><strong>Protección contra malware:</strong> Comprensión detallada de virus, troyanos, ransomware y cómo operan los modernos sistemas de detección.</li>
+  <li><strong>Seguridad del sistema operativo:</strong> Configuración avanzada de políticas de seguridad local, parches de actualización y firewalls basados en el host.</li>
+  <li><strong>Criptografía y accesos:</strong> Fundamentos de cifrado de datos, control de privilegios y autenticación multifactor (<code>MFA</code>).</li>
+</ul>
+
+<p>El aprendizaje se consolida mediante escenarios prácticos y laboratorios interactivos, donde el alumno aprende a analizar archivos de registro (<code>logs</code>), auditar eventos y evaluar vulnerabilidades directamente sobre sistemas operativos Windows y Linux.</p>
+
+<h3 style="color: #a78bfa; margin-top: 25px; font-size: 1.2em;">Valor curricular y proyección</h3>
+<p>Al completar de manera exitosa el curso, Cisco otorga una <strong>insignia digital verificable</strong> de gran valor para tu portafolio profesional en LinkedIn. Este módulo es un pilar central en la ruta técnica para consolidar el perfil de <em>Analista Junior de Ciberseguridad</em> y avanzar hacia la certificación oficial <strong><code>CCST Cybersecurity</code></strong>.</p>
+
+         <p style="border-left: 3px solid #a78bfa; padding-left: 12px; font-style: italic; margin-top: 20px; color: #cbd5e1;">
+        <strong>Veredicto:</strong> Es un curso técnico imprescindible, dinámico y con un enfoque defensivo impecable. Cisco logra capacitar de forma robusta al estudiante para enfrentar las amenazas modernas que comprometen el día a día de las organizaciones, siendo un pilar clave en la seguridad digital actual.
+        </p>
+
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Badge digital</h2>
+        <div class="reflection-box">
+          <li>Endpoint Security </i>. <a href="https://www.credly.com/badges/678d916a-a53f-4dd2-8631-5331bf628a36" target="_blank">Enlace verificable</a></li>
+          </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <a href="Endpoint_Security_certificate_175842-upslp-edu-mx_22b6c193-0b64-483c-8b39-c12244ce7f69.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar Certificado</a>
+            <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Certificado validado por Cisco Networking Academy</div>
+        </div>
+      </article>
+
+        <article id="cert5" class="article-view">
+        <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+        <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3b82f6;"></div>
+            <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #3b82f6; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática</h3>
+            <h1 style="font-size: 26px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;">Administración de Amenazas Cibernéticas</h1>
+            <div style="width: 60px; height: 4px; background: #3b82f6; margin: 20px auto; border-radius: 10px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(59, 130, 246, 0.05); border-radius: 15px; font-size: 12px; color: #bbb; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">ESTUDIANTE:</strong> David Zarate Domínguez</li>
+                    <li><strong style="color: #3b82f6;">FECHA:</strong> 20 de Mayo del 2026</li>
+                </ul>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
+                    <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
+                </ul>
+            </div>
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+                Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - UPSLP
+            </div>
+        </div>
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Reseña: Administración de Amenazas Cibernéticas (NetAcad - Cisco)</h2>
+
+<p>El curso <strong>"Administración de Amenazas Cibernéticas"</strong> (Cyber Threat Management) de Cisco Networking Academy (<code>NetAcad</code>) es una especialización indispensable para quienes desean migrar de una postura defensiva pasiva a una estrategia proactiva. Con una modalidad <strong>100% en línea y gratuita</strong>, este programa enseña cómo anticipar, detectar y neutralizar ataques sofisticados antes de que impacten la infraestructura.</p>
+
+<h3 style="color: #a78bfa; margin-top: 25px; font-size: 1.2em;">Lo que ofrece el curso</h3>
+<p>El plan de estudios profundiza de manera exhaustiva en la gestión de incidentes del mundo real, enfocándose en los siguientes módulos fundamentales:</p>
+
+<ul>
+  <li><strong>Inteligencia de Amenazas:</strong> Uso y aplicación de fuentes de información técnica (<code>Threat Intelligence</code>) y análisis de Indicadores de Compromiso (<strong>IoC</strong>).</li>
+  <li><strong>Gestión de Incidentes:</strong> Estudio del ciclo de vida del manejo de brechas de seguridad según metodologías internacionales como <code>NIST</code> y <code>FIRST</code>.</li>
+  <li><strong>Análisis Forense Digital:</strong> Fundamentos tácticos para recolectar, preservar y analizar evidencia digital tras una vulneración de seguridad.</li>
+</ul>
+
+<p>La experiencia práctica es vital en este curso. A través de simulaciones rigurosas y laboratorios interactivos, el estudiante trabaja con herramientas especializadas y metodologías como el marco <code>MITRE ATT&CK</code> para correlacionar eventos de red y diseñar reportes post-incidente.</p>
+
+<h3 style="color: #a78bfa; margin-top: 25px; font-size: 1.2em;">Valor curricular y proyección</h3>
+<p>Al concluir el programa, se otorga una valiosa <strong>insignia digital verificable</strong>, idónea para robustecer el currículum en LinkedIn. Este curso representa la cúspide de la ruta de aprendizaje para el rol de <em>Analista Junior de Ciberseguridad</em> y es un trampolín directo para obtener la certificación profesional <strong><code>CCST Cybersecurity</code></strong> o avanzar hacia <code>CyberOps Associate</code>.</p>
+
+      
+        <p style="border-left: 3px solid #a78bfa; padding-left: 12px; font-style: italic; margin-top: 20px; color: #cbd5e1;">
+        <strong>Veredicto:</strong> Es un curso de nivel intermedio-avanzado extraordinario. Cisco logra estructurar el caos de un ciberataque en un marco analítico y ordenado, capacitando a los futuros profesionales para liderar con templanza la primera línea de respuesta ante incidentes tecnológicos.
+        </p>
+
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Badge digital</h2>
+        <div class="reflection-box">
+          <li>Cyber Threat Management </i>. <a href="https://www.credly.com/badges/12d06df1-7b44-4395-b9b7-f3ff9d701514" target="_blank">Enlace verificable</a></li>
+          </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <a href="Cyber_Threat_Management_certificate_175842-upslp-edu-mx_6bee52ea-36be-4cec-b6cc-9243fe93b394.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar Certificado</a>
+            <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Certificado validado por Cisco Networking Academy</div>
+        </div>
+      </article>
+
+            <article id="cert6" class="article-view">
+        <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+        <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3b82f6;"></div>
+            <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #3b82f6; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática</h3>
+            <h1 style="font-size: 26px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;">Carrera Profesional de Analista Junior en Ciberseguridad</h1>
+            <div style="width: 60px; height: 4px; background: #3b82f6; margin: 20px auto; border-radius: 10px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(59, 130, 246, 0.05); border-radius: 15px; font-size: 12px; color: #bbb; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">ESTUDIANTE:</strong> David Zarate Domínguez</li>
+                    <li><strong style="color: #3b82f6;">FECHA:</strong> 20 de Mayo del 2026</li>
+                </ul>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
+                    <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
+                </ul>
+            </div>
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+                Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - UPSLP
+            </div>
+        </div>
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Reseña: Carrera Profesional de Analista Junior en Ciberseguridad (NetAcad - Cisco)</h2>
+
+<p>La <strong>"Carrera Profesional de Analista Junior en Ciberseguridad"</strong> de Cisco Networking Academy (<code>NetAcad</code>) es una ruta de aprendizaje integral diseñada para transformar a entusiastas tecnológicos en profesionales listos para el mercado laboral. Con una modalidad <strong>100% en línea y gratuita</strong>, este trayecto formativo agrupa de manera lógica y secuencial múltiples módulos técnicos especializados.</p>
+
+<h3 style="color: #a78bfa; margin-top: 25px; font-size: 1.2em;">Lo que ofrece el programa</h3>
+<p>Esta ruta consolida un mapa de habilidades de extremo a extremo, estructurando el aprendizaje en bloques modulares que abarcan:</p>
+
+<ul>
+  <li><strong>Fundamentos robustos:</strong> Dominio inicial de conceptos de seguridad digital, redes informáticas y conectividad bajo protocolos <code>TCP/IP</code>.</li>
+  <li><strong>Defensa y operaciones:</strong> Configuración práctica de la seguridad en terminales, mitigación de vulnerabilidades y hardening de sistemas.</li>
+  <li><strong>Gestión proactiva:</strong> Monitoreo de tráfico, auditoría de eventos de red y aplicación de marcos internacionales como <code>NIST</code> y <code>MITRE ATT&CK</code>.</li>
+</ul>
+
+<p>La ventaja principal de esta carrera es su enfoque práctico unificado. Al entrelazar laboratorios en <strong>Cisco Packet Tracer</strong> con simulaciones operativas de centros de datos (<code>SOC</code>), el estudiante desarrolla un pensamiento analítico real para la resolución de problemas informáticos complejos.</p>
+
+<h3 style="color: #a78bfa; margin-top: 25px; font-size: 1.2em;">Valor curricular y proyección</h3>
+<p>Al completar toda la trayectoria, el alumno recibe una valiosa <strong>insignia digital de carrera profesional</strong>, ideal para destacar en LinkedIn frente a reclutadores de la industria global. Además, está meticulosamente alineada como la preparación definitiva para aprobar con éxito el examen de certificación oficial <strong><code>CCST Cybersecurity</code></strong> (<em>Cisco Certified Support Technician</em>).</p>
+
+        <p style="border-left: 3px solid #a78bfa; padding-left: 12px; font-style: italic; margin-top: 20px; color: #cbd5e1;">
+            <strong>Veredicto:</strong> Es una de las mejores credenciales de nivel de entrada en la actualidad. Cisco ofrece un itinerario ambicioso, impecable y de altísima calidad que dota al estudiante de la confianza y el arsenal técnico necesarios para iniciar con éxito una profesión en el sector de la seguridad digital.
+        </p>
+
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Badge digital</h2>
+        <div class="reflection-box">
+          <li>Junior Cybersecurity Analyst Career Path <a href="https://www.credly.com/badges/4839bed3-7b1a-4916-b45d-cc8181eb9744" target="_blank">Enlace verificable</a></li>
+          </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <a href="Junior_Cybersecurity_Analyst_Career_Path_certificate_175842-upslp-edu-mx_d94bb7b3-7cbc-4140-9d73-eed8d5be05e4.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar Certificado</a>
+            <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Certificado validado por Cisco Networking Academy</div>
+        </div>
+      </article>
+
+        <article id="cert7" class="article-view">
+        <button class="btn-back" onclick="closeArticle()"><i class="fas fa-arrow-left"></i> Volver al índice</button>
+        <div style="background: #1a1a1a; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3b82f6;"></div>
+            <h3 style="font-size: 10px; font-weight: 900; text-transform: uppercase; color: #3b82f6; letter-spacing: 4px; margin-bottom: 10px;">CNO V Seguridad Informática</h3>
+            <h1 style="font-size: 26px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: -0.5px; font-style: italic; margin: 10px 0;">Hacker ético</h1>
+            <div style="width: 60px; height: 4px; background: #3b82f6; margin: 20px auto; border-radius: 10px;"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; max-width: 600px; margin: 0 auto; padding: 20px; background: rgba(59, 130, 246, 0.05); border-radius: 15px; font-size: 12px; color: #bbb; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">ESTUDIANTE:</strong> David Zarate Domínguez</li>
+                    <li><strong style="color: #3b82f6;">FECHA:</strong> 20 de Mayo del 2026</li>
+                </ul>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><strong style="color: #3b82f6;">INSTITUCIÓN:</strong> UPSLP</li>
+                    <li><strong style="color: #3b82f6;">CARRERA:</strong> ITI</li>
+                </ul>
+            </div>
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 2px;">
+                Mtro. Servando López Contreras | CNO V SEGURIDAD INFORMÁTICA - UPSLP
+            </div>
+        </div>
+
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Reseña: Hacker Ético (NetAcad - Cisco)</h2>
+
+<p>El curso <strong>"Hacker Ético"</strong> (Ethical Hacker) de Cisco Networking Academy (<code>NetAcad</code>) es una propuesta avanzada y fascinante diseñada para quienes desean entender la mente de un atacante con el fin de defender mejor los activos digitales. Con una modalidad <strong>100% en línea y gratuita</strong>, este programa de nivel intermedio destaca por su enfoque sumamente técnico, práctico y ético.</p>
+
+<h3 style="color: #a78bfa; margin-top: 25px; font-size: 1.2em;">Lo que ofrece el curso</h3>
+<p>El plan de estudios está minuciosamente estructurado para simular las fases de un ataque real, permitiendo al estudiante desarrollar competencias clave en áreas como:</p>
+
+<ul>
+  <li><strong>Reconocimiento y escaneo:</strong> Técnicas avanzadas de recopilación de información (<strong>OSINT</strong>) y mapeo de redes mediante herramientas como <code>Nmap</code>.</li>
+  <li><strong>Explotación de vulnerabilidades:</strong> Análisis y ejecución controlada de exploits en sistemas operativos, redes inalámbricas y aplicaciones web.</li>
+  <li><strong>Pruebas de penetración:</strong> Metodologías de <em>Penetration Testing</em> para evaluar la solidez de los controles de seguridad organizacionales.</li>
+</ul>
+
+<p>A diferencia de los cursos básicos, este programa incluye potentes laboratorios basados en máquinas virtuales de <strong>Kali Linux</strong>, donde el alumno interactúa de forma directa con código, consolas y herramientas de auditoría ofensiva en entornos seguros y controlados.</p>
+
+<h3 style="color: #a78bfa; margin-top: 25px; font-size: 1.2em;">Valor curricular y proyección</h3>
+<p>Al aprobar con éxito las evaluaciones, Cisco otorga una <strong>insignia digital verificable</strong>, ideal para destacar aptitudes de seguridad ofensiva en LinkedIn. Además, sirve como una sólida preparación para certificaciones especializadas del sector como la <strong><code>Cisco Certified Support Technician (CCST) Cybersecurity</code></strong> o credenciales de la industria como el <em>CEH</em> (Certified Ethical Hacker).</p>
+
+        <p style="border-left: 3px solid #a78bfa; padding-left: 12px; font-style: italic; margin-top: 20px; color: #cbd5e1;">
+        <strong>Veredicto:</strong> Es un curso indispensable y de altísimo nivel dentro de la oferta gratuita. Cisco logra equilibrar de manera perfecta la teoría de la ciberseguridad con la adrenalina de la práctica ofensiva, consolidándose como una opción obligatoria para cualquier profesional que busque dar el salto hacia el Red Teaming.
+        </p>
+
+        <h2 style="color: #a78bfa; border-left: 4px solid #a78bfa; padding-left: 15px; margin-top: 40px;">Badge digital</h2>
+        <div class="reflection-box">
+          <li>Ethical Hacker </i>. <a href="https://www.credly.com/badges/8d5109d8-a5ae-4af7-80af-07d015541d0e" target="_blank">Enlace verificable</a></li>
+          </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <a href="Ethical_Hacker_certificate_175842-upslp-edu-mx_919645d3-4f48-4564-96b7-b246ce92d52d.pdf" class="export-btn" download><i class="fas fa-download"></i> Descargar Certificado</a>
+            <div style="color: #666; font-size: 12px; align-self: center;"><i class="fas fa-check-circle"></i> Certificado validado por Cisco Networking Academy</div>
+        </div>
+      </article>
+
+    </div>
 
 
     <div id="contacto" class="section-content" style="padding: 60px 20px;">
@@ -2932,7 +3361,4 @@ function restartQuiz(){
   </script>
 </body>
 </html>
-
-
-
 
